@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
+"http://www.w3.org/TR/xhtml11/DTD/xhtml1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Windex</title>
+ </head>
+ <body>
+  <h1>Windex: Keep your <code>window</code> clean and shiny</h1>
+
+  <p>
+   Javascript has many interesting (mis)features, but one of the more annoying ones is
+   its global variable behavior. Local variables can be declared with <code>var</code>, but
+   failing to declare a variable does <i>not</i> cause an error. Instead, the variable is
+   placed directly into the global namespace, which in browsers corresponds to the
+   <code>window</code> opject.
+  </p>
+
+  <p>
+   This can cause a <i>lot</i> of problems. Consider this recursive function:
+  </p>
+
+  <pre>function doSomething(node) {
+	for (i = 0; i &lt; node.childNodes.length; i++) {
+		if (node.childNodes[i].nodeType == 1) {
+			doSomething(node.childNodes[i]);
+		}
+		...
+	}
+}</pre>
+
+  <p>
+   Look simple enough? It isn't. The <code>i</code> variable isn't set as local with the
+   <code>var</code> keyword, so is global, with a single instance. Depending on the
+   particular code and page involved, the code above could do anything from skipping nodes
+   to causing an infinite loop. And a recursive function is really the simplest possible
+   example; any time two functions are in the same call graph and they both use the same
+   variable name, an accidental global can mess things up.
+  </p>
+		
+  <p>
+   The answer is Windex. Windex is a script that monitors your global <code>window</code>
+   object for any unexpected changes. If anything extra shows up, a box will appear
+   in the top corner of the page with a list of all the unexpected variables. Those which
+   may have been automatically created by your browser, such as "<code>onload</code>",
+   will be filtered out. Since I'm a bit of a purist, Windex itself adds nothing at all to
+   the global namespace.
+  </p>
+
+  <p>
+   Including Windex is simple; just put a link at the end of your "head" tag, like so:
+  </p>
+
+  <pre>&lt;script type="text/javascript" src="http://j4cbo.com/windex/windex.js"&gt;&lt;/script&gt;</pre>
+
+ <p>
+  You can save the <a href="windex.js">windex.js</a> source file, or just include it
+  directly from on j4cbo.com. Either way, Windex should only be used for development -
+  <strong>take it out before publically releasing your site or app!</strong>
+ </p>
+
+ <p>
+  I've tested Windex to work with Firefox 1.5 and Safari 2.0. I haven't tried IE, but
+  there's no reason why it shouldn't work. This code is licensed under the GPL. Please send
+  any comments, suggestions, patches, reports, etc. to jacobdp at gmail dot com, or AIM:
+  jpdurbatuluk.
+ </p>
+
+ <p style="font-size: x-small">Keep out of reach of small children.</p>
+
+ <p><a href="http://validator.w3.org/check?uri=referer"><img
+  src="http://www.w3.org/Icons/valid-xhtml11"
+  alt="Valid XHTML 1.1" height="31" width="88" style="border:0" /></a></p>
+
+ </body>
+</html>
