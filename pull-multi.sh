@@ -24,6 +24,30 @@ fi
 TARGETDIR="`pwd`/$1"
 unclean=( )
 
+# Check for remote repository locations
+if [ -e $TARGETDIR/.remotes ]
+then
+  for remote in `cat $TARGETDIR/.remotes`
+  do
+    machine=${remote%%:*}
+    path=${remote#*:}
+    if [ "$machine" != "" -a "$path" != "" ]
+    then
+      echo "Looking for remote repositories in $remote..."
+      repos=`ssh $machine ls $path`
+      for repo in $repos
+      do
+        lrepo=${repo%.git}
+        if [ ! -d "$TARGETDIR/$lrepo" ]
+        then
+          echo "MISSING REPOSITORY: $remote/$repo"
+        fi
+      done
+    fi
+  done
+fi
+    
+
 for d in $TARGETDIR/*
 do
   # Skip non-directories
