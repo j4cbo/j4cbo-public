@@ -1,0 +1,102 @@
+IL-Module
+ v Phase-splitting
+IL-Direct
+ v CPS conversion
+IL-CPS
+
+
+
+Signature: static -> kind
+           dynamic -> type
+
+Module: static -> constructor
+        dynamic -> term
+
+
+sigma ~> [ alpha : k. t ]		<- k is always the same as Fst(sigma)
+
+--------------------
+1 ~> [ _ : 1 . x[] ]		<- x[] is Cprod [], "unit"
+
+
+--------------------------
+(| k |) ~> [ _ : k . x[] ]
+
+
+------------------------
+<| t |> ~> [ _ : 1 . t ]
+
+
+sigma1 ~> [ a1:k1.t1 ]     sigma2 ~> [ a1:k2.t2 ]
+------------------------------------------------------------------
+SIGMAa:sigma1.sigma2 ~> [ beta : SIGMAa:k1.k2 .
+  [pi1 beta/alpha1]t1 x [pi1 beta, pi2 beta / alpha, alpha2 ] t2 ]
+
+
+
+sigma1 ~> [ a1:k1.t1 ]     sigma2 ~> [ a1:k2.t2 ]
+-----------------------------------------------------
+PIapp a:sigma1.sigma2 ~> [ beta: (PIa:k1.k2).
+  FORALL a:k1. ( [a/a1]t1 -> [ b a / a2  ]t2 ) ]
+
+
+
+sigma1 ~> [ a1:k1.t1 ]     sigma2 ~> [ a1:k2.t2 ]
+-----------------------------------------------------
+PIgen a:sigma1.sigma2 ~> [ _ : 1.
+  FORALL a:k1 . ( [a/a1]t1 -> EXISTS a2:k2.t2 ) ]
+
+
+Gamma translation:
+
+If G |-p M : sigma -> [_c_, _e_] then |G| |- c k
+                                      |G| |- e : [c/a]t
+If G |-I M : sigma ~> e then |G| |- e : EXISTSa:k.t
+If G |- e : t ~> e' then |G| ~> e' : t
+
+
+|epsilon| = epsilon
+|G, x : t| = |G|, x : t
+|G, a : k| = |G|, a : k
+|G|, a/m : simga| = |G|, a : k, m : t
+                    where sigma ~> [a:k.t]
+  Note "m" in the above: module variables just become term variables.
+
+
+a/m : sigma \in G
+------------------
+G |-p m : sigma ~> [ a, m ]
+
+
+----------------------------
+G |-p  * : 1 ~> [ *, <> ]
+
+
+G |- c : k
+------------------------------------
+G |-p (| c |) : (| k |) ~> [ c, <> ]
+
+
+G |- e : t ~> e'
+----------------
+G |-p <| e |> : <| t |> ~> [ *, e' ]
+
+
+And that's all the base cases. 
+
+G |-p M : sigma ~> [ c, e ]     sigma ~> [ a:k.t ]
+-------------------------------------------------------
+G |-I M : sigma ~> pack [c,e] as EXISTS a:k.t
+
+
+G |-p M : sigma ~> [c,e]    G |- sigma <= sigma'
+------------------------------------------------
+G |-p M : sigma' ~> [c,e]
+
+
+G |-I M : sigma ~> e      G |- sigma <= sigma' : sig     sigma' ~> [a:k'.t']
+----------------------------------------------------------------------------
+G |-I M : sigma' ~> unpack [a,x] = e in pack [a,x] as EXISTS a:k'.t'
+
+
+

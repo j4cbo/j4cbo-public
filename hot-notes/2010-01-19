@@ -1,0 +1,175 @@
+Strategies for binding and aequiv: we'll just use explicit names, and 
+write an aequiv function.
+
+Issues:
+1. aequiv
+2. substitution
+
+"Avoid capture, or else everything is wrong"
+
+But aequiv won't really come up in this course, because we don't really care when two terms
+are aequiv - we care when they're *definitially* equivalent, and we discussed the algorithm for
+that on 2009-01-14.
+
+Substitution:
+
+I have some term m, and I want to find [n/x]m
+
+[n/x]x = n
+[n/x]y = y
+[n/x](m1, m2) = ([n/x]m1, [n/x]m2)
+[n/x](\y. m) = \y. [n/x]m  (provided that x != y, and that y is not in the free variables of n)
+
+
+So, in the code...
+  if x = y or y is in FV(n)
+  then [n/x](\y. m) = \y'. [n/x][y'/y]M   (such that y' is !=x and not in Fv(n))
+  otherwise as above.
+
+Or just always make up a new variable!
+"It's too much trouble to figure out if capture is incurred or not, and it's
+ harmless to alpha-vary, so just always alpha-vary."
+
+[n/x](\y. m) = \y'. [n/x][y'/y]m  (pick unique y')
+
+It's actually more useful to track many substitutions at once:
+Instead of [n/x]m, write:
+[n1/x1, ... nn/xn](\y.m)
+= \y'. [n1/x1, ... nn/xn, y'/y] m
+
+^ We don't actually need to write that. Code will be provided. 
+
+
+
+So, F_omega + product kinds gets us *most* of the way there to the type theory of SML.
+
+Next item: *singleton kinds*: A kind which contains exactly one thing.
+
+k := T | k1 -> k2 | k1 * k2 | S(c)
+constructors: exactly as before.
+
+Definition of S(c): c' : S(c) iff c === c' : T.
+S(c) is the kind that contains exactly one thing (c).
+
+Where does this come up?
+
+Consider the following: sig   type t   type u   val x : t -> u   end
+
+The kind part of the signature is T * T 
+
+But what if we wrote "type t   type u = int"?
+
+In that case, the kind would be T * S(int) : The kind which has exactly one type in it.
+
+To get fancy: "type t   type u = t"
+
+But we can't say "T * S(t)". because there's no such thing as t! We want "T * S(that T back there)".
+
+  Let's redeine kinds.
+
+  k := T | PI(a): k1.k2 | SIGMA(a): k1.k2 | S(c)
+
+  If alpha doesn't appear in k2, we just write PI(a) as k1 -> k2, etc
+
+  "The left-hand thing is k1; the right-hand thing is k2, but it gets to mention alpha, which stands for k1."
+
+So we'd translate "type t type u = t" as SIGMA alpha: T . S(alpha).
+
+    Dependent types are types that are able to "talk about" the actual inputs to functions.
+    "Function for which I give it a number and it gives me a list of length n."
+      would be "PIn: int. list int n"
+
+
+PI a: k1. k2	dependent product - note that a "non-dependent product" is an exponential (function!)
+      k1 -> k2 if no alpha
+SIGMA a: k1. k2	dependent sum - note that a "non-dependent sum" is actually a product!
+      k1 * k2 if no alpha
+
+
+Dependent sums can come from "type t type u = t". Dependent products come from functors.
+  functor Foo(type t) == ...  : sig type u = t val x : t -> u end
+
+Well, that's of kind PI t: T . S(t). 
+
+
+
+In practice, we only define singletons over types... but we can define "higher-order singletons": 
+A singleton at a higher kind than just a type.
+  S(t: Type) is just S(T).
+  But let's say c is of kind k1 -> k2, and we want the kind that contains only things equivalent to c:
+   S(c: k1 -> k2) = PI a. k1: S(c alpha : k2)
+
+/!\ I don't understand higher-order singletons. /!\
+
+   S(t: type) = S(t)
+   S(c: PIa. k1 k2) = PIa: k1. S(c a: k2)
+   S(c: SIGMA a. k1. k2) = S(pi1 c. k1) * S(pi2 c: [pi1 c / 'a] k2)
+   S(c: S(c')) = well, by assumption, c : c', so c = c', so we can say S(c)
+
+
+"Get comfortable with these things."
+
+
+Singleton kinds can complicate things a lot.
+Consider, intuitively: is it the case that 
+      a : S(int) |- a === int : T
+?  Checking equivalence now depends on the context!
+
+Is  \a:T.int  equivalent to  \a:T.a  ?
+ ... We need to know the kind we're asking about; the kind matters
+   "\a:T.int =/=  \a:T.a  :  T -> T" because the constant int function is not the same as the identity function!
+   "\a:T.int ===  \a:T.a  :  S(int) -> T", though! Because we know they're always given int.
+
+We can't compare things in isolation; we can only compare things *at* a given kind.
+
+
+How about:
+  'b (\a:T. int)  =?=  'b(\a:T. a) : T
+Well, what is the *kind* of 'b?
+If 'b is (T -> T) -> T then no. The domain of beta induces the kind at which we do the comparison of the arguments.
+But what if 'b is (S(int) -> T) -> T? Then we're comparing the arguments at S(int) -> T, and it's like above!
+
+
+
+
+
+INFERENCE RULE TIME.
+
+The terms haven't changed, and the types of the terms haven't changed either. Everything we had before is unchanged.
+All we have to do is talk about constructors and kinds.
+
+G |- e : t    same as before
+BEFORE: G |- c : k
+        G |- c1 === c2 : k2
+
+New: judgement that k is a kind
+G |- k kind
+G |- k1 === k2 : kind
+g |- k1 <= k2             "k1 is a subkind of k2" : for instance, S(int) <= T
+
+-----------
+G |- T kind
+
+G |- k1 kind   G,a:k1 |- k2 kind
+--------------------------------
+     G |- PIa: k1.k2 kind
+
+Same for SIGMA
+
+ G |- c type
+--------------	<-	not actually necessary (higher-order)
+G |- S(c) kind
+
+
+
+Constructor formation: G |- c : k
+
+-------------		Everything belongs to its own singleton kind
+G |- c : S(c)
+
+
+G |- c === c' : T
+-----------------	Not actually necessary! This can be derived from other rules. 
+G |- c : S(c')
+
+

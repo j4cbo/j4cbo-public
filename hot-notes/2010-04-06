@@ -1,0 +1,112 @@
+G |-I M1 : sig1 ~> e1      G,a/m : sigma1 |-I M2 : sig2 ~> e2
+-------------------------------------------------------------
+G |-I <a/m=M1,M2> : SIGa:sig1.sig2 ~> unpack [a,m] = e1 in
+                                      unpack [b,x] = e2 in
+                                 pack [<a,b>,<m,x>] as Edelta:k.t
+
+
+G |-p M : sigma ~> [c,e]
+-------------------------
+G |-p inl m : l.sigma~>[c/e]
+
+
+G |-I M : sigma ~> e
+--------------------------
+G |-I inl M : l.sigma ~> e
+
+
+G |-I M : sigma ~> e
+-------------------------------
+G |-I (M :> sigma) : sigma ~> e
+
+
+Alternately:
+sig ~> [a:k.t]
+--------------------
+l : sigma ~> [a:k.t]
+
+ 
+      sigma ~> [a:k.t]
+G |-p M : sigma ~> [c,e]
+---------------------------------------
+G |-I M : sigma ~> pack [c,e] as Ea:k.t
+
+
+
+
+
+------------
+anyway...
+
+Some rules have P on the bottom, some have I on the bottom, and 
+some have k on the bottom (might be pure or impure)
+
+translatePure: only deal with pures; get back a c and an e and pack it
+translateImpure: call translatePure where necessary
+
+Forgetting happens in translateImpure where the thing you're looking at 
+turns out to be pure anyway, but it doesn't matter, as in lambdas
+
+
+
+G |-I M1 : sig1     G,a/m:sig1 |- M2 : sig2     G |- sig2 : sig
+---------------------------------------------------------------
+G |-I let a/m = M1 in (M2 : sig2) : sig2 ~> unpack [a,m] = e1 in e2
+
+
+The avoidance problem again: we want to infer principal signatures,
+and if we come up with a signature for M2 that mentions alpha, we're 
+stuck. Therefore, we must explicitly annotate M2:sig2 so that it
+*doesn't* mention alpha
+
+
+G |-p M : SIGMAa:sig1.sig2 ~> [c,e]
+------------------------------------
+G |-p pi1 M : sig1 ~> [pi1 c, pi0 e]
+
+
+G |-p M : SIGa:sig1.sig2 ~> [c,e]
+---------------------------------
+G |-p pi2 M : [pi1c/a]sig2 ~> [pi2c, pi1e]
+
+
+NOTE: "pi0 e" is the first; "pi1 c" is the first
+      "pi1 e" is the second; "pi2 c" is the second
+
+
+  if M : sig, Fst(M) >> c
+then M : S(c : sig)
+
+(a/m:sig) <- G
+-------------------
+G |-D m => S(a:sig)
+
+
+(a/m:sig) <- G
+---------------
+G |-p m : sig
+
+
+(a/m:sig) <- G
+---------------------------
+G |- m => S(a:sig) ~> [a/m]
+
+
+If G |- M : sig ~> [c,e]
+and sig ~> [a:k.t]
+then |G| |- c:k and |G| |- e : [c/a]t
+
+
+G |- t : T     G,x:t |- e : t' ~> e'
+------------------------------------
+G |- \x:t.e : t -> t' ~> \x:t.e'
+
+
+G |-I M : <|t|> ~> e
+---------------------------------------
+G |- Snd M : t ~> unpack [_,x] = e in x
+
+
+G |-p M : <|t|> ~> [c,e]
+------------------------
+G |- Snd M : t ~> e

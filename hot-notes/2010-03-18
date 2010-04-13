@@ -1,0 +1,104 @@
+
+Fst ( <| t |> ) = 1
+Fst ( (| k |) ) = k
+Fst ( PIgen a : sigma1 . sigma2 ) = 1
+
+G(m) = sigma
+---------------
+G |-p m : sigma
+
+G |- c : k
+-----------------------
+G |-p (| c |) : (| k |)
+
+G |- e : t
+-----------------------
+G |-p <| e |> : <| t |>
+
+G |-p M : sigma
+---------------
+G |-I M : sigma
+
+G |-k M : sigma
+-------------------------
+G |-I (M :>sigma) : sigma
+
+
+----------------------------------------------------
+
+
+a/m : sigma \in G
+-----------------
+G |- Fst(m) >> a
+
+------------------------
+G |- Fst( (| c |) ) >> c
+
+-----------------------
+G |- Fst( <| c |> ) = *
+
+G |- sigma1 : sig    G,a/m:sigma1 |-p M : sigma2
+--------------------------------------------------
+G |- \app a/m : sigma1 . M : PIappa: sigma1.sigma2
+
+        G, a/m : sigma |- Fst(m) >> c
+------------------------------------------------
+G |- Fst(\app:a/m.sigma1. M) >> \a:Fst(sigma1) c
+
+
+Fst(PIapp a:sigma1.sigma2) = PIa: Fst(sigma1).Fst(sigma2)
+Fst(PIgen a:sigma1.sigma2) = 1
+
+
+G |-k M1 : PIapp a:sigma1.sigma2   G |-p M2 : sigma1   G |- Fst(m2) >> c
+------------------------------------------------------------------------
+G |-K M1 e M2 : [c/a] sigma2
+
+G |- Fst(M1) >> c1   G |- Fst(M2) >> c2
+----------------------------------------
+G |- Fst(m1 e m2) >> c1 c2
+
+G |- sigma1 : sig     G, a/m:sigma1 |-I M : sigma2
+--------------------------------------------------
+G |-p \gen am:sigma1. M | PIgen a:sigma2.sigma2
+
+G |- M1 : PIgen a:sigma1.sigma2     G |- M2:sigma1   G |- Fst(M2) >> c
+----------------------------------------------------------------------
+G |-I M1 M2 : [c/a]sigma2
+
+----------------------------------
+G |- Fst(\gen a/m . sigma1 M) >> *
+
+
+Now, typing
+
+
+G |- m1 : sigma1
+G,a1/m1:sigma1 |- M2 : sigma2
+....
+G,a1/m1:sigma1,...,G,a_{n-1}/m_{n-1}:sigma_{n-1} |-k Mn : sigman
+------------------------------------------------------------------
+G |-k [a1/m1 = M1, ... a1/mn = Mn ] : [ a1:sigma1, ... an:sigman ]
+
+
+Fst([ a1:sigma1, ... an:sigman ]) = Sigma a1:Fst(sigma1).
+                                     Sigma a2:Fst(sigma2).
+                                      ... Sigma an : Fst(an)
+
+
+
+G |- m1 : sigma1
+G,a1/m1:sigma1 |- M2 : sigma2
+....
+G,a1/m1:sigma1,...,G,a_{n-1}/m_{n-1}:sigma_{n-1} |-k Mn : sigman
+------------------------------------------------------------------
+G |- Fst([a1/m1 = M1, ... an/mn = Mn]) >>
+  [c1/a1][c2/a2]...[cn/an] <a1, <a2, ... <an, *>>>
+
+
+Now for projection
+
+G |- M : [a0:sig0, ... an-1:sign-1]     G |- Fst(m) >> c
+-----------------------------------------------------------------------
+G |- Pi_i M = [ pi1c, pi1pi2c, pi1(pi2(pi2(...c))) / a0, ...ai-1] sigmai
+                                     ^ i-1 pi2s

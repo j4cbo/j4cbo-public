@@ -1,0 +1,175 @@
+Key rules for constructor equivalence
+-------------------------------------
+
+G |- c : S(c')
+-----------------
+G |- c === c' : T
+
+
+G |- c === c' : T
+--------------------
+G |- c === c' : S(c)
+
+
+G |- c1 === c2 : k     G |- k <= k'
+-----------------------------------
+       G |- c1 === c2 : k'
+
+
+Extensionality rules, which we'll now be using explicitly:
+G,a:k1 |- c a === c a' : k2     G |- c : PIa:k1.k2'     G |- c':PIa.k1.k2''
+---------------------------------------------------------------------------
+                       G |- c === c' : PIa: k1.k2
+
+
+
+G |- pi1c === pi1c' : k1   G |- pi2c === pi2c' : [pi1c/a]k2    G,a:k1 |- k2:kind
+--------------------------------------------------------------------------------
+G |- c === c' : SIGa: k1. k2
+
+
+... And that's where we left off last time.
+
+
+Now, an algorithm for comparng two constructors at some kind.
+G |- c1 <=> c2 : k	algorithmic equivalence	(all are inputs)
+G |- c V p		weak head normal form (p is an output)
+G |- c ~> c'		step towards path comparison (c' is an output)
+G |- c1 <-> c2 : k	path equivalence (k is an output)
+G |- c ^ k		k is the natural kind of c (k is an output)
+
+G |- c => k		"find the best kind for a constructor"
+
+Finally, check the actual *type*
+
+G |- e => t		e "synthesizes" t
+
+These => are saying "given G and c, I can compute k"
+                 or "Given G and e, i can compute t"
+
+
+G,a:k1 |- c a <=> c' a : k2
+---------------------------
+ G |- c <=> c' : PIa:k1.k2
+
+
+G |- pi1c <=> pi1c'    G |- pi2c <=> pi2c' : [pi1c/a]k2
+-------------------------------------------------------
+            G |- c <=> c' : SIGa:k1.k2
+
+
+G |- c1 V p1    G |- c2 V p2     G |- p1 <-> p2 : T
+---------------------------------------------------
+G |- c1 <=> c2 : T
+
+
+
+--------------------	Note: We get to assume that the things we're
+G |- c1 <=> c2 : S(c)	comparing have the kind at which we're comparing them!
+
+
+Standard WHNF stuff, with more gamma:
+
+
+G |- c ~> c'    G |- c V p
+--------------------------
+      G |- c V p
+
+
+G |- c ~/>
+-----------
+G |- c V c
+
+
+G |- c1 ~> c1'
+------------------
+G |- c1c2 ~> c1'c2
+
+
+----------------------------
+G |- (\a:k.c1)c2 ~> [c2/a]c1
+
+
+G |- c ~> c'			 G |- c ~> c'
+------------------		 ------------------
+G |- pi1c ~> pi1c'		 G |- pi2c ~> pi2c'
+
+
+----------------------		 ----------------------
+G |- pi1<c1, c2> ~> c1		 G |- pi2<c1, c2> ~> c2
+
+
+If p has natural kind S(c), then p will reduce to c:
+
+G |- p ^ S(c)
+-------------
+G |- p ~> c
+
+
+G(a) = k
+----------
+G |- a ^ k
+
+
+G |- p ^ PIa:k1.k2
+------------------
+G |- p c ^ [c/a]k2
+
+
+G |- p ^ SIGa:k1.k2
+-------------------
+G |- pi1p ^ k1
+
+
+G |- p ^ SIGa:k1.k2
+-----------------------
+G |- pi2 p ^ [pi1p/a]k2
+
+
+   G(a) = k
+--------------
+G |- a <-> : k
+
+
+G |- p1 <-> p12 : PIa:k.k'     G |- c1 <=> c2 : k
+-------------------------------------------------
+G |- p1c1 <-> p2c2 : [c1/a]k1
+
+
+G |- p <-> p' : SIGa:k1.k2
+---------------------------
+G |- pi1 p <-> pi2 p : k1
+
+
+G |- p <-> p' : SIGa:k1.k2
+-------------------------------------
+G |- pi2 p <-> pi2 p' : [pi1p/a] k2
+
+
+
+
+How do we answer the question "does c belong to k?"
+
+G |- c1 === c2 : k
+
+
+G |- c => k, the principal answer: a single answer that summarizes all
+	     possible answers.
+
+Soundness:
+If G |- c => k, then G |- c : k
+Completeness:
+If G |-  c : k, then G |- c => k'   s.t. G |- k' <= k
+
+"This sounds really cool, but it's just a magnificent cheat"
+because if the G |- c ^ k'', then k = S(c : k'')
+
+G(a) = k
+-----------------	<- suuuuuure does.
+G |- a => S(a: k)
+
+D:  / happyface / triangle-with-line subkind rule
+
+G |- c => PIa:k.k'     G |- c2 => k''    G |- k'' D: k
+------------------------------------------------------
+G |- c1 c2 => 

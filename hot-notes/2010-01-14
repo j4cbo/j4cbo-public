@@ -1,0 +1,283 @@
+Example: using kinds.
+
+structure Foo =
+  struct
+    type t = int
+    type 'a u = 'a * 'a
+  end
+
+We can create our own type *operators*, in addition to list, etc...
+'list' is of kind T -> T
+
+From last time, F_omega.
+
+Kinds:
+  k ::= T | k -> k | k * k
+         \     \      \-  pairs of type constructors
+          \     \- type constructor -> type constructor
+           \- types
+
+  c ::= alpha | lambda alpha: k.c | c c | <c, c> | pi1 c | pi2 c | ... as before
+
+  (As before, but with pair intro/elim on types)
+
+So, how do we kindcheck?
+
+G |- c1:k1  G |- c2:k2
+----------------------
+G |- <c1,c2> : k1 * k2
+
+G |- c : k1 * k2
+----------------
+G |- pi1 c : k1
+
+And so on. Again, should all be familiar; rules from before all the same...
+
+
+G |- c1:k1  G :- c2:k2
+-----------------------------    beta reduction of kinds; similar for c2
+G |- pi1 <c1, c2> === c1 : k1
+
+G |- c1 === c1':k1   G |- c2 === c2' : k2
+------------------------------------------
+G |- <c1,c2> === <c1',c2'> : k1 * k2
+
+G |- c === c' : k1 * k2
+--------------------------    and so on
+G |- pi1 c === pi1 c' : k1
+
+Extensionality rule for functions is this:
+G,'a:k1 |- c'a === c'a' : k2
+----------------------------
+G |- c === c' : k1->k2
+
+G |- pi1c === pi1c' : k1   G |- pi2c === pi2c' : k2
+---------------------------------------------------
+G |- c === c' : k1 * k2
+
+eta rule:
+"Anything whose kind says it's a function can be written as a function";
+  similar 
+
+
+extensionality:
+"We can determine equivalence by running certain experiments"
+
+
+... now on to the point of the exercise!
+
+F_omega + product kinds.
+
+We need to be able to check equivalence in order to typecheck.
+
+f: forall alpha: T -> T . alpha int -> unit
+
+is "f [\beta:T. beta] 12 " ok?
+
+type of "f [ \beta:T. beta ]" is "(\beta.beta)int -> unit"
+ type of 12 is int
+
+Is (\beta.beta)int  the same as int?
+
+
+Given c1:k and c2:k, ask "c1 === c2 : k"?
+  In other words, "ok, they're both of kind k, but are they the same?"
+
+One way: use reduction strategies.
+
+  We say "well, (\a:k.c1)c2 --> [c2/a]c1", just like function evaluation... 
+  Prove normalization, etc
+
+  This is "a royal pain in the ass" in practice?
+
+We'll use a kind-driven strategy.
+
+Let's define a new relation <=>, "algorithmically equivalent to" - algorithmic equality
+as opposed to ===, definitional equality
+
+G |- c1 <=> c2 : k
+
+This is the algorithm we'll be implementing!
+
+Soundness and completeness theorems:
+
+Soundness:  If G |- c1 <=> c2 : k
+           and G |- c1 : k and G |- c2 : k
+          then G |- c1 === c2 : k
+
+Completeness:
+  If G |- c1 === c2 : k then G |- c1 <=> c2 : k
+
+(In other words, whenever === is true, <=> is true: they give the same answer.)
+This is provable but we won't do the proof.
+
+Use extensionality principles to do experiments.
+
+G,'a : k1 |- c 'a <=> c 'a : k2
+-------------------------------
+G |- c <=> c' : k1 -> k2
+
+
+G |- pi1 c <=> pi1 c' : k1      G |- pi2 c <=> pi2 c' : k2
+---------------------------------------------------------
+                 G |- c <=> c' . k1 * k2
+
+OK, that was easy... break down complicated kinds.
+
+  ??????????
+-----------------
+G |- c <=> c' : T
+
+Shit. Now we want to know whether types are the same...
+
+
+Let's look at the example again.
+"(\beta.beta)int <=> int : T" ?
+
+Well, at some point, we need to apply the function. We *only* want to do that once we've driven the 
+question down to kind Type. So we reduce some stuff, but carefully -don't devolve  to just a 
+reduction-based strategy.
+
+Only reduce the outer-most redices. We *wouldn't* reduce, say, "(\beta.beta)int -> unit" 
+
+So we put it into weak-head-normal form - only look at the outermost form. 
+This will create a "path":
+
+p ::= 'a | p c | pi1 p | pi2 p
+
+(This is a generalization of a variable... it's "flexible": we don't know what 'a is, so we don't know what pi1 'a is, etc)
+
+That's what a path *is*, but we'll treat other stuff as paths to:
+       | c -> c | forall alpha: k. c | base types...
+
+
+Weak-head-normal form is taking a constructor and turning it into a ptah.
+
+Now, how do we weak-head-reduce?
+
+c V p  (V is actually a down arrow) "c weak-head-reduces to p"
+c ~> c'   (reduces to)
+
+c ~> c'   c' V p
+----------------
+    c ~> p
+
+c ~/>
+-----
+c V c
+
+Now let's actually define "reduces to": c ~> c'   ... "Do it as much as you can until you can't any more."
+
+Note: ~/> is easy in the actual implementation. We know all the cases that match... ~/> is the case where nothing actually matches. 
+
+------------------------   WHRSUBST
+(\a:k.c1)c2  ~> [c2/a]c1 
+
+----------------
+pi1<c1,c2> ~> c1
+
+----------------
+pi2<c1,c2> ~> c2
+
+Compatibility rules
+
+c1 ~> c1'
+---------------   WHRAPP    <--  Note that we DO NOT REDUCE c2 : the argument of an application does not have to be a path.
+c1 c2 ~> c1' c2
+
+We want to reduce c1 down to either a lambda or a path.
+
+This is weak-head-reduction becauase of the rules that we *don't* have.
+
+c ~> c'
+---------------
+pi1 c ~> pi1 c'
+
+c ~> c'
+---------------
+pi2 c ~> pi2 c'
+
+
+
+-
+
+Suppose I have ((\a:T. \b:T. a -> b)((\g:T. g)int)) unit
+
+And we want to compare it with something else, so we put each into weak head normal form.
+
+It's not a lambda applied to an argument; it's not an app applied to argument; but WHRAPP applies
+
+So it reduces to
+(\b:t. ((\g:T.g)int) -> b) unit
+
+- we aapplied WHRSUBST and then WHRAPP
+ 
+Now we use WHRSUBST again!
+
+((\g:T.g)int) -> unit
+
+Now there are no rules that apply, and we can look at it and say it's a path!
+
+So we put in WNF first, and then:
+c1 V p1   c2 V p2   G |- p1 <-> p2 : T
+--------------------------------------
+     G |- c1 <=> c2 : T
+
+OK, so what does <-> mean?
+
+(Da capo: drive everything down to kind Type, then put in WNF, then...)
+
+
+
+If there's leftover work, use original judgement:
+
+G |- p1 <-> p2 : K       algorithmic path equivalence
+
+T('a) = k
+------------------
+G |- 'a <-> 'a : k
+
+
+NOTE: For path equivalence, the kind is an *output*.
+
+"Put in WNF; check for path equivalence; path equivalence outputs a kind which had better be T." <-- IMPORTANT
+
+G |- p1 <-> p2 : k -> k'     G |- c1 <=> c2 : k
+-----------------------------------------------
+          G |- p1c1 <-> p2c2 : k
+
+
+G |- p <-> p' : k1 * k2
+----------------------------    and same for pi2
+ G |- pi1 p <-> pi1 p' : k1
+
+G |- c1 <=> c1' : T   G |- c2 <=> c2' : T
+------------------------------------------
+G |- (c1 -> c2) <-> (c1' -> c2') : T
+
+G,'a :k |- c <=> c' : T
+------------------------------------   note that the body of a forall is always a type
+forall 'a:k.c <-> forall 'a:k.c' : T
+
+And the base types:
+------------------
+G |- int<->int : T 
+
+
+... Now, that is *ALL* of the rules for path equivalence, so we reject anything else.
+Note that because of the occasional appearance of <=> in the above rules, sometimes we have to recurse.
+
+
+
+
+We'll be using explicit variables, but how do we do alpha-conversion / handle alpha-equivalence? Write it explicitly
+
+Other way: de Bruijn ("brown") indices in ABTs - thus aequiv becomes structural equivalence
+
+Other way: de Bruijn indices plus explicit substitutions
+  "takes six months to become intuitive"
+
+Other way: use a language that does it automatically. Make it somebody else's problem
+  (Twelf!)
+
+

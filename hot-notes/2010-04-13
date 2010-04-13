@@ -1,0 +1,134 @@
+PHASE SPLITTING RULE FOR LET
+
+G |-I M : sigma ~> e1     G,a/m:sigma |- e : t ~> e2    G |- t : T
+------------------------------------------------------------------
+G |- let a/m = M in e:t : t ~> unpack [a,m] = e1 in e2
+
+
+
+
+letd:
+
+G |-P  M1 : sig1 ~> [c1,e1]    G,a/m : sig2 |-P M2 : sig2 ~> [c2,e2]
+--------------------------------------------------------------------
+G |-P letd a/m = M1 in M2 : [c1/a]sig2 ~> [ [c1/a]c2, let m=e1 in [c1/a]e2 ]
+
+
+G |-P  M1 : sig1 ~> [c1,e1]    G,a/m : sig2 |-I M2 : sig2 ~> e2
+---------------------------------------------------------------
+G |-P letd a/m = M1 in M2 : [c1/a]sig2 ~> let m=e1 in [c1/a]e2
+
+
+
+-------------------------------------
+State!
+
+We now have everything we need to get from IL-Module to C.
+What's left? Standard ML -> IL-Module. "Elaboration."
+
+External Language (SML) -> Internal Language (IL-Module)
+
+Identifier resolution
+---------------------
+
+variables and identifiers are not the same thing!
+name = VAL ident
+     | CON ident
+     | MOD ident
+     | DT ident
+     | HIDE
+
+
+
+G |- M : sigma |> exp ~> e : t
+ \   \---+---/
+  \     Elaboration context
+   EL Context
+
+A simple dummy example:
+
+
+G |- M:sig |> ty ~> t
+G,x:t |- < M,in_VALid <|x|> > : sig x (VALid:<|t|>) |> exp ~> e : t
+-------------------------------------------------------------------
+G |- M : sigma |> fn id : ty => exp ~> \x:t.e : t->t'
+
+In short: we add x:t to both the actual context AND the elaboration 
+context. (Sometimes, we'll be adding stuff to only one or the other.)
+
+
+-------------------------------
+M : (l.sig) |> l ~> (out M):sig
+
+
+l # l'
+-------------------
+M:(l.sig) |> l' ~/>
+
+
+--------------
+M : 1 |> l ~/>
+
+
+G |- Fst(M) >> c     G |- (pi2 M: [pi1 c/a]sig2) |> l ~> M':sig'
+----------------------------------------------------------------
+G |- M : SIGa:sig1.sig2 |> l ~> M':sig'
+
+
+G |- Fst(M) >> c     G |- (pi2 M : [pi1 c/a]sig2) |> l ~>   G |- pi1 M : sig1 |> l ~> M':sig'
+----------------------------------------------------------------------------------
+G |- M : SIGa:sig1.sig2 |> l ~> M'.sig'
+
+
+G |- Fst(M) >> c     G |- (pi2 M : [pi1 c/a]sig2) |> l ~> G |- pi1 M : sig1 |> l ~>
+------------------------------------------------
+G |- < : SIGa:sig1.sig2 |> l ~>
+
+
+
+============
+TYPECLASSES!
+============
+
+val 'a foo = e
+val for(M:S) foo = e
+
+signature EQ = sig type t val eq : t -> t -> bool end
+
+val for (Eq:EQ) eq = Eq.eq
+-> val for(Eq.EQ) eq : Eq.t * Eq.t -> bool
+
+fun for(Eq.EQ) eq3 x y z = Eq.eq x y andalso Eq.eq y z
+
+... so, how do we declare an instance?
+structure EqInt : EQ = struct type t = int val eq = Int.= end
+
+
+Example:
+  let using structure EqInt
+  in .... : t end
+
+Moving on!
+functor EqProd (strucure S : EQ structure T : E) = struct
+  type t = S.t * T.t
+  val eq = { do the right thing }
+end
+
+
+Altnerately:
+  let using structure EqInt
+      using functor EqProd
+  in
+  ... etc end
+
+
+
+fun find x l = ....
+
+signature LT = ...
+signature ORD = sig
+  structure Eq : EQ
+  structure Lt : LT
+  sharing Eq.t = Lt.t
+
+canon (EQ where type t = int)

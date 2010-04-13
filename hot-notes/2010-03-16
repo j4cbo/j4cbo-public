@@ -1,0 +1,82 @@
+SML
+v   [ Elaboration ]
+IL-Module
+v   [ Phase Splitting ]
+IL-Direct
+
+
+So, now for IL-Module
+k := ...
+c := ... | Fst M
+e := ... | Snd M
+sigma := 1 | d k b | <| t |> | [a1:sigma1, ... an:sigman]
+    | PIgen a:sigma.sigma | PIapp a:sigma.sigma
+M := m | * | d c b | <| e |> | [a1/m1=M1, ... an/mn=Mn ] | PIn M
+   | \gen a/m:sigma.M | M M : \app a/m:sigma.M | M@M
+
+G |- Fst(M) >> c
+ Fst(sigma) = k
+
+Fst(1) = 1
+Fst(d k b) = k
+Fst(<| t |>) = 1
+
+----------------------
+G |- Fst(*) >> *
+
+----------------------
+G |- Fst(d c b) >> c
+
+----------------------
+G |- Fst(<| t |>) >> *
+
+
+ a/m \in Dom(G)
+------------------
+G |- Fst(m) >> a
+
+While we're at it, we have to add a new thingy to Gamma:
+G ::= e | G, a:k | G,x:t | G, a/m:sigma
+
+
+For every module, there is also a constructor variable associated
+with it: "twinning" (a and m, above, are twinned)
+
+
+G |- sigma1:sig   G,a/m:sigma1 |- M : sigma2
+------------------------------------------------------  (ish)
+G |- \gen a/m : sigma1 . M : PIgen a/m : sigma1.sigma2
+
+"Fst regularity": sanity check
+If G |- m : sigma
+and G |- Fst(m) >> c
+then G |- c : Fst(m)
+
+
+Example
+-------
+
+structure IntDict :> INT_DICT =
+  struct
+    type 'a dict = (int * 'a) list
+  end
+
+IntDict.dict : T -> T
+             PIa:T . S(list(int * 'a))
+
+M = [
+      dict = (| a:T. list(int * a) |), ...
+]
+
+Fst(M) >> < \a:T. list(int*a), ... >
+
+Now we want to be able to "seal" structures:
+M := .... | M :> sigma
+
+  :> [ dict : (| T->T |) ]
+
+A module is determinate iff it has a Fst.
+
+effects: side effects, I/O, nontermination.
+
+

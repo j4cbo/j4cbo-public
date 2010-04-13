@@ -1,0 +1,104 @@
+Missing from yesterday: labels of signatures
+sigma ::= ... | l:sigma
+M ::= ... | in_l M | out M
+
+Fst(l : sigma) = Fst(sigma)
+
+
+Fst(M) >> c
+----------------
+Fst(in_l M) >> c
+
+
+
+Fst(M) >> c
+---------------
+Fst(out M) >> c
+
+
+G |-k M : sigma
+-----------------------
+G |-k in_l M : l:sigma
+
+
+G |-k M : l:sigma
+-------------------
+G |-k out M : sigma
+
+
+-----------------------------
+S(l:(c:sigma)) = l:S(c:sigma)
+
+
+G |- sigma <= sigma' : sig
+------------------------------
+G |- l:sigma <= l:sigma' : sig
+
+
+############################################################
+
+
+G |-p M : sigma ~> [c,e]     G |- sigma <= sigma' : sig
+-------------------------------------------------------
+G |-p M : sigma' ~> [c,e]
+
+
+G |-I M : sigma ~> e     G |- sigma <= sigma' : sig      sigma' ~> [a:k'.t']
+----------------------------------------------------------------------------
+G |-I M : sigma' ~> unpack [a,x]=e in [ack[a,x] as EXISTSa:k'.t'
+
+
+G |-p M : sigma ~> [c,e]      sigma ~> [a:k.t]
+----------------------------------------------
+G |-I M : sigm ~> pack [c,e] as EXISTSa:k.t
+
+
+sigma1 ~> [a1:k1.t1]     sigma2 ~> [a2:k2.t2]
+-----------------------------------------------------------------------------------
+PIapp a:sigma1.sigma2 ~> [ beta : PIa:k1.k2 . FORALLa:k1.[a/a1]t1 -> [beta a/a2]t2]
+
+
+G |- sigma1 : sig     G,a/m:sigma1 |-p M : sigma2 ~> [c,2]     sigma1 ~> [a1:k1.t1]
+-----------------------------------------------------------------------------------
+G |-p \app a/m : sigma1.M . PIapp a:sigma1.sigma2
+       ~> [\a:k1.c, LAMBDAa:k1. \m:[a/a1]t1.e ]
+
+
+G |--p M1 : PIapp a:sigma1.sigma2 ~> [c1,e1]     G |-p M2 : sigma1 ~> [c2,e2]
+-----------------------------------------------------------------------------
+G :-p M1 e M2 : [c2/a]sigma2 ~> [c1 c2, e1[t2] c2 ]
+
+
+G |-I M : PIapp a:sig1.sig2 ~> e     G |-p M2 : sig1 ~> [c2,e2]     sig2 ~> [a2:k2.t2]
+--------------------------------------------------------------------------------------
+G |-I M1 @ M2 : [c2/a]sig2 ~> unpack [ g, f ] = e1 in
+                                pack [ g c2, f [c2] e2 ] as [c2/a](EXISTSa:k2.t2)
+
+
+G |-I M : PIgen a:sigma1.sigma2 ~> e1      G |-p M2 : sigma1 ~> [c2, e2]
+------------------------------------------------------------------------
+G |-I M1 M2 : [c2/a]sigma2] ~> unpack [_, f] = e1 in f [c2] e2 
+
+
+
+translate : ILModule -> ILDirect.term
+translatePure : context -> ILModule.module -> ILDirect.term * ILDirect.term
+translateImpure is translate - it calls translatePure for things that must
+    be pure, and does the rest itself	
+
+
+What we *don't* want to do is have something like
+  datatype result = Pure of con*term | Impure of term
+- it's easeier the other way (just above).
+
+
+
+sig1 ~> [a1:k1.t1]     sig2 ~> [a2:k2.t2]
+------------------------------------------------------------------------
+SIGMAa:sig1.sig2 ~> [b: SIGMAa:k1.k2 . [pi1b/a1]t1 x [pi1b,pi2b/a,a2] t2
+
+
+G |-p M1 : sig1 ~> [a1,e1]     G,a/m:sig1 |-p M2 : sig2 ~> [c2/e2]
+------------------------------------------------------------------
+G |-p <a/m=M1,M2> : SIGMAa:sig1.sig2
+                     ~> [ <c1,[c1/a]c2>, let m = e1 in <m, [e1/a]e2> ]

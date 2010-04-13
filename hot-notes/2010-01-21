@@ -1,0 +1,257 @@
+Judgements about kinds:
+
+G |- k ; kind
+G |- k === k' : kind
+G |- k <= k'
+G |- c : k
+G |- c === c' : k
+
+
+
+G |- k ; kind
+-------------------   symmetry
+G |- k === k : kind
+
+also reflexivity, transitivity on ===
+
+   G |- c === c' : T
+--------------------------
+G |- S(c) === S(c') : kind 
+
+that's a compatibility rule - the only one where anything interesting happens...
+
+
+G |- k1 === k1' : kind      G,a:k1 |- k2 === k2' : kind
+-------------------------------------------------------
+PIa:k1.k2 === PIa:k1'.k2'
+
+same for sigma
+
+SUBKINDS
+--------
+
+G |- k === k' : kind
+--------------------
+G |- k <= k'
+
+G |- k1 <= k2   G |= k2 <= k3
+-----------------------------
+    G |- k1 <= k3
+
+What about singletons?
+
+G |- c : T
+-----------------
+G |- S(c) <= T
+
+
+G |- c === c' : T
+------------------  <-- but that rule is redundant
+G |- S(c) <= S(c')
+
+-----------   <-- also redundant!
+G |- T <= T
+
+
+
+Now...
+G |- k1 <= k1'    G |- k2 <= k2'
+-------------------------------------
+G |- k1 * k2 <= k1' * k2'
+
+
+
+Break: covariance, contravariance, subtypes:
+
+Covariance: R -> bool \subseteq Z -> bool
+  A function that wants a real can be given an integer
+
+G |- k1 <= k1'     G,a:k1 |- k2 <= k2'     G,a:k1' |- k2' : kind
+----------------------------------------------------------------
+            G |- SIGMAa:k1.k2 <= SIGMAa:k1'.k2'
+
+
+
+G |- k1' <= k1   G,a:k1' |- k2 <= k2'    G,a:k1 |- k2:kind
+----------------------------------------------------------
+       G |- PI a: k1.k2 <= PI a: k1'.k2'
+
+
+G(a) = k
+-----------
+G |- 'a : k
+
+
+G |- k : kind    G,a:k |- c : k'
+--------------------------------	<- get kind of a function
+G |- \alpha:k.c : PI a: k. k'
+
+
+G |- c1 : PIa: k.k'    G |- c2:k
+--------------------------------	<- get kind of a function application
+G |- c1 c2 : [c2/a]k'
+
+
+G |- c1:k1     G |- c2 : [c1/a]k2    G,a:k1 |- k2 : kind
+--------------------------------------------------------
+           G |- <c1, c2> : SIGMAa: k1.k2
+
+
+G |- c : SIGMA a : k1. k2
+-------------------------
+G |- pi1 c : k1
+
+
+G |- c : SIGMA a: k1.k2
+---------------------------		<- note that we have dependent sums, so pi2 is not the same as pi1
+G |- pi2 c : [pi1 c / a] k2
+
+
+G |- c : T
+-------------
+G |- c : S(c)
+
+
+G |- c1 === c2 : T
+------------------	<- another derivable rule
+G |- c1 : S(c2)
+
+
+G |- c : k     G |- k <= k'
+---------------------------	<- the subsumption rule: very important!
+       G |- c : k'
+
+
+
+proof of "another derivable rule":
+                              G |- c1 === c2 : T
+G |- c1 : T              G |- S(c1) === S(c2) : kind
+G |- c1 : S(c1)    G |- S(c1) <= S(c2)
+      G |- c1 : S(c2)
+
+
+
+
+HOLY SHIT
+ACTUAL TYPES NOW
+G |- c1 : T    G |- c2 : T
+--------------------------
+     c1 -> c2 : T
+
+G |- k : kind    G,a:k |- c : T
+-------------------------------
+   G |- FORALL a:k.c : T
+
+
+
+G,a:k1 |- c a:k2     G |- c : PIa: k1.k2'
+----------------------------------------
+      G |- c : PIa: k1.k2
+
+
+
+a:T   |- list a: S(list a)
+-------------------------------
+\a:T. list a = PIa:T.S(list a)
+
+
+note: \a:T.list a is the eta expansion of list
+what about "list"? note that list:T->T.
+
+
+we can be more specific about the type that list gives us: it's S(list a), not just T.
+
+
+G |- pi1 c : k1    G |- pi2 c : [pi1 c / a] k2    G,a:k1 |- k2:kind
+-------------------------------------------------------------------
+            G |- c : SIGMAa: k1.k2
+
+
+
+eqivalence relation rules
+-------------------------
+We already have reflexivity etc.
+
+
+G,a:k |- c1 : k'   G |- c2:k
+-----------------------------
+G |- (\a:k.c1)c2 === [c2/a]c1
+
+
+G |- c1:k1   G |- c2:k2
+-------------------------- 
+G |- pi1<c1, c2> === c1:k1
+
+
+G |- c1:k1   G |- c2:k2
+--------------------------
+G |- pi2<c1, c2> === c2:k2
+
+
+G |- c : S(c')
+-----------------        <--- That's the rule where we actually *USE* singleton kinds.
+G |- c === c' : T
+
+
+G |- c1 === c2 : T
+----------------------	<- intro for singletons
+G |- c1 === c2 : S(c1)
+
+
+G |- c1 === c2 : k    G |- k <= k'
+----------------------------------
+G |- c1 === c2 : k
+
+
+Compatibility rules:
+
+G |- k1 === k2     G,a:k1 |- c1 === c2 : k'
+-------------------------------------------
+G |- \a:k1.c1 === \a:k2.c2 : PIa:k1.k'
+
+Equivalent functions:
+
+G |- c1 === c1' : PIa:k.k'     G |- c2 === c2' : k
+--------------------------------------------------
+G |- c1 c2 === c1' c2' : [c2/a]k'
+
+Equivalent pairs:
+
+G |- c1 === c1' : k1    G |- c2 === c2' : [c1/a]k2    G,a:k1 |- k2 : kind
+-------------------------------------------------------------------------
+G |- <c1, c2> === <c1', c2'> : SIGMAa: k1.k2
+
+
+G |- c === c' : SIGMAa:k1.k2
+----------------------------
+G |- pi1 c === pi1 c' : k1
+
+
+G |- c === c' : SIGMAa:k1.k2
+------------------------------
+G |- pi2 c === pi2 c' : [pi1c/a] k2
+
+
+G |- c1 === c1' : T      G |- c2 === c2' : T
+---------------------------------------------
+G |- c1 -> c2 === c1' -> c2' : T
+
+
+G |- k === k' : kind   G,a:k |- c === c' : T
+--------------------------------------------
+G |- FORALL a:k.c === FORALL a:k'.c' : T
+
+
+Extensionality rules for formations:
+
+G,a:k1 |- c a === c' a : k2       c |- PIa:k1.k2'    c' |- PIa:k1.k2''
+-----------------------------------------------------------------------
+G |- c === c' : PIa:k1.k2
+
+
+G |- pi1 c === pi1 c' : k1     G |- pi2 c === pi2 c' : [pi1 c / a]k2      G,a:k1 |- k2:kind
+-------------------------------------------------------------------------------------------
+G |- c === c' : SIGMAa:k1.k2
+
+^ ^ ^ ^ 
+THESE TWO RULES WILL BE IMPORTANT

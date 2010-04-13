@@ -1,0 +1,120 @@
+Existential types
+
+c, t := ... EXISTS alpha: k.t 
+
+e := ... | pack [c, e] as EXISTS alpha: k.t
+         | unpack [alpha, x] = e1 in e : t
+
+Provides a means of abstraction:
+
+Suppose I have some module M which ascribes to this signature:
+  sig
+    type t
+    val f : t -> t
+    val x : t
+  end
+
+In SML, I'd say M.f : M.t -> M.t
+
+But you don't know what the type t actually *is*; you can only get to it through
+that interface. 
+
+So the signature would be written as:
+
+  EXISTS t : T: (t -> t) * t
+
+And using it is like so:
+
+unpack [t, x] = M
+in
+  (A t.T, x: (t -> t) * t)
+
+
+
+ANYWAY, the rules:
+G |- c: k       G |- e : [c/a] t     G, a:k |- t: T
+-------------------------------------------------------------
+G |- pack [c, e] as EXISTS alpha: k. t  :  EXISTS alpha: k. t
+
+
+G |- e1 : EXISTS a: k. t     G, a:k, x:t :- e2 : t'    G |- t' : T
+------------------------------------------------------------------
+G |- unpack [a, x] = e1 in e2 : t'
+
+I(T) = int
+I(S(t) = t
+I(PIa: k1.k2) = \a:k1. I(k2)
+I(SIGMAa:k1.k2) = <I(k1), I([I(k1)/a]k2)>
+
+Theorem: If G |- k kind then G |- I(k) : k
+
+
+
+Anyway, back to what we're doing:
+IL-Module
+* v
+IL-Direct
+  v
+IL-CPS
+* v
+IL-Closure
+
+Existentials are used in the *ed translations.
+
+
+Type-directed translation
+-------------------------
+vs. syntax-directed translation
+
+
+kolmogorov translation as an example of syntax-directed:
+p*
+a* -> not not a
+p => q -> not not (p* -> q*)
+etc.
+
+We like syntax-directed translations because they're *simple*.
+
+
+Type-directed translation is really typing-derivation-directed...
+
+Suppose we have a judgement like G |- e : t
+
+And we want to translate to e'
+
+G |- e : t => e'
+
+Properties: 
+e is well-typed if and only if there exists an e' such that G |- e : t => e'
+
+Thus, if something has a translation, it was already well-typed.
+
+Our inference rules for translation have access not just to e, but also to G and t - the context
+and typing derivation!
+
+
+
+
+Break:
+Continuation passing style.
+Instead of saying \x: t1. e  (where e : t2)
+We say \x: t1. \k: (t2 -> answer). .  . . .. We return the answer - not actually t2.
+
+
+IL-Direct:
+k := ...
+c, t = ... | forall | tuples | ¬t | int
+
+In IL-CPS, we get rid of function calls: Thus we get rid of t -> t type
+
+Now we'll separate values and terms into two different syntactic classes, too.
+A value is something that's "done running"; terms ("expressions" now) are things
+that actually do computation.
+
+e ::= v v | halt v | let x = v + v in e | let x = pi_i v in e
+       \ \- arg      ------------------
+        \- cont             \- most of the interesting stuff we do will look like this.
+
+v ::= x | \x: t.e  | <v, ... v>
+          -------
+             \- has type "not tau", or "tau cont"

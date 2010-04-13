@@ -1,0 +1,149 @@
+IGNORE whnfReduce
+-----------------
+
+Idea: that it would do everything but singletons
+
+
+CPS conversion!
+
+c, t = ... | forall | tuples | ¬t | int
+
+e ::= v v | halt v | let x = v + v in e | let x = pi_i v in e
+
+v ::= x | \x:t.e | <v, ... v> | i | LAMBDA a:k.v | v[c]
+
+                                      ^
+Note that no work happens at runtime here, so they can be values
+That's the "value restriction": must be a v, not an e
+
+
+---
+
+Expressions don't have types, since they don't return, so the judgement is:
+  G |- e : 0
+Values do:
+  G |- v : t
+
+
+----
+
+TYPECHECKING RULES
+------------------
+
+G(x) = t
+----------
+G |- x : t
+
+G :- t : T      G,x:t |- e : 0
+------------------------------
+       G |- \x:t.e : ¬t
+
+G |- v_i : t_i (for all appropriate i)
+--------------------------------------
+G |- <v_1, ... v_n> : *[t_1, ... t_n]
+
+
+------------
+G |- i : int
+
+G |- k: kind    G,a:k |- v : t
+--------------------------------
+G |- LAMBDA a:k.v : FORALL a:k.t
+
+G |- v : FORALL a: k.t   G |- c:k
+---------------------------------
+      G |- v[c] : [c/a]t
+
+G |- v1 : ¬t    G |- v2: t
+--------------------------
+     G |- v1 v2 : 0
+
+G |- v : int
+---------------		<------ ?
+G |- halt v : 0
+
+G |- v : *[t0, ... t_n-1]     G,x:t_i |- e : 0
+----------------------------------------------
+        G |- let x = pi_i v in e : 0 
+
+
+G |- v1: int   G |- v2:int   G,x:int |- e : 0
+---------------------------------------------
+      G |- let x = v1 + v2 in e : 0
+
+Let expressions:
+Let's extend e
+e ::= ... | let x = v in e ... and so on.
+
+
+
+Now, translating types:
+
+|t| = t'		<- syntax-directed
+G |- e : t ~> e'	<- type-directed
+
+|t1 -> t2| = ¬(|t1| x |t2|)		<- "DeMorganification"!
+
+Everywhere else, we just map the type translation through everything ("catamorphism")
+
+Variables get left alone:
+
+|a| = a
+|x[t1, ... tn]| = x[|t1|, ... |tn|]
+|int| = int
+|FORALLa:k.t| = FORALLa:|k|.|t|
+
+Kinds:
+|T| = T
+|S(c)| = S(|c|)
+|PIa:k1.k2| = PIa:|k1|.|k2|
+|\a:k.c| = \a:|k|.|c|
+|c1 c2| = |c1| |c2|
+|<c1,c2>| = <|c1|,|c2|>
+|PI_i c| = PI_i |c|
+
+
+We need to decide whether |t1 -> t2| = ¬(|t1| x |t2|) is a v or an e
+
+
+G |- e : t ~> x:e'
+----------    ---
+IL-Direct     CPS
+
+NOTE: |G| means translate everything in G
+
+Rules for translations:
+If    G |- e : t ~> x:e
+Then |G|,x:¬|t| |- e' : 0
+
+
+       G(x) = t
+--------------------------
+G |- x : t ~> k.(¬|t|) k x
+
+G |- t:T     G,x:t |- e:t2 ~> k'(¬|t2|).e'                     / x1 is a t1; x2 is a ¬t2
+-----------------------------------------------------------   / 
+G |- \x:t.e : t1 -> t2  ~>  k.(¬|t1->t2| = ¬¬(|t1|x¬|t2|))   
+                          ... k(\y:(|t1|x¬|t2|). let x = pi0 y in 
+                                                 let k' = pi1 y in e')
+
+  "Take the argument and return address; separate them out; then apply them"
+
+
+                       .- ¬|t->t'| = ¬¬(|t|x¬|t'|) 
+                      /                         . ¬|t|
+                     /                         /
+G |- e1: t -> t' ~> k1.e1'     G |- e2 : t ~> k2.e2'
+-----------------------------------------------------
+G |- e1 e2 | t' ~> k. ( ¬|t| )
+                   let k1 = \x: ¬(|t| x ¬|t'|).
+                            let k2 = ( \x2: |t|.
+                                       x1 <x2, k> )
+                             in e2'
+                     in e1'
+                      
+
+
+CPS does several things:
+Linearizes code
+Reifies control

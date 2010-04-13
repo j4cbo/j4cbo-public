@@ -1,0 +1,136 @@
+Natural kind: missing rules
+
+------------
+c1 -> c2 ^ T
+
+---------------
+FORALLa:k.c ^ T
+
+
+Now, another way of doing it, large-step reduction:
+c V p    G |- p ^ T
+-------------------
+   G |- c VV p
+
+
+c V p    G |- p ^ S(c')  G |- c' VV p'
+--------------------------------------
+        G |- c VV p'
+
+		c1 V p1			c1 v \a:k.c1'	   [c2/a]c1' V p
+-----		-----------		--------------------------------
+a V a		c1c2 V p1c2			c1c2 V p
+
+
+   c V p		c V <c1, c2>    c1 V p
+-------------		----------------------		-------------------
+pi1 c V pi1 p			pi1 c V p		c1 -> c2 V c1 -> c2
+
+
+------------------------
+FORALL blah V FORALL blah
+
+
+G |- c VV p	weak-head normal form
+c V p		whnf reduce
+
+
+ANYWAY
+
+Suppose we have G |- e : t.
+We say it translates to e', where k is the continuation it accepts:
+
+	G |- e : t ~> k.e'
+
+We write |t| as the translation of t
+Note that |t1 -> t2| = ¬(|t1| x ¬|t2|)
+
+More translations. Function application!
+
+
+G |- e1 : (t1 -> t2) ~> k1.e1'    G |- e2 : t1 ~> k2.e2'		Note that k1 : ¬¬(|t1|x¬|t2|)
+------------------------------------------------------
+G |- e1e2 : t1 ~> k. let k1 = (\x1 : ¬(|t1|x¬|t2|).
+                              let k2 = (\x2.|t1|. x1 <x2, k>) in e2'
+                      in e1'
+
+
+
+...
+
+Now for the interesting part!
+
+G |- e1:t1 ~> k1.e1'    G |- e2:t2 ~> k2.e2'
+--------------------------------------------------
+G |- <e1, e2> : t1 x t2 ~> k. let k1 = (\x1:|t1|. 
+                                        let k2 = (\x2:|t2|.
+                                                  k <x1, x2>
+                                        in e2')
+                                   in e1'
+
+To generalize to n-tuples:
+
+For all i in sizeof tuple: G |- ei:ti ~> ki.ei'
+------------------------------------------------
+G |- <e1, ... en> : x[t1, ... tn] ~> k. let k1 = (\x1:|t1|. 
+                                          let k2 = (\x2:|t2|.
+                                            ...
+                                              let kn = (\xn:|tn|.
+                                                  k <x1, x2, ... xn>
+                                              in en'
+                                        in e2')
+                                   in e1'
+
+
+
+G |- e : x[t1, ... tn] ~> k'.e'
+-------------------------------
+G |- pi_i e : ti ~> k. let k' = (\x:|x[t1,...tn]|).
+                                let y = pi_i x in k y
+                       in e'
+
+
+  Variables:
+
+G(x) = t
+---------------------
+G |- x : t ~> k. k x
+
+
+  Numbers:
+
+----------------------
+G |- i : int ~> k. k i
+
+
+G |- e1 : int ~> k1.e1'      G |- e2 : int ~> k2.e2'
+----------------------------------------------------
+G |- e1 + e2 : int
+  ~>
+     k. let k1 = \x1:int.
+                 (let k2 = (\x2:int.
+                     let x = k1 + x2 in k x)
+                  in e2')
+        in e1'
+
+
+   Polymorphic functions:
+
+We want to make sure that |FORALLa:k.t| is FORALLa:k.|t|
+
+
+    -> note that |G|,a:K,k':¬|t| |- e':0
+
+G |- K kind      G, a:K |- e. t ~> k'.e'
+--------------------------------------------------------
+G |- LAMDA a:K.e' : FORALLa:K.t -> k.
+       k (LAMBDA a: |K|. \k':¬|t|. e')
+
+
+
+G |- e : FORALLa: K. t ~> k'.e'     G |- c : K
+----------------------------------------------
+G |- e[c] : [c/a]t ~> k. let k' = \x: |FORALLa:K.t|.
+                                      x[|c|] k
+
+

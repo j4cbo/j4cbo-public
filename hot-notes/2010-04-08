@@ -1,0 +1,31 @@
+"Where does the ILDirect type come from?"
+
+If G |-I M : sigma ~> e
+And sigma ~> [a:k.t]
+Then |G| |- e : EXISTS a:k.t
+
+
+
+... GCs!
+
+Copying
++ asymptotic performance is good
++ fragmentation avoided
++ (?) cache performance?
+
+
+Mark-Sweep
++ can be conservatiave
++ portable
+- asymptotic performance sucks
+- fragmentation
+
+...
+
+
+Copying!
+"White" = untouched
+"grey" = partially copied
+"black" = done
+
+There are no pointers from black to white.

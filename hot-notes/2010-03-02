@@ -1,0 +1,150 @@
+A few notes:
+- Top level rule from before
+- trans':
+    kind V.map -> con V.map
+    -> D.term
+    -> D.con * C.exp
+
+
+e1: t -> t'	e2: t
+---------------------
+      e1 e2 : t'
+
+To typecheck something like this, we must whnf things before matching on them!
+------------------------------------------------------------------------------
+
+
+
+Back to closure conversion
+==========================
+
+We want to get rid of the fact that in \x:t.e, e might mention variables other than x.
+So we turn it into a function that takes a tuple:
+<(\z : t * t_env = let x = pi_0 t in
+                   let env = pi_1 t in
+                   ...
+                   in e), <...>>
+ ... and the environment tuple itself.
+
+The problem is: what is the environment type?
+
+We'll call the whole thing of type EXISTS a_env : (t * a_env -> t') * a_env
+ (... which sort of puts off the actual problem until later?)
+This is one of the reasons why we have EXISTS in the language.
+
+In IL-CPS:
+x : t |- e : 0    |- t : type
+-----------------------------
+G |- \x:t.e : ¬t 
+
+Note that we only remove term variables, not type variables.
+
+Rules for turning G into GT, which has only type variables:
+epsilonT = epsilon
+(G, x:t)T = GT, x:T
+(G, a:k)T = GT
+
+
+|¬t| = EXISTS a_env : t. (¬(|t| x a_env) x a_env)
+
+Sanity check:
+If G |- e : 0 ~> e', then |G| |- e' : 0
+If G |- v : t -> v' then |G| |- v' : |t|
+
+
+
+Now, GT = x1:t1, ... xn:tn
+
+G |- t: T   G, x:t |- e:0
+-------------------------
+G |- \x:t.e : ¬t ~> 
+
+ pack [ t_env, 
+        <\z: |t| x t_env.
+             let x = pi_0 z in 
+             let env = pi_1 z in
+             let x1 = pi0 env in
+             let xn = pi(n-1) env in e',
+             <x1, ... xn>>
+      ] as |¬T| 
+
+(Where t_env = x(t1, t2, ... tn))
+
+
+
+
+Pack and unpack:
+e := ... | unpack [a, x] = v in e
+v := ... | pack [c, v] as EXISTSa:k.c
+
+
+G |- c: k    G |- v:[c/a]t    G,a:k |- t:T
+------------------------------------------
+G |- pack[c, v] as Ea:k.t : Ea:k.t
+
+
+G |- v : Ea:k.t   G,a:k,x:t |- e:0
+----------------------------------
+G |- unpack[a, x] = y in e : 0
+
+...
+ now for application
+...
+
+                 /- v1 is an Ea_env : T . (¬(|t| x a_env) x a_env)
+G |- v1 : ¬t ~> v1'    G |- v2 : t ~> v2'
+-----------------------------------------
+G |- v1 v2 : 0 ~> unpack [a_env, p] = v1'
+                  in let k = pi0 p
+                  in let env = pi1 p 
+                  in k < vt', env >
+
+
+G |- v1:t1 ~> vi', ... G |- vn : tn ~> vn'
+---------------------------------------------------
+G |- <v1, ... vn> : x[t1, ... tn] ~> <v1', ... vn'>
+
+
+G |- k:kind     G,a:k |- v:t ~> v'
+----------------------------------------------
+G |- LAMBDAa:k.v : FORALLa:k.t ~> LAMBDAa:k.v'
+
+
+G |- v: FORALLa:k.t ~> v'   G |- c:k
+------------------------------------
+G |- v[c] : [c/a]t ~> v[|c|]
+
+
+Now, how does all this work with polymorphic functions?
+
+x:int, a:T |- e:0 ~> e'
+-----------------------------------------------
+G, x:int |- LAMBDAa:T. \x:t. e   : FORALLa:T.¬t
+ ~> LAMBDAa:T. pack [ x[int],
+                      < (\z:|t| x x[int]...),
+                        <x1>>] as |¬t|
+
+So the result is closed over terms, not types.
+We *can*, however, use substitution to deal with *type* arguments at compile time!
+
+
+
+
+IL-Hosist:
+v := ... remove \x:t.e and LAMBDA
+New concept, "program": a list of bindings of funcions, ending in the actual prgram.
+P ::= e | let x = F in P
+F ::= \x:t.e | LAMBDAa:k.F 
+
+Hoisting is a pain to write out in inference rules. It's easy in code: walk term, pull out functions.
+
+G |- v:t ~> v' in eta     (eta is a list of variables and Fs)
+G |- e:t ~> e' in eta
+
+
+ G0 is a1:k1, ... an:kn
+/
+G0 |- t:T    G0,x:t |- e:0 ~> e' in eta
+---------------------------------------------------------------------------------
+G |- \x:t.e : ¬t ~> k[a1] ... [an] in eta, k = LAMBDAa1:k1. LAMBDAan:kn. \x:t.e'
+                                             = LAMBDA G0. \x:t.e' 

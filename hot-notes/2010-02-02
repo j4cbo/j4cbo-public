@@ -1,0 +1,94 @@
+The languages:
+
+EL (or "SML"!)
+IL-Module
+IL-Direct	<- we start here
+IL-CPS
+IL-Closure
+IL-Hoist
+IL-Alloc
+C
+
+IL-Direct:
+
+k ::= T | PIa:k.k | SIGMAa:k.k | S(c)
+c, tau ::= alpha | \a:k.c | c c | <c,c> | pi1c | pi2c
+         | t -> t | FORALLa:k.t | x[tau, ... tau]
+         | +[tau, ... tau] | ref t | exn | tag t | mu a.t
+
+    Tuple shortcut: tau x tau = x[tau, tau]
+    Note: last time, exn was called tagged
+
+Terms:
+
+e ::= x | \x:t e | c c | DELTAa:k.e | e[c]
+    | <e, ... e> | pi_i e | inj^{+[t, ... t]}_i e
+    | case (e, x.e, ... x.e)
+    | ref e | !e  | e := e
+    | newtag t | tag (e, e) | iftag(e, e, x.e, e)
+    | raise^t e | handle (e, x.e)
+
+newtag t makes a tag for t
+tag (e, e) tags an expression and returns an exn
+iftag (exn, tag, ifmatch, ifnomatch)
+
+
+Typing rules:
+           G |- e : t_i
+----------------------------------------
+G |- inj^{+[t0...tn-1]} e : +[t0...tn-1]
+
+
+G |- e:+[t0, ... tn-1]      [for each i] G,x:t_i |- e_i : T
+-----------------------------------------------------------j		
+       G |- case(e, x.e0, ... x.en-1) : t
+
+
+G |- e : t
+------------------
+G |- ref e : ref t
+
+
+G |- e : ref t
+---------------
+G |- !e : t
+
+
+G |- e1 : ref t      G |- e2 : t
+--------------------------------
+    G |- e1 := e2 : unit
+
+
+G |- t : T
+---------------------
+G |- newtag t : tag t
+
+
+G |- e : tag z   G |- e2 : z
+----------------------------
+G |- tag(e1, e2) : exn
+
+
+G |- e : exn     G |- e_t : tag t     G,x:t |- e_m : t'      G |- e_n : t'
+--------------------------------------------------------------------------
+               G |- iftag(e, e_t, x:e_m, e_n) : t'
+
+
+G |- e : exn     G |- t : T
+----------------------------
+     G |- raise^t e : t
+
+
+G |- e1 : t     G, x : exn |- e2 : t
+-------------------------------------
+G |- handle(e1, x.ez) : t
+
+
+G |- e: [mu a: t / a]e
+----------------------
+G |- roll e : mu a. t
+
+
+G |- e : mu a. t
+-----------------------------
+G |- unroll e : [mu a. t/a] t

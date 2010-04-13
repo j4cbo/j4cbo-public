@@ -1,0 +1,158 @@
+Our IL-Direct to IL-CPS translation is designed to preserve the following invariant:
+
+If G |- e : t ~> k.e'
+   ----------    ----
+   IL-Direct    IL-CPS
+
+Then |G|, k : ¬|t| |- e' : 0
+
+
+Want to do something with the top-level program:
+
+|- e : t ~> k.e'
+------------------------------
+e : t ~> let k = \x:|t|. halt
+         in e'
+
+REVISIONS TO ASSIGNMENT
+-----------------------
+
+halt doesn't take a value
+
+Kinds:
+  k ::= T | S(c) | PIa:k1.k2 | SIGMAa:k1.k2 | 1
+  c ::= ... | *
+
+  1 is the unit kind - you use it when there "isn't anything interesting".
+The corresponding type is *.
+
+----------
+G |- * : 1
+
+-------------
+G |- 1 : kind
+
+G |- c : 1    G |- c' : 1
+-------------------------
+    G |- c === c' : 1
+
+Continuations
+-------------
+
+t ::= ... | t cont
+e ::= ... | letcc_t x in e | throw_t e to e
+
+G |- t type    G, x : t cont |- e : t
+-------------------------------------
+     G |- letcc_t x in e : t
+
+G |- t : type    G |- e1 : t'   G |- e2 : t' cont
+-------------------------------------------------
+          G |- throw_t e1 to e2 : t
+
+
+The translation
+---------------
+
+| t cont | = ¬|t|
+
+G |- t type    G, x : t cont |- e : t ~> k'.e'
+----------------------------------------------
+ G |- letcc_t x in e : t ~> k. let x = k in e'
+
+G |- t : type    G |- e1 : t' ~> k1.e1'    G |- e2 : t' cont ~> k2.e2'
+----------------------------------------------------------------------
+ G |- throw_t e1 to e2 : t ~> k. let k1 = \x1:|t'|.
+                                              let k2 = \x2: ¬|t'|. x2 x1
+                                               in e2'
+                                 in e1'
+
+
+Exceptions
+----------
+
+e ::=... | raise_t e | handle (e, x.e)
+
+A term can finish in two ways, now: it can return, or it can raise:
+If  G |- e : t -> k, ke . e'
+Then |G|, k : ¬|t|, ke : |exn| |- e' : 0
+(Note that we will define |exn| as exn)
+
+G |- e : x[t0, .... tn] ~> k', ke . e'
+--------------------------------------
+G |- pi_i e : t_i ~> k, ke . let k' = \x: |x[...]|. let y = pi_i x in k y
+                                in e'
+
+The rest of the rules "should follow"...
+
+Now, |t1 -> t2| is ¬(x[|t1|, ¬|t2|, ¬exn])
+
+
+G |- t : type    G,a:t |- e:t' -> k',ke'.e'
+-------------------------------------------
+G |- \x:t.e:t->t' ~> k,ke.k (\y: x[|t|,¬|t'|,exn].
+                                 let x = pi_0 y in
+                                 let k' = pi1 y in
+                                 let ke' = pi2 y in e')
+
+
+G |- e1:t->t' ~> k,ke.e1'    G |- e2:t ~> k2,ke.e2'
+---------------------------------------------------
+G |- e1 e2 : t' ~> k,ke.let k1 = \x1:|t1 -> t2|.
+                                 let k2 = \x2:|t|.
+                                          x1<x2,k,ke>
+                                 in e2'
+                        in e1'
+
+
+      G |- t:T         G |- e:exn ~> k',ke.e'
+--------------------------------------------------------
+G |- raise_t e : t ~> k,ke. let k' = \x:exn. k_e x in e'
+
+
+    G |- e1:t ~> k,ke1.e1'       G,x:exn |- e2:t ~> k,ke.e2'
+-----------------------------------------------------------------
+G |- handle(e1, x.e2) : t ~> k,ke. (let ke' = \x:exn. e2') in e1'
+     
+
+
+
+
+NEXT!
+
+Closure conversion.
+
+All we do is change one typing rule:
+  G |- t:T   G,x:t |- e:0
+  -----------------------
+     G |- \x:t.e : ¬t
+To:
+  G |- t:T     x:t |- e:0
+  -----------------------	<- get rid of the G
+     G |- \x:t.e : ¬t
+
+  In every implementation ever, a function is implemented as some code
+(which is closed) and an environment (in which all the free variables live).
+
+
+x:int: Transform \y:int. x + y
+
+     to \z:int * int. let y = pi0 z in
+                      let x = pi1 z in x + y
+
+y is the original y; x came from the environment.
+
+x : int, x' : int |- \y:int. x + y + x'
+                         |
+                         v
+
+              < (\z: int * (int * int). let y = pi0 z in
+                                        let env = pi1 z in
+                                        let x = pi0 env in
+                                        let x' = pi1 env in x + y + z),
+                (x, x') >
+
+With types, the environment type may become different - say, on either side of an if/else.
+Solution: use existential types... (?)
+
+

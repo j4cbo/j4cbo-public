@@ -1,0 +1,92 @@
+--------------
+-- HOISTING --
+--------------
+
+G |- v : t ~> v' with eta
+G |- e : 0 ~> e' with eta
+
+eta :== epsilon | eta, x = F
+
+   G0 is a1:k1, a2:k2, ... an:kn
+  /
+G0 ~- t : T    G0, x : t |- e : 0 ~> e' with eta
+-------------------------------------------------
+G |- \x:t.e : ¬t ~> k [a1] ... [an]
+                    with eta, k = LAMBDA gamma0: \x:t.e'
+
+G |- v1 : ¬t ~> v1' with eta1,    G |- 2 : ¬t ~> v2' with eta2
+--------------------------------------------------------------
+             G |- v1' v2' with eta1, eta2 
+
+G |- k: kind    G, a:k |- v : t ~> v' with eta
+---------------------------------------------------------
+G |- LAMBDA a: k.v : FORALLa:k.t ~> LAMBDAa:k.v' with eta
+
+|- e : 0 ~> e' with x1 = F1, ... xn = Fn
+-----------------------------------------------
+| e : 0 ~> let x1 = F1 in .... let xn = Fn in e
+
+
+What does an IL-Hoist program look like?
+P ::= e | let x = F in p
+F ::= \x:t.e | LAMBDAa:k.F
+e ::= v v | let x = v in e | let x = pi_i v in e | let x = v+v in e
+    | if v then e else e | halt
+v ::= x | <v1, ... vn> | v[c]
+
+-----------------------------------------
+Next: IL-Alloc
+-----------------------------------------
+
+Get rid of LAMBDA, v[c], <v1, ... vn>
+
+P ::= e | let x = F in p
+F ::= \x.e
+e ::= v v | let d in e | if v then e else e | halt
+d ::= x = v | x = pi_i v | x = v + v | x = alloc(i) | x[i] = v
+v ::= x
+
+----
+
+G |- v : t ~> v' with d->
+G |- e : t ~> e'
+G |- F : t ~> F
+  |- p : 0 ~> p'
+
+
+G(x) = t
+----------------------------
+G |- x : T ~> x with epsilon
+
+G |- v_i : t ~> v' with d->i
+---------------------------------
+G |- <v1, ... vn> : x[t1, ... tn]
+  ~> x with d->1, ... d->n, x = alloc(n),
+     [0] := v1', ... x[n-1] := vn
+
+
+G |- v1 : FORALLa:k.t -> v' with d->      G |- c:k
+---------------------------------------------------
+G |- v[c] : [c/a]t ~> v' with d->
+
+
+G |- k kind   G,a:k |- v : t ~> v' with d->
+---------------------------------------------
+G |- LAMBDAa:k.v : FORALLa:k.t ~> v' with d->
+
+
+G |- v : t_i ~> v' with d-> 
+--------------------------------------------------------------
+G |- inj_i +[t0, ... tn-1] v : +[...] ~> x with d->,
+                                         x = alloc(2),
+                                         x[0] := i, x[1] := v'
+
+
+G |- v : t ~> v' with d->    G, x : t |- e : 0 ~> e'
+----------------------------------------------------------
+G |- let x = v in e : 0 ~> let d-> in let x = v' in e'
+
+
+G |- v1 : ¬t ~> v1' with d1->    G |- v2 : t ~> v2' with d2->
+--------------------------------------------------------------
+G |- v1 v2 : 0 ~> let d1-> in let d2-> in v1' v2'

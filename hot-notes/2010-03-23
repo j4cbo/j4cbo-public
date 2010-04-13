@@ -1,0 +1,156 @@
+sigma ::= get rid of fancy tuple notation; | SIGMA a : sigma1.sigma2 | 1
+M ::= get rid of fancy tuple notation; <a/m=M1,M2>
+    | * | get rid of pi_i | pi1 M | pi2 M
+
+Fst(SIGMA a : sigma1.sigma2) = SIGMA a : Fst(sigma1).Fst(sigma2)
+Fst(1) = 1
+
+G |- Fst M1 >> c1      G |-p M1 : sigma1      G,a/m:sigma1 |- Fst(M2) >> c2
+---------------------------------------------------------------------------
+G |- Fst <a/m=M1,M2> >> <c1, [c1/a]c2>
+
+
+G |-k M1 : sigma1      G,a/m:sigma1 |-k M2 : sigma2
+---------------------------------------------------
+G |-k <a/m=M1,M2> : SIGMA a:sigma1.sigma2
+
+
+G |-p M : SIGMAa : sigma1.sigma2
+--------------------------------
+G |-p pi1 M : sigma1
+
+
+G |-p M : SIGMAa : sigma1.sigma2     G |- Fst(M) >> c
+-----------------------------------------------------
+G |-p pi2 M : [pi1 c/a] sigma2
+
+
+----------
+G |- * : 1
+
+
+----------------
+G |- Fst(*) >> *
+
+
+"Kind inference"?
+
+G |-k M => sigma
+
+------------
+G |-p * => 1
+
+
+G |- c => k
+------------------------
+G |-p (| c |) => (| k |)
+
+
+G |- e => t
+------------------------
+G |-p <| e |> => <| t |>
+
+
+a/m : sigma \in gamma
+---------------------    <===== SELFIFICATION
+G |- m => S(a:sigma)
+
+
+Singleton rule:
+-----------------------
+|                     |
+|       G(a) = k      |
+|   ---------------   |
+|   G |- a : S(a:k)   |
+|                     |
+-----------------------
+
+S(c : (| k |)) = (| S(c:k) |)
+S(c : <| t |>) = <| t |>
+S(c : 1) = 1
+
+S(c : PIapp a:sigma1.sigma2) = PIapp a : sigma1.S(c a : sigma2)
+S(c : PIgen a:sigma1.sigma2) = PIgen a: sigma2.sigma2
+S(c : SIGMAa:sigma1.sigma2) = S(pi1c : sigma1) x S(pi2c : [pi1c/a]sigma2)
+
+M : sig type t
+        type u
+        val f : t -> u
+    end
+
+
+G |- c : PIa:k1, k2'    G,a:k1 |- c a : k2
+------------------------------------------
+G |- c : PIa:k1.k2
+
+
+G |- pi1c : k1     G |- pi2 c : [pi1c/a] k2
+-------------------------------------------
+G |- c : SIGMA a : k1.k2
+
+
+G |-p M : PIapp a:sigma1.sigma2'      G,a/m:sigma1 |- M m : sigma2
+------------------------------------------------------------------
+*   G |-p M : PIapp a : sigma1.sigma2
+
+
+G |-p pi1 M : sigma1     G |-p pi2 \box : sigma2
+------------------------------------------------
+G |-p M : sigma1 x sigma2    *
+
+*   G |-p M : (| k' |)     G |- Fst(M) >> c     G |- c : k
+    ------------------------------------------------------
+    G |-p M : (| k |)
+
+
+====================================================
+The above inference rules are only relevant for the metatheory.
+Now back to signature inference:
+
+
+Now to the useful stuff:
+G |- sigma1 : sig     G,a/m : sigma2 |-k M => sigma2
+----------------------------------------------------
+G |-p \gen a/m : sigma1. M => PIgen a:sigma1.sigma2
+
+
+G |-k M1 => PIgen a : sigma1.sigma2     G |-p M2 => sigma1'    G |- sigma1' <| sigma1     G |- Fst(M2) >> c
+-----------------------------------------------------------------------------------------------------------
+G |-I M1 M2 => [c/a]sigma2
+
+
+G |- sigma1 : sig   G,a/m:sigma1 |-p M => sigma2
+-------------------------------------------------
+G |-p \app a/m:sigma1. M => PIapp a:sigma1.sigma2
+
+
+G |-k M1 => PIapp a : sigma1.sigma2     G |-p M2 => sigma1'     G |- sigma1' <= sigma1    G |- Fst(M2) >> c
+-----------------------------------------------------------------------------------------------------------
+G |-k M1 e M2 => [c/a]sigma2
+
+
+G |-k1 M1 => sigma1     G,a/m | sigma1 |-k2 M2 => sigma2
+--------------------------------------------------------
+G |-_{k1 u k2} <a/m = M1, M2> => SIGMAa:sigma1.sigma2
+
+Note: P u P = P
+      _ u _ = I
+
+G |-p M => SIGMAa:sigma1.sigma2
+-------------------------------
+G |-p pi1 M => simga1
+
+
+G |-p M => SIGMAa:sigma1.sigma2     G |- Fst(M) >> c
+----------------------------------------------------
+G |-p pi2 M => [pi1 c / a] sigma2
+
+
+G |-k M => sigma'     G |- sigma' <| sigma
+-------------------------------------------
+G |-I (M :> a) => a
+
+If G |- M => sigma and G |- M : sigma' then G |- sigma <= sigma'
+
+
+================================================================================

@@ -1,0 +1,99 @@
+Signature equivalence
+
+G |- sigma : sig
+--------------------------
+G |- sigma === sigma : sig
+
+
+G |- k1 === k2 : kind
+--------------------------------
+G |- (| k1 |) === (| k2 |) : sig
+
+
+G |- t1 === t2 : T
+--------------------------------
+G |- <| t1 |> === <| t2 |> : sig
+
+
+G |- sigma1 === sigma1' : sig     G,a:sigma1 |- sigma2 === sigma2' : sig
+------------------------------------------------------------------------
+G |- SIGMA a : sigma1.sigma2 === SIGMA a : sigma1'.sigma2' : sig
+     (also PIapp, PIgen)         (also PIapp, PIgen)
+
+
+G |- sigma2 === sigma1 : sig
+----------------------------	Reflexivity
+G |- sigma1 === sigma2 : sig
+
+
+G |- sigma1 === sigma2 : sig     G |- sigma2 === sigma3 : sig
+-------------------------------------------------------------
+G |- sigma1 === sigma3 : sig
+
+
+Subsignatures
+
+   G |- k1 <= k2 : kind
+-------------------------------
+G |- (| k1 |) <= (| k2 |) : sig
+
+
+G |- sigma1 === sigma2 : sig
+----------------------------
+G |- sigma1 <= sigma2 : sig
+
+
+G |- sigma1 <= sigma2 : sig	G |- sigma2 <= sigma3 : sig
+-----------------------------------------------------------
+G |- sigma1 <= sigma3 : sig
+
+
+                           G,a:Fst(sigma1') |- sigma2' : sig
+G |- sigma1 <= sigma1'     G,a:Fst(sigma1) |- sigma2 <= sigma2'
+---------------------------------------------------------------
+G |- SIGMA a:sigma1.sigma2 <= SIGMA a:sigma1'.sigma2' : sig
+
+
+                           G,a:Fst(sigma1) |- sigma2 : sig
+G |- sigma1' <= sigma1     G,a:Fst(sigma1') |- sigma2 <= sigma2'
+-----------------------------------------------------------------------
+G |- PI{app,gen} a:sigma1.sigma2 <= PI{app,gen} a:sigma1'.sigma2' : sig
+
+
+AVOID
+-----
+
+let G |- c : k
+check G,a:k |- [c/k]a === t : T
+let t' be [c/a]t
+
+Avoidance problem for values: types declared in a let block can't escape the let block.
+
+
+G |-l M1 : sigma1     G,a/m:sigma1 |-k M2 : sigma2
+--------------------------------------------------
+G |-k <a/m = M1,M2> : sigma1 * sigma2
+
+
+G |- c1:k1     G |- c2 : [c1/a]k2     G,a:k1 |- k2 : kind
+---------------------------------------------------------
+G |- <c1, c2> : SIGMAa: k1.k2 
+
+
+G |-p M1 : sigma1    G |-I M2 : [c1/a]sigma2   G |- Fst(M1) >> c
+
+
+
+----------------------------------------------
+G |- <a/m = M1,M2> : S(c:sigma1) x [c/a]sigma2 
+
+
+   and		    G |- S(c:sigma1) x [c/a]sigma2 <= SIGMAa:sigma1.sigma2
+--------------------------------------------------------------------------
+G |-I <a/m = M1, M2> : SIGMAa:sigma1.sigma2
+
+
+"You always belong to the selfification of your signature: that's
+  what selfification is all about."
+
+.... my god, it's full of stars 
