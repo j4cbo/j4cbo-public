@@ -1,0 +1,1823 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>tunnels.kml</name>
+	<Style id="sh_wht-blank">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin1">
+		<LineStyle>
+			<color>ffff0089</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="interesting-feature">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_wht-blank</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_wht-blank</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_purple-circle0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_purple-circle2</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_purple-circle1</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="blue-circle-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/blu-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/blu-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_ltblu-circle0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="msn_purple-stars">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_purple-stars</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_purple-stars</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_purple-stars">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="blue-star-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/blu-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/blu-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="red-star-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="msn_purple-circle">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_purple-circle0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_purple-circle2</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_ltblu-circle">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="red-star-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="green-star-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="green-circle-highlight">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_purple-circle2">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_wht-blank">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="red-star">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#red-star-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#red-star-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="blue-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#blue-pushpin-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#blue-pushpin-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="yellow-star">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#yellow-star-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#yellow-star-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="yellow-circle">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#yellow-circle-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#yellow-circle-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="red-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#red-pushpin-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#red-pushpin-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="green-pushpin-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/grn-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff00</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="blue-circle">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#blue-circle-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#blue-circle-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="red-pushpin-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>00ffff00</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="blue-pushpin-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ffff0000</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="red-circle-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_purple-circle">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="yellow-pushpin-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ffff</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_ltblu-circle">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ltblu-circle</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ltblu-circle</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_purple-stars">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_purple-circle1">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="blue-star">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#blue-star-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#blue-star-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="red-pushpin-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="green-star">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#green-star-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#green-star-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_ylw-pushpin0">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>fff3ff00</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="green-circle">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#green-circle-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#green-circle-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="green-star-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="red-circle">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#red-circle-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#red-circle-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="yellow-star-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_ltblu-circle0">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_purple-circle">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_purple-circle1">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="yellow-pushpin-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ffff</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="yellow-circle-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>ffff0089</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="green-circle-normal">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="yellow-star-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="green-pushpin-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/grn-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff00</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin">
+		<LineStyle>
+			<color>fff3ff00</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="blue-star-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/blu-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/blu-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_purple-circle0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin1</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_purple-circle0">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="msn_purple-circle1">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_purple-circle</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_purple-circle</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_ylw-pushpin1">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="blue-pushpin-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ffff0000</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_ltblu-circle0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ltblu-circle0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ltblu-circle0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_ltblu-circle">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="green-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#green-pushpin-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#green-pushpin-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="blue-circle-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/blu-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/blu-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="red-circle-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="msn_purple-circle2">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_purple-circle1</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_purple-circle0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="yellow-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#yellow-pushpin-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#yellow-pushpin-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="yellow-circle-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_purple-circle2">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Folder>
+		<name>Carnegie Mellon</name>
+		<open>1</open>
+		<Folder>
+			<name>Margaret Morrison</name>
+			<description>Non-tunnel places in Margaret Morrison.</description>
+			<Placemark>
+				<name>Room 101</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<p>
+This is a small room on MM C level, in the farthest northwest corner. It's
+around eight by twelve by eight feet, and has one door, accessible only through
+an electrical room. At various times it has been known to contain:
+</p>
+<ul>
+<li>A half-full Nalgene bottle</li>
+<li>A rusted bicycle wheel</li>
+<li>A student desk, facing the wall</li>
+</ul>
+<p>
+A small light fixture hangs near the ceiling.
+</p>
+C level is around twenty feet below ground level of the tennis courts,
+<i>under</i> every steam tunnel. Nobody will hear you scream.]]></description>
+				<LookAt>
+					<longitude>-79.94148947608882</longitude>
+					<latitude>40.44241496075884</latitude>
+					<altitude>0</altitude>
+					<range>131.8322364739053</range>
+					<tilt>0</tilt>
+					<heading>0</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#interesting-feature</styleUrl>
+				<Point>
+					<coordinates>-79.94153892895052,40.44260731641074,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Former Kage</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<p>
+Slightly past the Architecture dFab, on the west side of the hallway, is a very
+large two-story room containing two cages. Both appear to be fairly unused now;
+in ages past, the smaller belonged to the KGB, and the larger to Explorers
+Club. The room itself is unlocked and accessible, but the cages are securely
+locked.
+</p>
+<p>
+The high-pressure sodium lamps here take a while to turn on; the room looks
+really cool while they're warming up.
+</p>]]></description>
+				<LookAt>
+					<longitude>-79.94184274388736</longitude>
+					<latitude>40.44237574291182</latitude>
+					<altitude>0</altitude>
+					<range>132.0891507878523</range>
+					<tilt>0</tilt>
+					<heading>0</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#interesting-feature</styleUrl>
+				<Point>
+					<coordinates>-79.9415871847191,40.44237514303284,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Rotunda</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<p>
+In case you didn't already know: the third-floor hallway here, outside the
+architecture studios, has a window with easy access to the rotunda.
+</p>]]></description>
+				<LookAt>
+					<longitude>-79.9417869723022</longitude>
+					<latitude>40.44217879277517</latitude>
+					<altitude>0</altitude>
+					<range>131.0172709908761</range>
+					<tilt>0</tilt>
+					<heading>0</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#interesting-feature</styleUrl>
+				<Point>
+					<coordinates>-79.94159999999999,40.4419,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Excavation</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<p>
+The pit in the ground here leads down to a door in what would be C level.
+</p>
+<p>
+Although there is an actual C level in the north wing of MM, this area
+contains only a small amount of full-height space with some piping. It connects
+into a large, partially-excavated area under most of the south of MM, with lots
+of foundation footings, piles of rubble, and so on. Official floorplans show
+the doorway and area with the equipment, but not the full extent of the space.
+</p>
+<p>
+There appears to be lots of asbestos about.
+</p>]]></description>
+				<LookAt>
+					<longitude>-79.94110144010718</longitude>
+					<latitude>40.44200386128797</latitude>
+					<altitude>0</altitude>
+					<range>168.2951739493386</range>
+					<tilt>0</tilt>
+					<heading>0</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#interesting-feature</styleUrl>
+				<Point>
+					<coordinates>-79.94132307216859,40.44206787913172,0</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		<Folder>
+			<name>CFA</name>
+			<description>Interesting spots in the College of Fine Arts building.</description>
+			<Placemark>
+				<name>Tension Grid</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<p>
+Above the house and downstage of Kresge Theatre is the tension grid, a grid
+of steel cables spaced around two inches apart. Walking around on it is a strange experience, like
+standing on a tennis racket. The mesh is supported by steel beams every eight feet, and in
+the center of the space between the beams it is pushed down several inches by one's weight. It's
+possible to jump up and down on the grid like a trampoline, but falling on it is not pleasant.
+</p>
+<p>
+There are no ladders or stairs to the grid; it can only be accessed from above.
+</p>]]></description>
+				<LookAt>
+					<longitude>-79.94302999999999</longitude>
+					<latitude>40.44146</latitude>
+					<altitude>0</altitude>
+					<range>168.2951739493386</range>
+					<tilt>0</tilt>
+					<heading>0</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#interesting-feature</styleUrl>
+				<Point>
+					<coordinates>-79.94302999999999,40.44146,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Platform</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<p>
+The platform over the CFA lobby is publically accessible from the mezzanine. It looks substantially
+less impressive from above than from below.
+</p>]]></description>
+				<LookAt>
+					<longitude>-79.94279</longitude>
+					<latitude>40.44154</latitude>
+					<altitude>0</altitude>
+					<range>168.2951739493386</range>
+					<tilt>0</tilt>
+					<heading>0</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#interesting-feature</styleUrl>
+				<Point>
+					<coordinates>-79.94279,40.44154,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Flyspace</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<p>
+The floor above the top of the flyspace area consists of a row of steel bars
+with half-inch gaps between them; pulleys are mounted along either side to
+allow set pieces and scenery to be moved up and down. Some of the machinery
+appears to date back to when the theatre was built.
+</p>
+<p>
+The flyspace used to be accessible by ladder from the stage floor. The ladders
+no longer extend all the way to the floor; the only way to access the flyspace
+is via a locked door on the mezzanine level.
+</p>
+<p>
+Last update: April 2008.
+</p>]]></description>
+				<LookAt>
+					<longitude>-79.94307000000001</longitude>
+					<latitude>40.44137</latitude>
+					<altitude>0</altitude>
+					<range>168.2951739493386</range>
+					<tilt>0</tilt>
+					<heading>0</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#interesting-feature</styleUrl>
+				<Point>
+					<coordinates>-79.94307000000001,40.44137,0</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		<Folder>
+			<name>Wean</name>
+			<open>1</open>
+			<description>Non-tunnel places in Wean Hall.</description>
+			<Placemark>
+				<name>Wean 2 Machine Room</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<p>
+The west face of Wean Hall has a large street-level rolling door, and a
+standard door adjacent to it. They lead into a large machine room; the
+room does not, as far as is known, connect to any tunnels. Inside, a door
+leads to the 2nd floor lobby near the vending machines.
+</p>]]></description>
+				<LookAt>
+					<longitude>-79.946361</longitude>
+					<latitude>40.442885</latitude>
+					<altitude>0</altitude>
+					<range>131.8322364739053</range>
+					<tilt>0</tilt>
+					<heading>0</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#interesting-feature</styleUrl>
+				<Point>
+					<coordinates>-79.946361,40.442885,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Shitbin</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<p>
+This isn't really a secret, but it's handy to know.
+</p>
+<p>
+On the 3rd floor, in the hallway outside SCS Operations' machine room, is a
+large blue plywood bin. Computer equipment is discarded here and left to be
+picked clean by students before finding its way to the dumpster.
+</p>
+<p>
+Although it occasionally contains useful and/or functional machines, the
+shitbin is more often used as a source of material to be sent down the Leap.
+</p>]]></description>
+				<LookAt>
+					<longitude>-79.945971</longitude>
+					<latitude>40.442436</latitude>
+					<altitude>0</altitude>
+					<range>131.8322364739053</range>
+					<tilt>0</tilt>
+					<heading>0</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#interesting-feature</styleUrl>
+				<Point>
+					<coordinates>-79.945971,40.442436,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Weanavators</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<p>
+The Wean main elevators are controlled by a Westinghouse Selectomatic Mark
+IV. The controller is implemented entirely in relay logic, and rather easy to
+confuse. Notable features:
+</p>
+<ul>
+<li>One car always waits with the doors open on the third floor. This is 
+    strange, because there is very little traffic on the third floor.</li>
+<li>The car doors are very easy to force open from inside the car. Doing this
+    while the car is moving will cause it to come to a rapid halt, open the
+    doors all the way, pause for a second or two, close them, and then continue
+    on. This has been referred to as "stopping at a non-integer floor".</li>
+</ul>
+<p>
+The motors and control racks are located on the 9th floor, and can easily be
+observed from the control room there. Note that unlike the freight elevator,
+the main elevators do not themselves reach the 9th floor.
+</p>]]></description>
+				<LookAt>
+					<longitude>-79.94588</longitude>
+					<latitude>40.442702</latitude>
+					<altitude>0</altitude>
+					<range>131.8322364739053</range>
+					<tilt>0</tilt>
+					<heading>0</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#interesting-feature</styleUrl>
+				<Point>
+					<coordinates>-79.94588,40.442702,0</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		<Folder>
+			<name>Main Tunnel</name>
+			<description><![CDATA[<p>The largest and most well-known tunnel system.</p>
+<p>Buildings connected:</p>
+<ul>
+<li>Wean Hall</li>
+<li>Doherty Hall</li>
+<li>College of Fine Arts</li>
+<li>Posner Hall</li>
+<li>Margaret Morrison</li>
+<li>Skibo Gym</li>
+</ul>]]></description>
+			<Style>
+				<ListStyle>
+					<listItemType>checkHideChildren</listItemType>
+					<bgColor>00ffffff</bgColor>
+					<maxSnippetLines>2</maxSnippetLines>
+				</ListStyle>
+			</Style>
+			<Placemark>
+				<name>Wean 4 Entrance</name>
+				<Snippet maxLines="0"></Snippet>
+				<description>This entrance is a door in the back of a room in the Wean 4700 hallway.</description>
+				<LookAt>
+					<longitude>-79.94566016667744</longitude>
+					<latitude>40.44231206758812</latitude>
+					<altitude>0</altitude>
+					<range>41.62747457393112</range>
+					<tilt>3.519071095019672e-05</tilt>
+					<heading>-0.0004305800957215291</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#blue-circle</styleUrl>
+				<Point>
+					<coordinates>-79.94584275385215,40.44233363562607,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Doherty B Entrance</name>
+				<Snippet maxLines="0"></Snippet>
+				<description>A blue door in the main B-level hallway of Doherty, near Wean.
+
+Shortly after entering the tunnel branch, while still underneath Doherty, there is a door to the right. This is occasionally open; it leads to a large electrical and maintenance room with some desks and chars as well as equipment.</description>
+				<LookAt>
+					<longitude>-79.94501333296094</longitude>
+					<latitude>40.44241290655461</latitude>
+					<altitude>0</altitude>
+					<range>43.02056305782753</range>
+					<tilt>3.519054548080383e-05</tilt>
+					<heading>-1.099429184445389e-05</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#blue-star</styleUrl>
+				<Point>
+					<coordinates>-79.9449649225344,40.44242486082877,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Cut Hatch</name>
+				<Snippet maxLines="0"></Snippet>
+				<description>The main tunnel has a shaft leading up to a hatch off the southeast corner of Doherty. It is latched from the inside.</description>
+				<LookAt>
+					<longitude>-79.94438239329682</longitude>
+					<latitude>40.44199092507378</latitude>
+					<altitude>0</altitude>
+					<range>177.0694530832617</range>
+					<tilt>3.519057316240542e-05</tilt>
+					<heading>0.0003970075552243233</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#blue-circle</styleUrl>
+				<Point>
+					<coordinates>-79.94397123137806,40.44196980022319,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Cut Vent</name>
+				<Snippet maxLines="0"></Snippet>
+				<description>An air vent set into the ground of the Cut feeds the main tunnel. It is permanently closed, and not large enough to fit a person through.</description>
+				<LookAt>
+					<longitude>-79.94438239329682</longitude>
+					<latitude>40.44199092507378</latitude>
+					<altitude>0</altitude>
+					<range>177.0694530832617</range>
+					<tilt>3.519057316240542e-05</tilt>
+					<heading>0.0003970075552243233</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#blue-pushpin</styleUrl>
+				<Point>
+					<coordinates>-79.94380135803664,40.44196357595506,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>CFA Steps</name>
+				<Snippet maxLines="0"></Snippet>
+				<description>A ladder here leads to a moderately small area under the CFA steps. Rumors abound as to past uses of this space.</description>
+				<LookAt>
+					<longitude>-79.94254736483393</longitude>
+					<latitude>40.4412940009359</latitude>
+					<altitude>0</altitude>
+					<range>277.6328209999866</range>
+					<tilt>3.519031602694283e-05</tilt>
+					<heading>0.001586932892147827</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#blue-pushpin</styleUrl>
+				<Point>
+					<coordinates>-79.94307005451752,40.44191325685758,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Phone</name>
+				<Snippet maxLines="0"></Snippet>
+				<description>A phone in a yellow plywood surround is on the wall of the main tunnel near the CFA branch. It reportedly functioned in the past, but no longer has dial tone.</description>
+				<LookAt>
+					<longitude>-79.94272056884994</longitude>
+					<latitude>40.44188303126835</latitude>
+					<altitude>0</altitude>
+					<range>187.4560903211022</range>
+					<tilt>6.589006322432952e-12</tilt>
+					<heading>0.002409404989614113</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#blue-pushpin</styleUrl>
+				<Point>
+					<coordinates>-79.94279755691491,40.44187215233461,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>CFA Basement Entrance</name>
+				<Snippet maxLines="0"></Snippet>
+				<description>A hatch in the blue flooring of the CFA basement leads directly to this branch of the tunnel.</description>
+				<LookAt>
+					<longitude>-79.94309774051982</longitude>
+					<latitude>40.44154583772509</latitude>
+					<altitude>0</altitude>
+					<range>176.8499591852357</range>
+					<tilt>3.519045110157045e-05</tilt>
+					<heading>0.00122991892661891</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#blue-circle</styleUrl>
+				<Point>
+					<coordinates>-79.94287797636665,40.44138725309936,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>CFA Stair Door</name>
+				<Snippet maxLines="0"></Snippet>
+				<description>A vented door is mounted a few feet off the ground in the stairway outside CFA, directly across from the basement door. This leads to a vertical shaft descending down into the tunnel.
+
+Prior to the construction of Posner, the tunnel ended here, presumably with a stair or ladder. The tunnel now continues past under the shaft into a much more recently-constructed section.</description>
+				<LookAt>
+					<longitude>-79.94309774051982</longitude>
+					<latitude>40.44154583772509</latitude>
+					<altitude>0</altitude>
+					<range>176.8499591852357</range>
+					<tilt>3.519045110157045e-05</tilt>
+					<heading>0.00122991892661891</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#blue-pushpin</styleUrl>
+				<Point>
+					<coordinates>-79.94295755490509,40.44116375657475,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Posner Machine Room</name>
+				<Snippet maxLines="0"></Snippet>
+				<description>Continuing past CFA, the tunnel reaches a large machine room under Posner.</description>
+				<LookAt>
+					<longitude>-79.94229422145251</longitude>
+					<latitude>40.44128231719743</latitude>
+					<altitude>0</altitude>
+					<range>203.8217764563672</range>
+					<tilt>3.51909000806779e-05</tilt>
+					<heading>0.001748550847511974</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#blue-circle</styleUrl>
+				<Point>
+					<coordinates>-79.94269484086777,40.44109811817886,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>MM Entrance</name>
+				<Snippet maxLines="0"></Snippet>
+				<description>The tunnel connects to a small equipment room in the southwest corner of MM on B level.
+
+This room has two exits; both are on the south wall of the building, near the elevator.</description>
+				<LookAt>
+					<longitude>-79.9416393271663</longitude>
+					<latitude>40.44190704383426</latitude>
+					<altitude>0</altitude>
+					<range>57.97091592571046</range>
+					<tilt>0.0005817917154764332</tilt>
+					<heading>0.002173367455589547</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#blue-circle</styleUrl>
+				<Point>
+					<coordinates>-79.94173856529228,40.44192425846895,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Posner Hatch</name>
+				<Snippet maxLines="0"></Snippet>
+				<description>Another hatch, much like the one on the Cut, is next to a ramp to Posner.</description>
+				<LookAt>
+					<longitude>-79.94228766126571</longitude>
+					<latitude>40.44173081577998</latitude>
+					<altitude>0</altitude>
+					<range>101.7711636096237</range>
+					<tilt>2.387228252077975e-10</tilt>
+					<heading>0.002690220481205897</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#blue-circle</styleUrl>
+				<Point>
+					<coordinates>-79.94240000000001,40.4418,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Skibo Gym</name>
+				<Snippet maxLines="0"></Snippet>
+				<description>The tunnel ends in the basement of Skibo Gym.</description>
+				<LookAt>
+					<longitude>-79.94122845973943</longitude>
+					<latitude>40.44141171530266</latitude>
+					<altitude>0</altitude>
+					<range>234.1024355017036</range>
+					<tilt>3.519080092804933e-05</tilt>
+					<heading>0.002439873394998421</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#blue-circle</styleUrl>
+				<Point>
+					<coordinates>-79.94128339067483,40.44133751637508,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Main Tunnel</name>
+				<styleUrl>#blue-pushpin</styleUrl>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>
+-79.94584374452339,40.44233172552082,0 -79.94505816265489,40.44217068286505,0 -79.94496440438179,40.44242486156264,0 -79.94505816265489,40.44217068286505,0 -79.94412529763446,40.44197368862016,0 -79.94321313097275,40.4419510002017,0 -79.9427129193643,40.44185760452682,0 -79.94296366684847,40.44115134057724,0 -79.9426957626289,40.44109844499906,0 -79.94296366684847,40.44115134057724,0 -79.9427129193643,40.44185760452682,0 -79.94182535599502,40.44168049539068,0 -79.94173673939653,40.44192287129479,0 -79.94182535599502,40.44168049539068,0 -79.94171947492487,40.44159910429371,0 -79.94122620026182,40.44150820578737,0 -79.94128629571796,40.4413375507749,0 </coordinates>
+				</LineString>
+				<LineStyle>
+          <color>ff00ff00</color>
+          <width>3</width>
+        </LineStyle>
+			</Placemark>
+		</Folder>
+		<Folder>
+			<name>MM / UC / WW Tunnel</name>
+			<description><![CDATA[<p>
+This recently-constructed tunnel is best known for its windows into the
+swimming pools. Creepy!
+<p>
+<p>Buildings connected:</p>
+<ul>
+<li>Margaret Morrison</li>
+<li>University Center</li>
+<li>West Wing</li>
+</ul>]]></description>
+			<Style>
+				<ListStyle>
+					<listItemType>checkHideChildren</listItemType>
+					<bgColor>00ffffff</bgColor>
+					<maxSnippetLines>2</maxSnippetLines>
+				</ListStyle>
+			</Style>
+			<Placemark>
+				<name>MM Boiler Room</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<p>
+The south branch of this tunnel connects to one end of a large machine room on the B level of MM. The room has two exits onto B level; one opens into a stairwell, while the other connects to a hallway near the photo area.
+</p>]]></description>
+				<LookAt>
+					<longitude>-79.94170735964063</longitude>
+					<latitude>40.44265597796583</latitude>
+					<altitude>0</altitude>
+					<range>180.632156727111</range>
+					<tilt>0.0001579782372045944</tilt>
+					<heading>0.002133983567030194</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#red-star</styleUrl>
+				<Point>
+					<coordinates>-79.94140187368278,40.44260511088975,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Pool Windows</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<p>
+The mirrors on the inside wall of the pool here are actually one-way mirrors
+into the tunnels. A prominent &quot;DO NOT TAP ON GLASS&quot; sticker has been placed on one of the windows.
+</p>]]></description>
+				<LookAt>
+					<longitude>-79.94182757084633</longitude>
+					<latitude>40.44297528255968</latitude>
+					<altitude>0</altitude>
+					<range>71.37162408803222</range>
+					<tilt>0.0001579782381878581</tilt>
+					<heading>0.002056003931404248</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#red-pushpin</styleUrl>
+				<Point>
+					<coordinates>-79.94185700504617,40.44287961340879,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>West Wing Entrance</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<p>
+The right branch of the tunnel from MM leads to West Wing. The door is clearly labeled as being alarmed; the label is correct.
+</p>]]></description>
+				<LookAt>
+					<longitude>-79.94160109836761</longitude>
+					<latitude>40.44274169446778</latitude>
+					<altitude>0</altitude>
+					<range>180.5059042169856</range>
+					<tilt>0.0001579783521690325</tilt>
+					<heading>0.002202912856490834</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#red-circle</styleUrl>
+				<Point>
+					<coordinates>-79.94116697476882,40.44268930126173,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Scotland Yard Entrance</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<p>
+The pool tunnel, past the windows, comes to a door that opens directly into Scotland Yard. It is always locked from the outside; exiting through here will likely result in getting very weird looks.
+</p>]]></description>
+				<LookAt>
+					<longitude>-79.94174311876034</longitude>
+					<latitude>40.4426787495493</latitude>
+					<altitude>0</altitude>
+					<range>128.5337626839782</range>
+					<tilt>0.0001579783091414655</tilt>
+					<heading>0.002110785411374237</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#red-circle</styleUrl>
+				<Point>
+					<coordinates>-79.94216424347961,40.44295061966856,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>UC Entrance</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<p>
+If the tunnel is followed around three sides of the pool, it reaches a card-reader-protected door in the hallway leading to Scotland Yard.
+</p>]]></description>
+				<LookAt>
+					<longitude>-79.94182757084633</longitude>
+					<latitude>40.44297528255968</latitude>
+					<altitude>0</altitude>
+					<range>92.1835283790422</range>
+					<tilt>0.000157978431167547</tilt>
+					<heading>0.002056004097986191</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#red-circle</styleUrl>
+				<Point>
+					<coordinates>-79.94208627670064,40.44315290449047,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>MM / UC / WW Tunnel</name>
+				<Snippet maxLines="0"></Snippet>
+				<styleUrl>#red-pushpin</styleUrl>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>
+-79.94139938606504,40.44261053415677,0 -79.941359899227,40.44273074107114,0 -79.94116476058613,40.44268890273734,0 -79.94161068715007,40.44278466067089,0 -79.94159831993647,40.44282040870769,0 -79.94216678465658,40.44294686583109,0 -79.94159844142705,40.44282039689737,0 -79.94152218533465,40.44302815354724,0 -79.94208949935283,40.44315220685788,0 </coordinates>
+				</LineString>
+			</Placemark>
+		</Folder>
+		<Folder>
+			<name>Hamerschlag / Wean / Porter Tunnel</name>
+			<description><![CDATA[<p>Most of this tunnel is beneath Hamerschlag, but it also branches to Porter and Wean.</p>
+<p>Buildings connected:</p>
+<ul>
+<li>Hamerschlag Hall</li>
+<li>Porter Hall</li>
+<li>Wean Hall</li>
+</ul>]]></description>
+			<Style>
+				<ListStyle>
+					<listItemType>checkHideChildren</listItemType>
+					<bgColor>00ffffff</bgColor>
+					<maxSnippetLines>2</maxSnippetLines>
+				</ListStyle>
+			</Style>
+			<Placemark>
+				<name>Porter C</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<p>The tunnel becomes very short and narrow, almost requiring crawling, before opening up into a machine room in the C level of Porter. According to the FMS web site, there&apos;s nothing else on C level, and no connections to the rest of the building; the only way out is through a door to the outside.</p>]]></description>
+				<LookAt>
+					<longitude>-79.94634598127541</longitude>
+					<latitude>40.44212351258955</latitude>
+					<altitude>0</altitude>
+					<range>51.7652014866794</range>
+					<tilt>4.574076610640206e-06</tilt>
+					<heading>4.75459122274356</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#green-circle</styleUrl>
+				<Point>
+					<coordinates>-79.94642430029174,40.4420685398849,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Hamerschlag Entrance</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<p>A door labeled &quot;hard hat area&quot; near the middle of the C level of Hamerschlag contains stairs down into the tunnel.</p>]]></description>
+				<LookAt>
+					<longitude>-79.94654820810729</longitude>
+					<latitude>40.44232263516132</latitude>
+					<altitude>0</altitude>
+					<range>233.9278285518336</range>
+					<tilt>0.0005817923732515169</tilt>
+					<heading>-0.001010954219293786</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#green-star</styleUrl>
+				<Point>
+					<coordinates>-79.94657847995695,40.44239907691762,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Hole</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<p>At the end of the tunnel is a hole that goes down a ways. It is unventilated and uninteresting. </p>]]></description>
+				<LookAt>
+					<longitude>-79.94654820810729</longitude>
+					<latitude>40.44232263516132</latitude>
+					<altitude>0</altitude>
+					<range>233.9278285518336</range>
+					<tilt>0.0005817923732515169</tilt>
+					<heading>-0.001010954219293786</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#green-pushpin</styleUrl>
+				<Point>
+					<coordinates>-79.9467889758142,40.44244373562527,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Wean 3 Entrance</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<p>Prior to the construction of Wean, this was contiguous with the main tunnel.</p>
+<p>The tunnel here ends in a door that leads into a lab on the 3rd floor of Wean near the blue bins. The door is labeled as being alarmed, which is believed to be correct. </p>]]></description>
+				<LookAt>
+					<longitude>-79.94654820810729</longitude>
+					<latitude>40.44232263516132</latitude>
+					<altitude>0</altitude>
+					<range>233.9278285518336</range>
+					<tilt>0.0005817923732515169</tilt>
+					<heading>-0.001010954219293786</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#green-pushpin</styleUrl>
+				<Point>
+					<coordinates>-79.94607825442094,40.4423881426037,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Hamerschlag / Wean / Porter Tunnel</name>
+				<styleUrl>#green-pushpin</styleUrl>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>
+-79.94679194848447,40.44244193118201,0 -79.94636991369924,40.44235685829386,0 -79.94633895155377,40.4424456525348,0 -79.94607901757475,40.44239136421604,0 -79.94633883899893,40.44244552000146,0 -79.9464234600832,40.44221234304827,0 -79.9463974194915,40.44214117156024,0 -79.94642369085638,40.44206881470949,0 </coordinates>
+				</LineString>
+			</Placemark>
+		</Folder>
+		<Folder>
+			<name>Doherty Tunnel</name>
+			<description><![CDATA[<p>
+A "tunnel" runs under the length of all of Doherty B level. It does not connect to any
+other tunnels.
+</p>]]></description>
+			<Style>
+				<ListStyle>
+					<listItemType>checkHideChildren</listItemType>
+					<bgColor>00ffffff</bgColor>
+					<maxSnippetLines>2</maxSnippetLines>
+				</ListStyle>
+			</Style>
+			<Placemark>
+				<name>Doherty Tunnel</name>
+				<styleUrl>#yellow-pushpin</styleUrl>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>
+-79.94498133070425,40.44247989495285,0 -79.94398110749525,40.44227661856388,0 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name>Doherty Hatch</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<p>A hatch in the floor, near the entrance to the main tunnel, leads down to the Doherty tunnel.</p>]]></description>
+				<LookAt>
+					<longitude>-79.94498133070425</longitude>
+					<latitude>40.44247989495285</latitude>
+					<altitude>0</altitude>
+					<range>233.9278285518336</range>
+					<tilt>0.0005817923732515169</tilt>
+					<heading>-0.001010954219293786</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#yellow-star</styleUrl>
+				<Point>
+					<coordinates>-79.94498133070425,40.44247989495285,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Doherty Door</name>
+				<Snippet maxLines="0"></Snippet>
+				<description><![CDATA[<p>A side door in the B-level hallway opens to stairs down into the tunnel.</p>]]></description>
+				<LookAt>
+					<longitude>-79.94436063784022</longitude>
+					<latitude>40.44233732481675</latitude>
+					<altitude>0</altitude>
+					<range>233.9278285518336</range>
+					<tilt>0.0005817923732515169</tilt>
+					<heading>-0.001010954219293786</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#yellow-circle</styleUrl>
+				<Point>
+					<coordinates>-79.94434534485661,40.44235072352915,0</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		<Folder>
+			<name>Hamerschlag / Hill Tunnel</name>
+			<open>1</open>
+			<description><![CDATA[<p>
+This short tunnel extends from Hamerschlag out to the hillside, and includes a portion beneath Hamerschlag Hall as well. The building side would rightly be called Hamerschlag G level, although no floorplans for it are available and it does not appear in the FMS space database. This could be because no portions of G level are publicly accessible; however, the same can be said of Doherty F.
+</p>
+<p>
+The tunnel has two distinct portions. One is really a wide, narrow equipment room, extending towards the center of the building; it is uncluttered, well lit, and dry, and contains long-disused coal hoppers and furnaces built into the walls and ceiling as well as some more modern equipment. There are a few ladders leading up to hatches in the ceiling, but all are unopenable; from their position, the hatches seem likely to have been covered up by the ECE fabrication facility which now occupies F level.
+</p>
+<p>
+The other section extends from the edge of the building out to the opening on the hillside. It is noticeably cooler and damper, and is about the same width and dimensions as other tunnels. The hillside section of the tunnel is lit by recently-installed compact fluorescent lightbulbs, while the building portion has the same fluorescent lighting as the rest of the campus tunnels and machine rooms.
+</p>]]></description>
+			<Style>
+				<ListStyle>
+					<listItemType>checkHideChildren</listItemType>
+					<bgColor>00ffffff</bgColor>
+					<maxSnippetLines>2</maxSnippetLines>
+				</ListStyle>
+			</Style>
+			<Placemark>
+				<name>Hamerschlag / Hill Tunnel</name>
+				<styleUrl>#msn_ylw-pushpin1</styleUrl>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>
+-79.9469458589676,40.44251310026178,0 -79.94687119787906,40.4427403450582,0 -79.94682636864283,40.44299229325549,0 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name>Hill Entrance</name>
+				<description>This entrance is a door set into the hillside bettween the FMS building and Hamerschlag. It has a ventilation grille mounted on it, and is generally locked.</description>
+				<LookAt>
+					<longitude>-79.94668569934348</longitude>
+					<latitude>40.4428667422463</latitude>
+					<altitude>0</altitude>
+					<range>154.0371677697414</range>
+					<tilt>0</tilt>
+					<heading>-97.32006923250223</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#msn_ltblu-circle0</styleUrl>
+				<Point>
+					<coordinates>-79.94682009353002,40.44299099516644,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Hill Tunnel Entrance</name>
+				<description>This entrance is accessed by way of Hamerschlag F213, a maintenance room on the lowest named level of Hamerschlag Hall. The room contains some building machinery, and a large (approx. 8 foot square) hole with a ladder leading down into the tunnel. A large hatch in the floor on E level (E208) is directly above the tunnel opening.</description>
+				<LookAt>
+					<longitude>-79.94668569934348</longitude>
+					<latitude>40.4428667422463</latitude>
+					<altitude>0</altitude>
+					<range>134.5893730964442</range>
+					<tilt>0</tilt>
+					<heading>-97.32006923250228</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#msn_ltblu-circle</styleUrl>
+				<Point>
+					<coordinates>-79.94687391299806,40.44271949669594,0</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		<Folder>
+			<name>NSH / Hamburg East Tunnel</name>
+			<open>1</open>
+			<description><![CDATA[<p>
+This is a long tunnel, running in a U shape under both wings of Hamburg Hall and across the front of Newell Simon. It connects to Newell Simon at two different levels: to machine rooms just above the second floor, and into the catacombs on A level. Two vertical shafts at the NSH machine room connections provide access to the lower section.
+</p>
+<p>
+As of early 2009, different parts of the tunnel are in a wide range of conditions. With the exception of the machine rooms and the east-west run near the catacombs, the tunnel is entirely unlit. Both underground sections contain reinforcements every 8-10 feet bracing the roof, slightly impeding the way walking through. It is not clear whether these are merely a precaution due to extra traffic above (the area under the tunnel is used for Gates Center construction) or if there are actual structural integrity concerns. The east half and the lower portion across NSH are quite cool, indicating that the steam pipes through it are not active, and wide enough to walk through easily. The west half is the most unpleasant portion of tunnel found yet on campus. It is too encumbered by piping and reinforcement to walk through without difficulty; the tunnel is over a hundred degrees; and there are an extraordinary number of live and dead cockroaches on the floor. Yuck.
+</p>]]></description>
+			<Style>
+				<ListStyle>
+					<listItemType>checkHideChildren</listItemType>
+					<bgColor>00ffffff</bgColor>
+					<maxSnippetLines>2</maxSnippetLines>
+				</ListStyle>
+			</Style>
+			<gx:balloonVisibility>1</gx:balloonVisibility>
+			<Placemark>
+				<name>NSH/Hamburg East Tunnel</name>
+				<styleUrl>#msn_ylw-pushpin</styleUrl>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>
+-79.94617714784094,40.44440502075726,0 -79.94605889248277,40.44440920134237,0 -79.94602477977527,40.44391755835484,0 -79.94575078740763,40.44366235761291,0 -79.94572004834698,40.44368310919421,0 -79.94572975264714,40.44365838189495,0 -79.94570592955587,40.44360731419722,0 -79.94541803802559,40.44354620776343,0 -79.94534680825663,40.44357653445619,0 -79.94533739833535,40.44360289203745,0 -79.94532444089275,40.44357340572999,0 -79.94508389111255,40.44390709274754,0 -79.94501766113031,40.44390917178312,0 -79.94504196369613,40.44442680958761,0 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name>NSH East Hamburg Entrance</name>
+				<description>The tunnel connects to NSH 2217, an equipment room just east of the high bay. The walls of 2217 open onto the earth-floored tunnel, a few feet above floor level. Just outside the building boundary is a two-story vertical shaft, about six feet wide and ten feet long, which leads to a continuation of the tunnel below. A large ventilation grille in the side of this shaft can be seen from the bridge leading to the NSH entrance.</description>
+				<LookAt>
+					<longitude>-79.94553282150532</longitude>
+					<latitude>40.4437410020165</latitude>
+					<altitude>0</altitude>
+					<range>100.8017131614085</range>
+					<tilt>0</tilt>
+					<heading>5.47072243076808</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#msn_purple-circle</styleUrl>
+				<Point>
+					<coordinates>-79.94532701075399,40.44356934530636,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Hamburg East Entrance</name>
+				<description>This entrance is a floor hatch in the east wing of Hamburg Hall, on A level. It is held shut with a spring-loaded latch, much like the main tunnel exits on the Cut and near Posner. There is no fixed ladder down, as the hatch is directly over the center of the tunnel; however, a freestanding ladder has been observed placed on the tunnel floor underneath, making climbing easy.
+
+The tunnel extends South to Newell Simon, and an unknown distance north.</description>
+				<LookAt>
+					<longitude>-79.94512880341776</longitude>
+					<latitude>40.44385370838551</latitude>
+					<altitude>0</altitude>
+					<range>160.1677056262052</range>
+					<tilt>0</tilt>
+					<heading>-2.362022098871952</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#msn_purple-stars</styleUrl>
+				<Point>
+					<coordinates>-79.94502748308369,40.44405439208813,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Catacombs Connection</name>
+				<description>In the middle of the tunnel passage under the front of NSH, the tunnel connects to the &quot;catacombs&quot;: the storage area directly underneath the high bay. The opening from the tunnel to the catacombs is directly across from (north of) the stairway from the high bay down to the catacombs.</description>
+				<LookAt>
+					<longitude>-79.94542689532831</longitude>
+					<latitude>40.44374023206846</latitude>
+					<altitude>0</altitude>
+					<range>138.8916778580763</range>
+					<tilt>0</tilt>
+					<heading>5.47079114521626</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#msn_purple-circle0</styleUrl>
+				<Point>
+					<coordinates>-79.94555535833793,40.44357639785063,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>NSH West Hamburg Entrance</name>
+				<description>The west portion of the tunnel connects to NSH 1125 / 2125, a large two-floor machine room in the northwest corner of Newell Simon. The tunnel is slightly above the level of NSH 2, accessible from a ladder in the northeast end of the machine room. The ladder leads to a cramped portion of the tunnel running towards Hamburg. To the right of the tunnel is a two-story shaft with another ladder, leading down to NSH A level; this connects to the remainder of the tunnel and the catacombs.</description>
+				<LookAt>
+					<longitude>-79.94553282150532</longitude>
+					<latitude>40.4437410020165</latitude>
+					<altitude>0</altitude>
+					<range>100.8017131614085</range>
+					<tilt>0</tilt>
+					<heading>5.47072243076808</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#msn_purple-circle2</styleUrl>
+				<Point>
+					<coordinates>-79.94574956950262,40.44365924223783,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Hamburg West Machine Room</name>
+				<description>The tunnel terminates in a machine room below A level of Hamburg Hall. This large room opens to outside near the CIC, and has a stairway up to A level (room A608). The tunnel is accessed throgh a small door, slightly above floor level, in the east wall of the machine room.</description>
+				<LookAt>
+					<longitude>-79.94550415339879</longitude>
+					<latitude>40.44397286957576</latitude>
+					<altitude>0</altitude>
+					<range>238.2715756971125</range>
+					<tilt>0</tilt>
+					<heading>8.883259566504364</heading>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#msn_purple-circle1</styleUrl>
+				<Point>
+					<coordinates>-79.9461741294964,40.44440553860861,0</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+	</Folder>
+</Document>
+</kml>
