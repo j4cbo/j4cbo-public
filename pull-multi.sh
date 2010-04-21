@@ -24,6 +24,16 @@ fi
 TARGETDIR="`pwd`/$1"
 unclean=( )
 
+# Are we using a ControlMaster connection?
+if [ -e $TARGETDIR/.master ]
+then
+  # Tremendously hackish way of finding our ssh session
+  master=`cat $TARGETDIR/.master`
+  TOKEN=$RANDOM$RANDOM$RANDOM
+  echo "Opening connection to $master" 
+  ssh $master -f -N echo $TOKEN > /dev/null
+fi
+
 # Check for remote repository locations
 if [ -e $TARGETDIR/.remotes ]
 then
@@ -90,6 +100,7 @@ do
 
 done
 
+# Warn the user about anything unclean
 if [ ${#unclean[*]} -ne 0 ]
 then
   echo "The following repositories are not clean: "
@@ -98,4 +109,18 @@ then
     dp=`basename "$d"`
     echo "  $dp"
   done
+fi
+
+# Find the SSH master connection, if we started one up.
+if [ "$TOKEN" != "" ]
+then
+  sshpid=`ps -C ssh -wwo pid,command | grep $TOKEN | awk '{print $1}'`
+  if [ "$sshpid" != "" ]
+  then
+    kill $sshpid
+    if [ $? -ne 0 ]
+    then
+      echo "Could not kill SSH master - check for stale connections."
+    fi
+  fi
 fi
