@@ -43,7 +43,7 @@ then
     path=${remote#*:}
     if [ "$machine" != "" -a "$path" != "" ]
     then
-      echo "Looking for remote repositories in $remote..."
+      echo "Looking for repositories in $remote..."
       repos=`ssh $machine ls $path`
       for repo in $repos
       do
