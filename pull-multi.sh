@@ -114,7 +114,7 @@ fi
 # Find the SSH master connection, if we started one up.
 if [ "$TOKEN" != "" ]
 then
-  sshpid=`ps -C ssh -wwo pid,command | grep $TOKEN | awk '{print $1}'`
+  sshpid=`ps -wwo pid,command | grep $TOKEN | grep -v grep | awk '{print $1}'`
   if [ "$sshpid" != "" ]
   then
     kill $sshpid
