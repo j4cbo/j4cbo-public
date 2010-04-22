@@ -1,0 +1,93 @@
+Change from last time: simplify rule for match, since we aren't 
+doing type inference. (Match is generated from 'fn', 'case', etc.)
+
+Note: 'E' in this document represents curly-e
+
+G |- E |> match on v : t ~> e : t'
+
+
+G |- E |> ty ~> t1     G,x:t1 |- E @ ((in_{VAL id} <|x|>))))))))) : (VAL id : <|t1|>)) |> exp ~> e : t2
+-------------------------------------------------------------------------------------------------------
+G |- E  |> fn id : ty => exp ~> \x:t1.e : t1 -> t2
+
+
+G |- E |> exp ~> e1 : t1     G,x:t1 |- E |> match on x:t1 ~> e2:t2
+-------------------------------------------------------------------
+G |- E |> case exp of match ~> let x = e1 in e2 : t2
+
+
+G |- E |> exp ~> e1:t1     G,x:exn |- E |> match on x:exn ~> e2:t
+-----------------------------------------------------------------
+G |- E |> exp handle match ~> handle (e1, x.e2) : t
+
+
+
+G |- E |> match on v:z with vfail ~> e : t
+
+
+G |- E |> match on v : t with xfail ~> e : t
+--------------------------------------------------------------
+G |- E :> match on v : t ~> (let xfail = newtag x[] in e) : t
+
+
+Patterns:
+Helper function:
+  G |- E |> pat on e:t with vfail ~> M:sigma
+                    \- e must be "valuable" - something like a value, safely side-effect-free (i.e. pi1 var)
+
+
+G |- E |> pat on v : t1 with vfail ~> M : sigma     G,a/m:sigma |- E @ (in:sigma) |> exp ~> e : t2     G |- t2 : T
+------------------------------------------------------------------------------------------------------------------
+G |- E |> pat => exp on v : t1 with vfail ~> let a/m = M in (e:t2) : t2
+
+G |- E |> pat on v : t1 with vfail ~> M : sigma     G,a/m |- E @ (in:sigma) |> exp ~> e:t2
+            G |- E |> match on v:t1 with vfail ~> e' : t2
+----------------------------------------------------------------------------------------------------------------
+G |-E |> pat -> exp | match on v:t1 with vfail ~> handle(let a/m=M in (e:t2), x, iftag(x,vfail,...e',raise_t2 x)
+
+
+
+
+
+Pattern-matching!
+----------------
+
+
+pat := id | id pat | (pat, ... pat) | i | _
+
+   OH, by the way, let's add natural numbers to the language. 
+     G |- E |> i ~> i : int
+     G |- E |> int ~> int
+
+
+-----------------------------------------------------------------------------
+G |- E |> id on e : t with vfail ~> (in_{VALid} <|id|>) : (VAL id : <| t |>t)
+
+
+-------------------------------------
+G |- E |> _ on e:t wth vfail ~> * : 1
+
+
+G |- t === x[t1,...tn] : T     G |- E |> pat i on pi_{i-1} e : ti with vfail ~> Mi:sigmai (for i = 1 to n)
+------------------------------------------------------------------------------------------------------------
+G |- E |> (pat1, ... patn) on e : t with vfail ~> <M1, <M2, <... <Mn, *>>>> : sig1 x sig2 x ... x (sign x 1)
+
+
+G |- t === int : T
+---------------------------------------------------------------------------------------------------
+G |- E |> i on e:t with vfail ~> (let _/_ = <| if e = i then <> else raise_unit (tag(vfail, <>)) |>
+                                  in *) : 1
+
+
+Declarations
+------------
+
+
+dec ::= val pat = exp | fun id (id : ty) : ty = exp | type id = ty | datatype ...
+      | open id | local dec in dec end | dec dec
+
+
+G |- E |> exp ~> e : t      G,a/m:<|t|>,afail/mfail:<|tag unit|> |- E :> pat on Snd m : t with Snd mfail ~> M:sigma
+-------------------------------------------------------------------------------------------------------------------
+G |- E |> val pat = exp ~> (letd afail/mfail = <|newtag unit|> in
+                            letd a/m = <|e|> in M) : sigma
