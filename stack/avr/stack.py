@@ -1,4 +1,4 @@
-#!/usr/bin/python2.4
+#!/usr/bin/env python
 
 # AVR stack analyzer, copyright (c) 2007 Jacob Potter.
 # This program is free software; you can redistribute it and/or
