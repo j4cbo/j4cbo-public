@@ -8,9 +8,9 @@
 import os
 import re
 
-line_re = re.compile(" *[a-f0-9]+:\t[a-f0-9 ]+\t([a-z]+)(?:\t0x[a-f0-9]+ <(\\w+)>)?")#(?:0x[a-f0-9]+ <(\w+)>)")
+line_re = re.compile(" *[a-f0-9]+:\t[a-f0-9 ]+\t([a-z]+)(?:[^<]*<([^>]+)>)?")#(?:0x[a-f0-9]+ <(\w+)>)")
 dataline_re = re.compile(" *[a-f0-9]+:\t([a-f0-9][a-f0-9] ){5,16}")
-function_re = re.compile("^[a-f0-9]+ <(\\w+)>:$")
+function_re = re.compile("^[a-f0-9]+ <([^>]+)>:$")
 local_label_re = re.compile("^[a-f0-9]+ <(\\.\\w+)>:$")
 
 class Func(object):
@@ -130,8 +130,8 @@ def parse_file(fname):
 
 		if push_count is None: continue
 
-		if push_count != pop_count:
-			raise Exception("funcion \"%s\" finished with unbalanced push/pop count" % (function_name,))
+#		if push_count != pop_count:
+#			raise Exception("funcion \"%s\" finished with unbalanced push/pop count" % (function_name,))
 
 		known_funcs[function_name] = Func(function_name, push_count + 2, callees)
 
