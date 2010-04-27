@@ -1,0 +1,170 @@
+dec ::= val pat = term
+      | fun id(id:ty) : ty = exp
+      | type id = ty
+      | structure id = mod
+      | datatype ...
+      | open id
+      | local dec in dec end
+      | dec dec
+      | 
+
+
+G |- E |> exp ~> e : t     G,x:t |- E |> pat on x:t with xfail ~> M:sigma
+-----------------------
+G |- E |> val pat = exp
+           ~> (let xfail = newtag unit in
+               let x = e in m) : sigma
+
+NOTE:
+  let x = e in M
+is defined as
+  letp a/m = <| e |> in [Snd m/a]m
+
+
+G |- E |> dec1 ~> M1:sig1     G,a/m:sig1 |- E@(m:sig1) |> dec2 ~> M2:sig2
+-------------------------------------------------------------------------
+G |- E |> dec1 dec2 ~> <a/m=M1,M2> : SIGa:s1.s2
+
+Note:
+  The Definition of Standard ML talks about two juxtaposed declarations
+  We'll be dealing with lists of declarations
+  The rule above is part of the helper for juxtaposed signatures
+
+G |- E |> ty ~> t
+---------------------------------------------------------------------
+G |- E |> type id = ty ~> in_{CON id} (| t |) : (CON id) : (| S(t) |)
+
+
+G |- E |> longid in MOD ~> M:sig
+--------------------------------
+G |- E |> open id ~> M:sig
+
+G |- E |> dec1 ~> M1:sig1
+G,a/m:(HIDE:sig1) |- E@(out m:sig1) |> dec2 ~> M2:sig2
+---------------------------------
+G |- E |> local dec1 in dec2 end
+    ~> <a/m = in_{HIDE} M1, M2>
+       : EXISTSa:(HIDE:sig1).sig2
+
+
+
+G |- E |> mod ~> M:sigma
+--------------------------------------------------------------
+G |- E |> structure id = mod ~> in_{MOD id} M : (MOD id : sig)
+
+      ^ need to produce principal signature
+
+
+G |- E |> sig ~> sig1
+G, a/m:sig1 |- E @ (IN_{mod id2} m : (MOD id2 : S(a:sig1))) |> mod ~> M:sig2
+----------------------------------------------------------------------------
+G |- E |> functor id1(id2:sig) = mod
+                ~> in_{FUN d1} (\gen a/m : sig1 . M)
+                   : (FUN id1 : PIgen a:sig1.sig2)
+
+
+mod ::= longid | struct dec end | mod : sig | mod :> sig
+
+
+G |- E |> longid in MOD ~> M:sig
+-----------------------------------
+G |- E |> longid ~> M:sig
+
+
+G |- E |> dec ~> M:sig
+---------------------------------
+G |- E |> struct dec end ~> M:sig
+
+
+G |- E |> mod ~> M:sig1
+G |- E |> sig ~> sig2
+------------------------
+G |- E |> mod :> sig ~> [ well, fuck - the type theory for <= doesn't
+                          match with what SML needs! ]
+
+
+A diversion:
+
+G |- M : sig1 \le sig2 ~> M' : sig'
+
+ If   G |-P  M : sig1 and M is "valuable"
+and   G |- sig2 : sig
+and   G |- M : sig1 \le sig2 ~> M' : sig'
+then  G |-I M' : sig' and G |- sig' \le sig2
+
+
+G |- E |> mod ~> M:sig1
+G |- E |> sig ~> sig2
+G,a/m:sig1 |- m:sig1 \le sig2 ~> M':sig'
+----------------------------------------
+G |- E |> mod :> sig ~> M' : sig'
+      ~> let a/m = M
+          in M' : sig2  
+... let's finish this one later.
+
+Transparent ascription:
+
+G |- E |> mod ~> M:sig1
+G |- E |> sig ~> sig2
+G,a/m:(HIDE:sig1) |- m:sig1 \le sig2 ~> M':sig'
+-----------------------------------------------
+G |- E |> mod : sig ~>
+          <a/m = in_{HIDE} M, M'>
+          : EXISTS a : (HIDE : sig1) . sig'
+
+G |- E |> mod ~> M:sig1
+G |- E |> sig ~> sig2
+G,a/m:sig1 |- m:sig1 \le sig2 ~> M':sig'
+----------------------------------------
+G |- E |> mod :> sig ~> let a/m = M
+                        in M' : sig2  
+
+
+OK, how do we implement this judgement:
+  G |- M : sig1 \le sig2 ~> M' : sig'
+
+
+  New judgement again:
+    G |- M : sig1 as name \le sig2 ~> M':sig'
+
+
+
+G |- M : sig1 \le name ~> M' : sig'
+G |- M' : sig' as name \le sig2 ~> M'' : sig''
+---------------------------------------------------------
+G |- M : sig1 \le name:sig2 ~> in_name M'' : (name:sig'')
+
+
+----------------------------
+G |- M : sig1 \le 1 ~> * : 1
+
+G |- M : sig \le sig1 ~> M1:sig1'
+G,a:sig1' |- M:sig \le sig2 M2:sig2'
+-------------------------------------
+G |- M : a \le SIGA:sig1.sig2 ~>
+    <a/m= M1,M2> : SIGa:sig1'.sig2'>
+
+
+G |- t1 === t2 : T
+-------------------------------------------------
+G |- M : <|t1|> as AL id \le <|t2|> ~> M : <|t1|>
+
+
+G |- k1 \le k2 : kind
+------------------------------------------------------
+G |- M : (|k1|) as CON id \le (| k2 |) ~> M : (| k1 |)
+
+
+G |- M:sig1 \le sig2 ~> M':sig'
+----------------------------------------
+G |- M:sig1 as MOD id \le sig2 ~> M':sig'
+
+
+EXAMPLE:
+structure A = struct type t = int type u = int end
+  M : EXISTS a:(t : S((int)) . (u : S(int))
+signature B = sig type t type u = t end
+  EXISTS a:(t:T).(u:S(a))
+
+[ proof tree omitted because I can't type that many inferences ]
+G |- M : Ea:(t:(|S(int)|)).(u:(S(int)|)) \le Ea:(t:(|T|)).(u:(|S(a)|))
