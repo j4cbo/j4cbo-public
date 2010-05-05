@@ -50,7 +50,7 @@ G |-I M : sigma' ~> unpack [a,x]=e in [ack[a,x] as EXISTSa:k'.t'
 
 G |-p M : sigma ~> [c,e]      sigma ~> [a:k.t]
 ----------------------------------------------
-G |-I M : sigm ~> pack [c,e] as EXISTSa:k.t
+G |-I M : sigma ~> pack [c,e] as EXISTSa:k.t
 
 
 sigma1 ~> [a1:k1.t1]     sigma2 ~> [a2:k2.t2]
