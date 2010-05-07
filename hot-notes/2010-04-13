@@ -16,7 +16,7 @@ G |-P letd a/m = M1 in M2 : [c1/a]sig2 ~> [ [c1/a]c2, let m=e1 in [c1/a]e2 ]
 
 G |-P  M1 : sig1 ~> [c1,e1]    G,a/m : sig2 |-I M2 : sig2 ~> e2
 ---------------------------------------------------------------
-G |-P letd a/m = M1 in M2 : [c1/a]sig2 ~> let m=e1 in [c1/a]e2
+G |-I letd a/m = M1 in M2 : [c1/a]sig2 ~> let m=e1 in [c1/a]e2
 
 
 
