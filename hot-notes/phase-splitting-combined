@@ -1,0 +1,110 @@
+--------------------
+1 ~> [ _ : 1 . x[] ]            <- x[] is Cprod [], "unit"
+
+
+--------------------------
+(| k |) ~> [ _ : k . x[] ]
+    
+
+------------------------
+<| t |> ~> [ _ : 1 . t ]
+    
+
+sigma1 ~> [ a1:k1.t1 ]     sigma2 ~> [ a1:k2.t2 ]
+------------------------------------------------------------------
+SIGMAa:sigma1.sigma2 ~> [ beta : SIGMAa:k1.k2 .
+  [pi1 beta/alpha1]t1 x [pi1 beta, pi2 beta / alpha, alpha2 ] t2 ]
+    
+
+sigma1 ~> [ a1:k1.t1 ]     sigma2 ~> [ a1:k2.t2 ]
+-----------------------------------------------------
+PIgen a:sigma1.sigma2 ~> [ _ : 1.
+  FORALL a:k1 . ( [a/a1]t1 -> EXISTS a2:k2.t2 ) ]
+    
+
+sig ~> [a:k.t]
+--------------------
+l : sigma ~> [a:k.t]
+
+
+G |-I M : <|t|> ~> e
+---------------------------------------
+G |- Snd M : t ~> unpack [_,x] = e in x
+
+
+G |-I M : sigma ~> e1     G,a/m:sigma |- e : t ~> e2    G |- t : T
+------------------------------------------------------------------
+G |- let a/m = M in e:t : t ~> unpack [a,m] = e1 in e2
+
+
+a/m : sigma \in G
+------------------
+G |-p m : sigma ~> [ a, m ]
+
+
+-------------------------
+G |-p  * : 1 ~> [ *, <> ]
+
+    
+G |- c : k
+------------------------------------
+G |-p (| c |) : (| k |) ~> [ c, <> ]
+    
+
+G |- e : t ~> e'
+------------------------------------
+G |-p <| e |> : <| t |> ~> [ *, e' ]
+    
+
+G |-p M1 : sig1 ~> [c1,e1]     G,a/m:sig1 |-p M2 : sig2 ~> [c2/e2]
+------------------------------------------------------------------
+G |-p <a/m=M1,M2> : SIGMAa:sig1.sig2
+                     ~> [ <c1,[c1/a]c2>, let m = e1 in <m, [c1/a]e2> ]
+    
+
+G |-p M : SIGa:sig1.sig2 ~> [c,e]
+---------------------------------
+G |-p pi2 M : [pi1c/a]sig2 ~> [pi2c, pi1e]
+    
+
+G |-p M : SIGMAa:sig1.sig2 ~> [c,e]
+------------------------------------
+G |-p pi1 M : sig1 ~> [pi1 c, pi0 e]
+
+
+G |-P  M1 : sig1 ~> [c1,e1]    G,a/m : sig2 |-P M2 : sig2 ~> [c2,e2]
+--------------------------------------------------------------------
+G |-P letd a/m=M1 in M2 : [c1/a]sig2 ~> [ [c1/a]c2, let m=e1 in [c1/a]e2 ]
+    
+
+<bblum> G,a/u:s1  |-i  m : s2 ~> e    G |- s1 ~> [a1,k1,t1]
+<bblum> -------------------------------------------------------
+<bblum> G |-p Lam a/u:s1.m ~> [*, Plam a:k1.(Lam u:[a/a1]t1.e)]
+<bblum> and the signature on the m on the bottom is Spi a:s1.s2
+    
+
+G |-I M : PIgen a:sig1.sig2 ~> e1      G |-p M2 : sig1 ~> [c2, e2]
+------------------------------------------------------------------
+G |-I M1 M2 : [c2/a]sig2] ~> unpack [_, f] = e1 in f [c2] e2
+    
+
+G |-I M1 : sig1 ~> e1      G,a/m : sigma1 |-I M2 : sig2 ~> e2
+-------------------------------------------------------------
+G |-I <a/m=M1,M2> : SIGa:sig1.sig2 ~> unpack [a,m] = e1 in
+                                      unpack [b,x] = e2 in
+                                 pack [<a,b>,<m,x>] as Edelta:k.t
+    
+
+G |-P  M1 : sig1 ~> [c1,e1]    G,a/m : sig2 |-I M2 : sig2 ~> e2
+---------------------------------------------------------------
+G |-I letd a/m = M1 in M2 : [c1/a]sig2 ~> let m=e1 in [c1/a]e2
+    
+
+G |-I M1 : sig1     G,a/m:sig1 |- M2 : sig2     G |- sig2 : sig
+---------------------------------------------------------------
+G |-I let a/m = M1 in (M2 : sig2) : sig2 ~> unpack [a,m] = e1 in e2
+    
+
+G |-p M : sigma ~> [c,e]      sigma ~> [a:k.t]
+----------------------------------------------
+G |-I M : sigma ~> pack [c,e] as EXISTSa:k.t
