@@ -1,0 +1,271 @@
+\documentclass{article}
+\usepackage{proof}
+\usepackage{amssymb}
+\usepackage{mathpartir}
+\usepackage{stmaryrd}
+\usepackage{MnSymbol}
+\begin{document}
+
+\newcommand{\elabMatch}[1]{#1 \textrm{ on } v : \tau_1 \textrm{ with } \vfail}
+\newcommand{\elabPat}[1]{#1 \textrm{ on } e : \tau \textrm{ with } \vfail}
+\newcommand{\ex}{\textrm{exp}}
+\newcommand{\T}{\textrm{T}}
+\newcommand{\sq}{\rightsquigarrow}
+\newcommand{\E}{\mathcal{E}} 
+\newcommand{\tr}{\triangleright}
+\newcommand{\vfail}{v_\textrm{\small fail}}
+\newcommand{\afail}{\alpha_\textrm{\small fail}}
+\newcommand{\mfail}{m_\textrm{\small fail}}
+\newcommand{\Min}[1]{\textrm{in}_{#1}}
+\newcommand{\sandw}[1]{\triangleleft #1 \triangleright}
+\newcommand{\unit}{{\times[]}}
+\newcommand{\dec}{\textrm{dec}}
+\newcommand{\headp}[1]{\llparenthesis\, #1\, \rrparenthesis}
+
+\begin{center}
+\LARGE { Elaboration Notes }
+\end{center}
+
+These notes were distilled and typeset by Jacob Potter \texttt{<jdpotter@andrew.cmu.edu>}, based on:
+\begin{itemize}
+\item Lectures and theory by Karl Crary \texttt{<crary@cs.cmu.edu>}
+\item My own lecture notes and code
+\item Lecture notes taken by Ben Segall \texttt{<bsegall@cs.cmu.edu>}
+\end{itemize}
+
+Some general formatting and implementation notes:
+
+\begin{itemize}
+\item ``$\Gamma \vdash \tau : \T$'' in a premise means that $\tau$ might have a free $\alpha$ in it, and so it must have inhabitant (fstsg $\sigma$) substituted for $\alpha$.
+\item ``$\Gamma, \alpha:\sigma$'' means ``\texttt{extend G a (fstsg sg)}''.
+\item ``$\Gamma \vdash \E \tr longid \textrm { in ...}$'' is \texttt{Resolve.resolve}.
+\item ``$\Gamma \vdash \E \tr  ty\rightsquigarrow \tau$'' is \texttt{ElaborateType.elabTp}. 
+\item ``$\Gamma \vdash \tau \equiv ... : \textrm{T}$'' means to pattern match on the output of \texttt{whnf} $\tau$.
+\item The type that is called \texttt{unit} in ML is always written as $\unit$.
+\end{itemize}
+
+\section{elabMatch with $\vfail$}
+
+\[ 
+\inferrule[ {[ (pat, exp) ]} ]
+{ \Gamma \vdash \E \tr \elabMatch{\textrm{pat}} \sq M : \sigma
+\\ \Gamma, \alpha:\sigma \vdash \E @ (\alpha/m:\sigma) \tr \textrm{exp} \sq e : \tau_2
+\\ \Gamma \vdash \tau_2 : \T
+ }
+{ \Gamma \vdash \E \tr \elabMatch{\textrm{pat} \Rightarrow \exp} \rightsquigarrow \textrm{let } \alpha/m = M \textrm{ in } (e:\tau_2) : \tau_2}
+\]
+\[
+\inferrule[ (pat, exp) :: match ]
+{ \Gamma \vdash \E \tr \elabMatch{\textrm{pat}} \sq M : \sigma
+\\ \Gamma, \alpha:\sigma \vdash \E @ (\alpha/m:\sigma) \tr \textrm{exp} \sq e : \tau_2
+\\ \Gamma \vdash \tau_2 : \T
+\\  \Gamma \vdash \E \tr \elabMatch{\textrm{match}} \rightsquigarrow e' : \tau_2
+ }
+{
+ \Gamma \vdash \E \tr \elabMatch{\textrm{pat} \Rightarrow \textrm{exp } | \textrm{ match}} \rightsquigarrow \\ \textrm{handle}(\textrm{let } \alpha/m = M \textrm{ in } (e:\tau_2), x, \textrm{iftag}(\vfail, x, _, e', \textrm{raise}_{\tau_2} \, x)) : \tau_2
+ }
+\]
+
+\section{elabMatch}
+
+\[
+\inferrule
+{
+\Gamma \vdash \E \tr \elabMatch{\textrm{match}} \rightsquigarrow e : \tau
+}{
+\Gamma \vdash \E \tr \textrm{match} \textrm{ on } v : \tau_1 \rightsquigarrow (\textrm{let } \vfail = \textrm{newtag}_{\unit} \textrm{ in } e) : \tau
+}
+\]
+
+\section{elabPattern}
+
+\[
+\inferrule[Pident]{ }
+{
+\Gamma \vdash \E \tr \elabPat{\textrm{id}} \sq (\Min{\textrm{VAL id}} \sandw{\textrm{id}}) : (\textrm{VAL id} : \sandw{\tau})
+}
+\]
+
+\[
+\inferrule[Pint]{ }
+{
+\Gamma \vdash \E \tr \elabPat{i} \sq \\
+\left( \textrm{let } \_/\_ = \sandw{ \textrm{if } e = i \textrm{ then } \langle \rangle \textrm{ else raise}_\unit 
+\left( \textrm{tag}_{\vfail} \langle \rangle \right)
+} \textrm{ in } * :  1 \right) : 1
+}
+\]
+
+Note: In the following rule, $\langle M1, M2 \rangle$ is shorthand for $\langle \_/\_ = M1, M2 \rangle$ and $\sigma_1 \times \sigma_2$ is shorthand for $\Sigma \_: \sigma_1 \times \sigma_2$.
+
+\[
+\inferrule[Ptuple]{
+\Gamma \vdash \tau \equiv \times[\tau_0, ... \tau_{n-1} ] : \textrm{T} \\
+\Gamma \vdash \E \tr pat_i \textrm{ on } \pi_i e : \tau_i \textrm{ with } \vfail \sq M_i : \sigma_i  \quad \left( \textrm{for $i \in [0, ..., n-1]$} \right)
+} {
+\Gamma \vdash \E \tr (pat_0, ... pat_n) \textrm{ on } e : \tau \textrm{ with } \vfail \sq \\
+\langle M_0, \langle M_1, \langle ... \langle M_{n-1}, * \rangle \rangle \rangle 
+: \sigma_0 \times (\sigma_1 \times (... (\sigma_{n-1} \times 1)))
+}
+\]
+
+
+\[
+\inferrule[Papp]
+{
+\Gamma \vdash \E \tr longid \textrm{ in VAL} \sq M_0 : (\textrm{DCON} : \sandw { \tau_0 }) \\
+\Gamma \vdash \tau_0 \equiv \tau_c \times (\tau \rightarrow (\unit + \tau')) : \textrm{T} \\
+\Gamma, \alpha : (\textrm{checkCon } \Gamma\  \tau') \vdash \E @ (\alpha/m:\sandw{\tau'}) \tr pat \textrm{ on Snd}(m) : \tau' \textrm{ with } \vfail \sq \sigma : M
+}
+{
+\Gamma \vdash \E \tr longid\ pat \textrm{ on } e : \tau \textrm{ with } \vfail \sq \\
+{\left(  \textrm{let } \alpha/m = \triangleleft \left( \begin{tabular}{@{}r@{}l@{}}
+$ \textrm{case } (\pi_1 (\textrm{Snd}(\textrm{out } M_0)))\ e  \textrm{ of }$&$\textrm{inj}_0 \_
+\Rightarrow \textrm{raise}_{\tau'} (\textrm{tag}(\vfail, \langle \rangle))$ \\
+$|\ $ & $\textrm{inj}_1 x \Rightarrow x $
+\end{tabular} \right) \triangleright \textrm{ in } M \right) : \sigma}}
+\]
+
+\section{elabTerm}
+
+\texttt{Tint} and \texttt{Tstring} should be obvious. \texttt{Tprim} is handled with \texttt{ElaboratePrim.elabPrim}. Note that there are two rules for \texttt{Tvar} depending on the result of \textrm{resolve}.
+
+\[\inferrule[Tvar : value]{
+\Gamma \vdash \E \tr longid \textrm{ in VAL} \sq M : \sandw{\tau}}{
+\Gamma \vdash \E \tr longid \sq \textrm{Snd}(M) : \tau }
+\]
+
+\[
+\inferrule[Tvar : data constructor]{
+\Gamma \vdash \E \tr longid \textrm{ in VAL} \sq M : (\textrm{DCON} : \sandw{\tau}) \\
+\Gamma \vdash \tau \equiv \tau_c \times \tau_d : \textrm{T} }{
+\Gamma \vdash \E \tr longid \sq \pi_0 (\textrm{Snd}(\textrm{out } M)) : \tau_c
+} \]
+%\[\infer{\Gamma\ent \epsilon\triangleright longid\rightsquigarrow \pi_0 (snd
+  %(out\ M)) \colon\tau_C}
+
+
+\[ \inferrule[Tapp]{
+\Gamma \vdash \E \tr exp_1 \sq e_1: \tau_1 \rightarrow \tau_2 \\
+\Gamma \vdash \E \tr exp_2 \sq e_2:\tau_1} {
+\Gamma \vdash \E \tr exp_1\ exp_2  \sq e_1e_2 : \tau_2 } \]
+
+\[ \inferrule[Ttuple]{
+\Gamma \vdash \E \tr exp_1 \sq e_1 : \tau_1 \ldots
+\Gamma \vdash \E \tr  exp_n \sq e_n : \tau_n} {
+\Gamma \vdash \E \tr \langle exp_1,\ldots,exp_n \rangle \sq
+\langle e_1,\ldots,e_n \rangle \colon \times [\tau_1,\ldots,\tau_n]}\]
+
+\[
+\inferrule[Tlet] {
+\Gamma \vdash \E \tr decls \sq M : \sigma \\
+\Gamma, \alpha : \sigma \vdash E @ (\alpha/m:\sigma) \tr exp \sq e : \tau \\
+\Gamma \vdash \tau : \textrm{T}
+} {
+\Gamma \vdash \E \tr \textrm{let } decls \textrm{ in } exp \sq (\textrm{let } \alpha/m = M \textrm{ in } e : \tau) : \tau
+}
+\]
+
+
+\section{elabDecl}
+
+\textrm{Ddata} is handled with \texttt{ElaborateDatatype.elabDatatype}.
+\[
+\inferrule[Dval] {
+\Gamma \vdash \E \tr exp \sq e : \tau \\
+\Gamma, \afail : \textrm{T} \tr \E @ (a/m:\sandw{\tau}) @ (\afail/\mfail:\sandw{\textrm{tag}_\unit})
+\tr pat \textrm{ on } \textrm{Snd}(m) \textrm{ with } \textrm{Snd}(\mfail) \sq M : \sigma
+} {
+\Gamma \vdash \E \tr \textrm{val } pat = exp \sq
+(\textrm{let } \afail/\mfail = \sandw{\textrm{newtag } \langle \rangle} \textrm{ in }
+\textrm{let } \alpha/m = \sandw{e} \textrm{ in } M) : \sigma
+}
+\]
+
+
+\[
+\inferrule[Dtype] {
+\Gamma \vdash \E \tr  ty\rightsquigarrow \tau
+} {
+\Gamma \vdash \E \tr \textrm{type } id = ty \rightsquigarrow \Min{\textrm{CON } id} \headp{\tau} : ((\textrm{CON } id) : \headp{ S(\tau) })
+}
+\]
+
+\[
+\inferrule[Dopen] {
+\Gamma \vdash \E \tr longid \textrm{ in MOD} \sq M : \sigma
+} {
+\Gamma \vdash \E \tr \textrm{open } id \sq M : \sigma
+}
+\]
+
+\[
+\inferrule[Dlocal] {
+\Gamma \vdash \E \tr dec_1 \sq M_1 : \sigma_1 \\
+\Gamma, \alpha : \sigma_1 \vdash \E @ (\alpha/(\textrm{out } m) : \sigma_1) \tr dec_2 \sq M_2 : \sigma_2
+} {
+\Gamma \vdash \E \tr \textrm{local } dec_1 \textrm{ in } dec_2 \textrm{ end} \sq
+\\ \langle \alpha/m = \Min{\textrm{HIDE}} M_1, M_2 \rangle : \exists \alpha : (\textrm{HIDE} : \sigma_1) . \sigma_2
+}
+\]
+
+\[
+\inferrule[Dmodule] {
+\Gamma \vdash \E \tr mod \sq M : \sigma
+}{\Gamma \vdash \E \tr \textrm{structure } id = mod \sq \Min{\textrm{MOD } id} M : (\textrm{MOD } id : \sigma) }
+\]
+
+Dfun first requires some definitions:
+
+\[ \varphi_\tau = \mu \alpha. \alpha \rightarrow ((\unit \rightarrow \tau) \rightarrow \tau) \rightarrow \tau \]
+\[ \theta_\tau  = \textrm{roll}_{\varphi_\tau} \left(\lambda z : \varphi_\tau .\ \lambda f : (\unit \rightarrow \tau) \rightarrow \tau.\  f \left(\lambda \_ : \unit .\ ((\textrm{unroll } z) z) f  \right) \right) \]
+\[ \Theta_\tau = (\textrm{unroll } \theta_\tau) \theta_\tau \]
+\[ \textrm{fix}_\tau x.\ e =\left(\lambda \_ : \unit.\ \Theta_\tau (\lambda x' : \unit \rightarrow \tau. \ \textrm{let } x = x' \textrm{ in } e )    \right) \langle \rangle \]
+
+\[\inferrule[Dfun]{
+\Gamma \vdash \E \tr  ty_1\rightsquigarrow \tau_1 \\
+\Gamma \vdash \E \tr  ty_2\rightsquigarrow \tau_2 \\
+\Gamma, a : \left(  \Sigma \_: (\textrm{VAL }id_1 : \sandw{\tau_1 \rightarrow \tau_2}) . (\textrm{VAL } id_2 : \tau_1) \right) \vdash \E @ (a/m: \textrm{same Ssigma as added to $\Gamma$}) \tr \textrm{exp} : \tau_1
+}
+{
+\Gamma \vdash \E \tr \textrm{fun} id_1(id_2 : ty_1) : ty_2 = \textrm{exp} \sq  \\
+\Min{\textrm{VAL } id_1}  \sandw{\textrm{fix}_{\tau_1  \rightarrow \tau_2} f. \left( 
+\lambda x : \tau_1.
+\textrm{let } \alpha/m =  \langle \_/\_ = \Min{\textrm{VAL }id_1} \sandw{f \langle \rangle}, \Min{\textrm{VAL }id_2} \sandw{x} \rangle \textrm{ in } e : \tau_2
+\right) }
+\\ : (\textrm{VAL } id_1 : \sandw{\tau_1\rightarrow\tau_2})
+}
+\]
+
+
+
+
+\section{elabDecls}
+\[
+\inferrule[nil]{ }
+{\Gamma \vdash \E \tr \epsilon \sq * : 1 }
+\]
+\[
+\inferrule[decl :: decls]{
+\Gamma \vdash \E \tr dec_1 \sq M_1 : \sigma_1
+\\ \Gamma, \alpha : \sigma1 \vdash \E @ (\alpha/m:\sigma_1) \tr dec_2 \sq M_2 : \sigma_2}
+{ \Gamma \vdash \E \tr dec_1 \ dec_2 \sq \langle \alpha/m=M_1, M_2 \rangle : \Sigma \alpha : \sigma_1 . \sigma_2 }
+\]
+
+\section{elabModule}
+
+The code for \texttt{Mseal} is written for us. You get a module, opacity, and signature; call \texttt{elabModule} and \texttt{elabSg}, and then pass the
+results (and the opacity) to \texttt{Ascribe.ascribe}.
+
+\[
+\inferrule[Mident]{
+\Gamma \vdash \E \tr longid \textrm{ in MOD} \sq M : \sigma}{
+\Gamma \vdash \E \tr longid \sq M : \sigma}
+\]
+\[
+\inferrule[Mstruct]{
+\Gamma \vdash \E \tr dec \sq M : \sigma}{
+\Gamma \vdash \E \tr \textrm{struct } dec \textrm{ end} \sq M : \sigma}
+\]
+
+\end{document}
