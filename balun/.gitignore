@@ -1,0 +1,13 @@
+*.?#?
+eagle.epf
+*.png
+*.drl
+*.drd
+*.cmp
+*.sol
+*.stc
+*.sts
+input.dri
+input.gpi
+input.plc
+input.zip
