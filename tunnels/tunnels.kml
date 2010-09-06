@@ -2,293 +2,7 @@
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
 <Document>
 	<name>tunnels.kml</name>
-	<Style id="sh_wht-blank">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="sn_ylw-pushpin1">
-		<LineStyle>
-			<color>ffff0089</color>
-			<width>3</width>
-		</LineStyle>
-	</Style>
-	<StyleMap id="interesting-feature">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_wht-blank</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_wht-blank</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="msn_purple-circle0">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_purple-circle2</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_purple-circle1</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="blue-circle-normal">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/blu-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/blu-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="sn_ltblu-circle0">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<StyleMap id="msn_purple-stars">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_purple-stars</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_purple-stars</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="sh_purple-stars">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-stars.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-stars-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="blue-star-normal">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/blu-stars.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/blu-stars-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="red-star-highlight">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<StyleMap id="msn_purple-circle">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_purple-circle0</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_purple-circle2</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="sn_ltblu-circle">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="red-star-normal">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="green-star-normal">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/grn-stars.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/grn-stars-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="green-circle-highlight">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/grn-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="sn_purple-circle2">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="sn_wht-blank">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<StyleMap id="red-star">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#red-star-normal</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#red-star-highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="blue-pushpin">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#blue-pushpin-normal</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#blue-pushpin-highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="yellow-star">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#yellow-star-normal</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#yellow-star-highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="yellow-circle">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#yellow-circle-normal</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#yellow-circle-highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="red-pushpin">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#red-pushpin-normal</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#red-pushpin-highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="green-pushpin-highlight">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/grn-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<LineStyle>
-			<color>ff00ff00</color>
-			<width>3</width>
-		</LineStyle>
-	</Style>
-	<StyleMap id="blue-circle">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#blue-circle-normal</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#blue-circle-highlight</styleUrl>
-		</Pair>
-	</StyleMap>
+	<open>1</open>
 	<Style id="red-pushpin-highlight">
 		<IconStyle>
 			<scale>1.3</scale>
@@ -299,266 +13,6 @@
 		</IconStyle>
 		<LineStyle>
 			<color>00ffff00</color>
-			<width>3</width>
-		</LineStyle>
-	</Style>
-	<Style id="blue-pushpin-normal">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<LineStyle>
-			<color>ffff0000</color>
-			<width>3</width>
-		</LineStyle>
-	</Style>
-	<Style id="red-circle-highlight">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="sh_purple-circle">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="yellow-pushpin-normal">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<LineStyle>
-			<color>ff00ffff</color>
-			<width>3</width>
-		</LineStyle>
-	</Style>
-	<StyleMap id="msn_ltblu-circle">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_ltblu-circle</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_ltblu-circle</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="sn_purple-stars">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-stars.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-stars-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="sh_purple-circle1">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<StyleMap id="blue-star">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#blue-star-normal</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#blue-star-highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="red-pushpin-normal">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<LineStyle>
-			<color>ff0000ff</color>
-			<width>3</width>
-		</LineStyle>
-	</Style>
-	<StyleMap id="green-star">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#green-star-normal</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#green-star-highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="sh_ylw-pushpin0">
-		<IconStyle>
-			<scale>1.2</scale>
-		</IconStyle>
-		<LineStyle>
-			<color>fff3ff00</color>
-			<width>3</width>
-		</LineStyle>
-	</Style>
-	<StyleMap id="green-circle">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#green-circle-normal</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#green-circle-highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="green-star-highlight">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/grn-stars.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/grn-stars-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<StyleMap id="red-circle">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#red-circle-normal</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#red-circle-highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="yellow-star-normal">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="sh_ltblu-circle0">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="sn_purple-circle">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="sn_purple-circle1">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="yellow-pushpin-highlight">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<LineStyle>
-			<color>ff00ffff</color>
-			<width>3</width>
-		</LineStyle>
-	</Style>
-	<Style id="yellow-circle-normal">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="sh_ylw-pushpin">
-		<IconStyle>
-			<scale>1.2</scale>
-		</IconStyle>
-		<LineStyle>
-			<color>ffff0089</color>
 			<width>3</width>
 		</LineStyle>
 	</Style>
@@ -576,17 +30,323 @@
 			</ItemIcon>
 		</ListStyle>
 	</Style>
-	<Style id="yellow-star-highlight">
+	<Style id="blue-pushpin-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ffff0000</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_purple-circle">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_purple-circle0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_purple-circle2</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_purple-stars">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_purple-stars</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_purple-stars</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_red-circle">
 		<IconStyle>
 			<scale>1.3</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars.png</href>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
 			</Icon>
 			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
 		<ListStyle>
 			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars-lv.png</href>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_wht-blank">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_red-circle">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin1">
+		<LineStyle>
+			<color>ffff0089</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_wht-blank">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_purple-circle1">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="interesting-feature">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_wht-blank</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_wht-blank</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_red-circle0">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="red-circle">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#red-circle-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#red-circle-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_red-circle0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_red-circle1">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_purple-circle0">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_purple-circle">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="red-pushpin-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="blue-star-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/blu-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/blu-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin">
+		<LineStyle>
+			<color>fff3ff00</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="green-pushpin-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/grn-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff00</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_ltblu-circle">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="msn_red-circle">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-circle</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-circle1</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_purple-circle0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_purple-circle2</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_purple-circle1</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="red-star-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_purple-circle2">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
 			</ItemIcon>
 		</ListStyle>
 	</Style>
@@ -603,11 +363,84 @@
 			<width>3</width>
 		</LineStyle>
 	</Style>
-	<Style id="sn_ylw-pushpin">
+	<Style id="sh_ylw-pushpin">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
 		<LineStyle>
-			<color>fff3ff00</color>
+			<color>ff0000ff</color>
 			<width>3</width>
 		</LineStyle>
+	</Style>
+	<Style id="sn_purple-stars">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="blue-circle-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/blu-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/blu-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_red-stars">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_ltblu-circle0">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
 	</Style>
 	<Style id="blue-star-highlight">
 		<IconStyle>
@@ -623,62 +456,123 @@
 			</ItemIcon>
 		</ListStyle>
 	</Style>
-	<Style id="sn_purple-circle0">
+	<StyleMap id="yellow-star">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#yellow-star-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#yellow-star-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_ltblu-circle">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ltblu-circle</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ltblu-circle</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="green-star-normal">
 		<IconStyle>
 			<scale>1.1</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-stars.png</href>
 			</Icon>
 			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
 		<ListStyle>
 			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-stars-lv.png</href>
 			</ItemIcon>
 		</ListStyle>
 	</Style>
-	<StyleMap id="msn_ylw-pushpin">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_ylw-pushpin1</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_ylw-pushpin</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="sh_purple-circle0">
+	<Style id="sh_red-stars">
 		<IconStyle>
 			<scale>1.3</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars.png</href>
 			</Icon>
 			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
 		<ListStyle>
 			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars-lv.png</href>
 			</ItemIcon>
 		</ListStyle>
 	</Style>
-	<StyleMap id="msn_purple-circle1">
+	<StyleMap id="msn_red-circle0">
 		<Pair>
 			<key>normal</key>
-			<styleUrl>#sn_purple-circle</styleUrl>
+			<styleUrl>#sn_red-circle0</styleUrl>
 		</Pair>
 		<Pair>
 			<key>highlight</key>
-			<styleUrl>#sh_purple-circle</styleUrl>
+			<styleUrl>#sh_red-circle0</styleUrl>
 		</Pair>
 	</StyleMap>
-	<StyleMap id="msn_ylw-pushpin1">
+	<Style id="sn_red-circle1">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="yellow-pushpin-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ffff</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="yellow-circle-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="yellow-circle">
 		<Pair>
 			<key>normal</key>
-			<styleUrl>#sn_ylw-pushpin</styleUrl>
+			<styleUrl>#yellow-circle-normal</styleUrl>
 		</Pair>
 		<Pair>
 			<key>highlight</key>
-			<styleUrl>#sh_ylw-pushpin0</styleUrl>
+			<styleUrl>#yellow-circle-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_purple-circle2">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_purple-circle1</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_purple-circle0</styleUrl>
 		</Pair>
 	</StyleMap>
 	<Style id="blue-pushpin-highlight">
@@ -694,6 +588,33 @@
 			<width>3</width>
 		</LineStyle>
 	</Style>
+	<Style id="yellow-pushpin-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ffff</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="red-star-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
 	<StyleMap id="msn_ltblu-circle0">
 		<Pair>
 			<key>normal</key>
@@ -702,6 +623,59 @@
 		<Pair>
 			<key>highlight</key>
 			<styleUrl>#sh_ltblu-circle0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_ylw-pushpin0">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>fff3ff00</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="blue-circle">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#blue-circle-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#blue-circle-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="green-circle">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#green-circle-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#green-circle-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="green-circle-highlight">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="msn_purple-circle1">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_purple-circle</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_purple-circle</styleUrl>
 		</Pair>
 	</StyleMap>
 	<Style id="sh_ltblu-circle">
@@ -728,9 +702,49 @@
 			<styleUrl>#green-pushpin-highlight</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Style id="blue-circle-highlight">
+	<StyleMap id="green-star">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#green-star-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#green-star-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_red-stars">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-stars</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-stars</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="red-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#red-pushpin-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#red-pushpin-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="blue-star">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#blue-star-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#blue-star-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="blue-circle-normal">
 		<IconStyle>
-			<scale>1.3</scale>
+			<scale>1.1</scale>
 			<Icon>
 				<href>http://maps.google.com/mapfiles/kml/paddle/blu-circle.png</href>
 			</Icon>
@@ -739,6 +753,196 @@
 		<ListStyle>
 			<ItemIcon>
 				<href>http://maps.google.com/mapfiles/kml/paddle/blu-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="yellow-star-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="yellow-star-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="msn_red-circle1">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-circle1</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-circle</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="blue-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#blue-pushpin-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#blue-pushpin-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="red-star">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#red-star-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#red-star-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="yellow-circle-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin1</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin1</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_ltblu-circle0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_purple-circle2">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_purple-stars">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_purple-circle0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="red-circle-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_purple-circle1">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="yellow-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#yellow-pushpin-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#yellow-pushpin-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="green-star-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-stars-lv.png</href>
 			</ItemIcon>
 		</ListStyle>
 	</Style>
@@ -756,41 +960,17 @@
 			</ItemIcon>
 		</ListStyle>
 	</Style>
-	<StyleMap id="msn_purple-circle2">
+	<StyleMap id="msn_ylw-pushpin1">
 		<Pair>
 			<key>normal</key>
-			<styleUrl>#sn_purple-circle1</styleUrl>
+			<styleUrl>#sn_ylw-pushpin</styleUrl>
 		</Pair>
 		<Pair>
 			<key>highlight</key>
-			<styleUrl>#sh_purple-circle0</styleUrl>
+			<styleUrl>#sh_ylw-pushpin0</styleUrl>
 		</Pair>
 	</StyleMap>
-	<StyleMap id="yellow-pushpin">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#yellow-pushpin-normal</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#yellow-pushpin-highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="yellow-circle-highlight">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="sh_purple-circle2">
+	<Style id="sh_purple-circle">
 		<IconStyle>
 			<scale>1.3</scale>
 			<Icon>
@@ -803,6 +983,15 @@
 				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
 			</ItemIcon>
 		</ListStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin1">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>ffff0089</color>
+			<width>3</width>
+		</LineStyle>
 	</Style>
 	<Folder>
 		<name>Carnegie Mellon</name>
@@ -832,9 +1021,9 @@ C level is around twenty feet below ground level of the tennis courts,
 					<longitude>-79.94148947608882</longitude>
 					<latitude>40.44241496075884</latitude>
 					<altitude>0</altitude>
-					<range>131.8322364739053</range>
-					<tilt>0</tilt>
 					<heading>0</heading>
+					<tilt>0</tilt>
+					<range>131.8322364739053</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#interesting-feature</styleUrl>
@@ -860,9 +1049,9 @@ really cool while they're warming up.
 					<longitude>-79.94184274388736</longitude>
 					<latitude>40.44237574291182</latitude>
 					<altitude>0</altitude>
-					<range>132.0891507878523</range>
-					<tilt>0</tilt>
 					<heading>0</heading>
+					<tilt>0</tilt>
+					<range>132.0891507878523</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#interesting-feature</styleUrl>
@@ -881,9 +1070,9 @@ architecture studios, has a window with easy access to the rotunda.
 					<longitude>-79.9417869723022</longitude>
 					<latitude>40.44217879277517</latitude>
 					<altitude>0</altitude>
-					<range>131.0172709908761</range>
-					<tilt>0</tilt>
 					<heading>0</heading>
+					<tilt>0</tilt>
+					<range>131.0172709908761</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#interesting-feature</styleUrl>
@@ -911,9 +1100,9 @@ There appears to be lots of asbestos about.
 					<longitude>-79.94110144010718</longitude>
 					<latitude>40.44200386128797</latitude>
 					<altitude>0</altitude>
-					<range>168.2951739493386</range>
-					<tilt>0</tilt>
 					<heading>0</heading>
+					<tilt>0</tilt>
+					<range>168.2951739493386</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#interesting-feature</styleUrl>
@@ -942,9 +1131,9 @@ There are no ladders or stairs to the grid; it can only be accessed from above.
 					<longitude>-79.94302999999999</longitude>
 					<latitude>40.44146</latitude>
 					<altitude>0</altitude>
-					<range>168.2951739493386</range>
-					<tilt>0</tilt>
 					<heading>0</heading>
+					<tilt>0</tilt>
+					<range>168.2951739493386</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#interesting-feature</styleUrl>
@@ -963,9 +1152,9 @@ less impressive from above than from below.
 					<longitude>-79.94279</longitude>
 					<latitude>40.44154</latitude>
 					<altitude>0</altitude>
-					<range>168.2951739493386</range>
-					<tilt>0</tilt>
 					<heading>0</heading>
+					<tilt>0</tilt>
+					<range>168.2951739493386</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#interesting-feature</styleUrl>
@@ -994,9 +1183,9 @@ Last update: April 2008.
 					<longitude>-79.94307000000001</longitude>
 					<latitude>40.44137</latitude>
 					<altitude>0</altitude>
-					<range>168.2951739493386</range>
-					<tilt>0</tilt>
 					<heading>0</heading>
+					<tilt>0</tilt>
+					<range>168.2951739493386</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#interesting-feature</styleUrl>
@@ -1022,9 +1211,9 @@ leads to the 2nd floor lobby near the vending machines.
 					<longitude>-79.946361</longitude>
 					<latitude>40.442885</latitude>
 					<altitude>0</altitude>
-					<range>131.8322364739053</range>
-					<tilt>0</tilt>
 					<heading>0</heading>
+					<tilt>0</tilt>
+					<range>131.8322364739053</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#interesting-feature</styleUrl>
@@ -1051,9 +1240,9 @@ shitbin is more often used as a source of material to be sent down the Leap.
 					<longitude>-79.945971</longitude>
 					<latitude>40.442436</latitude>
 					<altitude>0</altitude>
-					<range>131.8322364739053</range>
-					<tilt>0</tilt>
 					<heading>0</heading>
+					<tilt>0</tilt>
+					<range>131.8322364739053</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#interesting-feature</styleUrl>
@@ -1086,9 +1275,9 @@ the main elevators do not themselves reach the 9th floor.
 					<longitude>-79.94588</longitude>
 					<latitude>40.442702</latitude>
 					<altitude>0</altitude>
-					<range>131.8322364739053</range>
-					<tilt>0</tilt>
 					<heading>0</heading>
+					<tilt>0</tilt>
+					<range>131.8322364739053</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#interesting-feature</styleUrl>
@@ -1124,9 +1313,9 @@ the main elevators do not themselves reach the 9th floor.
 					<longitude>-79.94566016667744</longitude>
 					<latitude>40.44231206758812</latitude>
 					<altitude>0</altitude>
-					<range>41.62747457393112</range>
-					<tilt>3.519071095019672e-05</tilt>
 					<heading>-0.0004305800957215291</heading>
+					<tilt>3.519071095019672e-05</tilt>
+					<range>41.62747457393112</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#blue-circle</styleUrl>
@@ -1144,9 +1333,9 @@ Shortly after entering the tunnel branch, while still underneath Doherty, there 
 					<longitude>-79.94501333296094</longitude>
 					<latitude>40.44241290655461</latitude>
 					<altitude>0</altitude>
-					<range>43.02056305782753</range>
-					<tilt>3.519054548080383e-05</tilt>
 					<heading>-1.099429184445389e-05</heading>
+					<tilt>3.519054548080383e-05</tilt>
+					<range>43.02056305782753</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#blue-star</styleUrl>
@@ -1162,9 +1351,9 @@ Shortly after entering the tunnel branch, while still underneath Doherty, there 
 					<longitude>-79.94438239329682</longitude>
 					<latitude>40.44199092507378</latitude>
 					<altitude>0</altitude>
-					<range>177.0694530832617</range>
-					<tilt>3.519057316240542e-05</tilt>
 					<heading>0.0003970075552243233</heading>
+					<tilt>3.519057316240542e-05</tilt>
+					<range>177.0694530832617</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#blue-circle</styleUrl>
@@ -1180,9 +1369,9 @@ Shortly after entering the tunnel branch, while still underneath Doherty, there 
 					<longitude>-79.94438239329682</longitude>
 					<latitude>40.44199092507378</latitude>
 					<altitude>0</altitude>
-					<range>177.0694530832617</range>
-					<tilt>3.519057316240542e-05</tilt>
 					<heading>0.0003970075552243233</heading>
+					<tilt>3.519057316240542e-05</tilt>
+					<range>177.0694530832617</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#blue-pushpin</styleUrl>
@@ -1198,9 +1387,9 @@ Shortly after entering the tunnel branch, while still underneath Doherty, there 
 					<longitude>-79.94254736483393</longitude>
 					<latitude>40.4412940009359</latitude>
 					<altitude>0</altitude>
-					<range>277.6328209999866</range>
-					<tilt>3.519031602694283e-05</tilt>
 					<heading>0.001586932892147827</heading>
+					<tilt>3.519031602694283e-05</tilt>
+					<range>277.6328209999866</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#blue-pushpin</styleUrl>
@@ -1216,9 +1405,9 @@ Shortly after entering the tunnel branch, while still underneath Doherty, there 
 					<longitude>-79.94272056884994</longitude>
 					<latitude>40.44188303126835</latitude>
 					<altitude>0</altitude>
-					<range>187.4560903211022</range>
-					<tilt>6.589006322432952e-12</tilt>
 					<heading>0.002409404989614113</heading>
+					<tilt>6.589006322432952e-12</tilt>
+					<range>187.4560903211022</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#blue-pushpin</styleUrl>
@@ -1234,9 +1423,9 @@ Shortly after entering the tunnel branch, while still underneath Doherty, there 
 					<longitude>-79.94309774051982</longitude>
 					<latitude>40.44154583772509</latitude>
 					<altitude>0</altitude>
-					<range>176.8499591852357</range>
-					<tilt>3.519045110157045e-05</tilt>
 					<heading>0.00122991892661891</heading>
+					<tilt>3.519045110157045e-05</tilt>
+					<range>176.8499591852357</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#blue-circle</styleUrl>
@@ -1254,9 +1443,9 @@ Prior to the construction of Posner, the tunnel ended here, presumably with a st
 					<longitude>-79.94309774051982</longitude>
 					<latitude>40.44154583772509</latitude>
 					<altitude>0</altitude>
-					<range>176.8499591852357</range>
-					<tilt>3.519045110157045e-05</tilt>
 					<heading>0.00122991892661891</heading>
+					<tilt>3.519045110157045e-05</tilt>
+					<range>176.8499591852357</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#blue-pushpin</styleUrl>
@@ -1272,9 +1461,9 @@ Prior to the construction of Posner, the tunnel ended here, presumably with a st
 					<longitude>-79.94229422145251</longitude>
 					<latitude>40.44128231719743</latitude>
 					<altitude>0</altitude>
-					<range>203.8217764563672</range>
-					<tilt>3.51909000806779e-05</tilt>
 					<heading>0.001748550847511974</heading>
+					<tilt>3.51909000806779e-05</tilt>
+					<range>203.8217764563672</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#blue-circle</styleUrl>
@@ -1292,9 +1481,9 @@ This room has two exits; both are on the south wall of the building, near the el
 					<longitude>-79.9416393271663</longitude>
 					<latitude>40.44190704383426</latitude>
 					<altitude>0</altitude>
-					<range>57.97091592571046</range>
-					<tilt>0.0005817917154764332</tilt>
 					<heading>0.002173367455589547</heading>
+					<tilt>0.0005817917154764332</tilt>
+					<range>57.97091592571046</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#blue-circle</styleUrl>
@@ -1310,9 +1499,9 @@ This room has two exits; both are on the south wall of the building, near the el
 					<longitude>-79.94228766126571</longitude>
 					<latitude>40.44173081577998</latitude>
 					<altitude>0</altitude>
-					<range>101.7711636096237</range>
-					<tilt>2.387228252077975e-10</tilt>
 					<heading>0.002690220481205897</heading>
+					<tilt>2.387228252077975e-10</tilt>
+					<range>101.7711636096237</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#blue-circle</styleUrl>
@@ -1328,9 +1517,9 @@ This room has two exits; both are on the south wall of the building, near the el
 					<longitude>-79.94122845973943</longitude>
 					<latitude>40.44141171530266</latitude>
 					<altitude>0</altitude>
-					<range>234.1024355017036</range>
-					<tilt>3.519080092804933e-05</tilt>
 					<heading>0.002439873394998421</heading>
+					<tilt>3.519080092804933e-05</tilt>
+					<range>234.1024355017036</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#blue-circle</styleUrl>
@@ -1344,7 +1533,8 @@ This room has two exits; both are on the south wall of the building, near the el
 				<LineString>
 					<tessellate>1</tessellate>
 					<coordinates>
--79.94584374452339,40.44233172552082,0 -79.94505816265489,40.44217068286505,0 -79.94496440438179,40.44242486156264,0 -79.94505816265489,40.44217068286505,0 -79.94412529763446,40.44197368862016,0 -79.94321313097275,40.4419510002017,0 -79.9427129193643,40.44185760452682,0 -79.94296366684847,40.44115134057724,0 -79.9426957626289,40.44109844499906,0 -79.94296366684847,40.44115134057724,0 -79.9427129193643,40.44185760452682,0 -79.94182535599502,40.44168049539068,0 -79.94173673939653,40.44192287129479,0 -79.94182535599502,40.44168049539068,0 -79.94171947492487,40.44159910429371,0 -79.94122620026182,40.44150820578737,0 -79.94128629571796,40.4413375507749,0 </coordinates>
+						-79.94584374452339,40.44233172552082,0 -79.94505816265489,40.44217068286505,0 -79.94496440438179,40.44242486156264,0 -79.94505816265489,40.44217068286505,0 -79.94412529763446,40.44197368862016,0 -79.94321313097275,40.4419510002017,0 -79.9427129193643,40.44185760452682,0 -79.94296366684847,40.44115134057724,0 -79.9426957626289,40.44109844499906,0 -79.94296366684847,40.44115134057724,0 -79.9427129193643,40.44185760452682,0 -79.94182535599502,40.44168049539068,0 -79.94173673939653,40.44192287129479,0 -79.94182535599502,40.44168049539068,0 -79.94171947492487,40.44159910429371,0 -79.94122620026182,40.44150820578737,0 -79.94128629571796,40.4413375507749,0 
+					</coordinates>
 				</LineString>
 				<LineStyle>
           <color>ff00ff00</color>
@@ -1381,9 +1571,9 @@ The south branch of this tunnel connects to one end of a large machine room on t
 					<longitude>-79.94170735964063</longitude>
 					<latitude>40.44265597796583</latitude>
 					<altitude>0</altitude>
-					<range>180.632156727111</range>
-					<tilt>0.0001579782372045944</tilt>
 					<heading>0.002133983567030194</heading>
+					<tilt>0.0001579782372045944</tilt>
+					<range>180.632156727111</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#red-star</styleUrl>
@@ -1402,9 +1592,9 @@ into the tunnels. A prominent &quot;DO NOT TAP ON GLASS&quot; sticker has been p
 					<longitude>-79.94182757084633</longitude>
 					<latitude>40.44297528255968</latitude>
 					<altitude>0</altitude>
-					<range>71.37162408803222</range>
-					<tilt>0.0001579782381878581</tilt>
 					<heading>0.002056003931404248</heading>
+					<tilt>0.0001579782381878581</tilt>
+					<range>71.37162408803222</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#red-pushpin</styleUrl>
@@ -1422,9 +1612,9 @@ The right branch of the tunnel from MM leads to West Wing. The door is clearly l
 					<longitude>-79.94160109836761</longitude>
 					<latitude>40.44274169446778</latitude>
 					<altitude>0</altitude>
-					<range>180.5059042169856</range>
-					<tilt>0.0001579783521690325</tilt>
 					<heading>0.002202912856490834</heading>
+					<tilt>0.0001579783521690325</tilt>
+					<range>180.5059042169856</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#red-circle</styleUrl>
@@ -1442,9 +1632,9 @@ The pool tunnel, past the windows, comes to a door that opens directly into Scot
 					<longitude>-79.94174311876034</longitude>
 					<latitude>40.4426787495493</latitude>
 					<altitude>0</altitude>
-					<range>128.5337626839782</range>
-					<tilt>0.0001579783091414655</tilt>
 					<heading>0.002110785411374237</heading>
+					<tilt>0.0001579783091414655</tilt>
+					<range>128.5337626839782</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#red-circle</styleUrl>
@@ -1462,9 +1652,9 @@ If the tunnel is followed around three sides of the pool, it reaches a card-read
 					<longitude>-79.94182757084633</longitude>
 					<latitude>40.44297528255968</latitude>
 					<altitude>0</altitude>
-					<range>92.1835283790422</range>
-					<tilt>0.000157978431167547</tilt>
 					<heading>0.002056004097986191</heading>
+					<tilt>0.000157978431167547</tilt>
+					<range>92.1835283790422</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#red-circle</styleUrl>
@@ -1479,7 +1669,8 @@ If the tunnel is followed around three sides of the pool, it reaches a card-read
 				<LineString>
 					<tessellate>1</tessellate>
 					<coordinates>
--79.94139938606504,40.44261053415677,0 -79.941359899227,40.44273074107114,0 -79.94116476058613,40.44268890273734,0 -79.94161068715007,40.44278466067089,0 -79.94159831993647,40.44282040870769,0 -79.94216678465658,40.44294686583109,0 -79.94159844142705,40.44282039689737,0 -79.94152218533465,40.44302815354724,0 -79.94208949935283,40.44315220685788,0 </coordinates>
+						-79.94139938606504,40.44261053415677,0 -79.941359899227,40.44273074107114,0 -79.94116476058613,40.44268890273734,0 -79.94161068715007,40.44278466067089,0 -79.94159831993647,40.44282040870769,0 -79.94216678465658,40.44294686583109,0 -79.94159844142705,40.44282039689737,0 -79.94152218533465,40.44302815354724,0 -79.94208949935283,40.44315220685788,0 
+					</coordinates>
 				</LineString>
 			</Placemark>
 		</Folder>
@@ -1507,9 +1698,9 @@ If the tunnel is followed around three sides of the pool, it reaches a card-read
 					<longitude>-79.94634598127541</longitude>
 					<latitude>40.44212351258955</latitude>
 					<altitude>0</altitude>
-					<range>51.7652014866794</range>
-					<tilt>4.574076610640206e-06</tilt>
 					<heading>4.75459122274356</heading>
+					<tilt>4.574076610640206e-06</tilt>
+					<range>51.7652014866794</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#green-circle</styleUrl>
@@ -1525,9 +1716,9 @@ If the tunnel is followed around three sides of the pool, it reaches a card-read
 					<longitude>-79.94654820810729</longitude>
 					<latitude>40.44232263516132</latitude>
 					<altitude>0</altitude>
-					<range>233.9278285518336</range>
-					<tilt>0.0005817923732515169</tilt>
 					<heading>-0.001010954219293786</heading>
+					<tilt>0.0005817923732515169</tilt>
+					<range>233.9278285518336</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#green-star</styleUrl>
@@ -1543,9 +1734,9 @@ If the tunnel is followed around three sides of the pool, it reaches a card-read
 					<longitude>-79.94654820810729</longitude>
 					<latitude>40.44232263516132</latitude>
 					<altitude>0</altitude>
-					<range>233.9278285518336</range>
-					<tilt>0.0005817923732515169</tilt>
 					<heading>-0.001010954219293786</heading>
+					<tilt>0.0005817923732515169</tilt>
+					<range>233.9278285518336</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#green-pushpin</styleUrl>
@@ -1562,9 +1753,9 @@ If the tunnel is followed around three sides of the pool, it reaches a card-read
 					<longitude>-79.94654820810729</longitude>
 					<latitude>40.44232263516132</latitude>
 					<altitude>0</altitude>
-					<range>233.9278285518336</range>
-					<tilt>0.0005817923732515169</tilt>
 					<heading>-0.001010954219293786</heading>
+					<tilt>0.0005817923732515169</tilt>
+					<range>233.9278285518336</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#green-pushpin</styleUrl>
@@ -1578,7 +1769,8 @@ If the tunnel is followed around three sides of the pool, it reaches a card-read
 				<LineString>
 					<tessellate>1</tessellate>
 					<coordinates>
--79.94679194848447,40.44244193118201,0 -79.94636991369924,40.44235685829386,0 -79.94633895155377,40.4424456525348,0 -79.94607901757475,40.44239136421604,0 -79.94633883899893,40.44244552000146,0 -79.9464234600832,40.44221234304827,0 -79.9463974194915,40.44214117156024,0 -79.94642369085638,40.44206881470949,0 </coordinates>
+						-79.94679194848447,40.44244193118201,0 -79.94636991369924,40.44235685829386,0 -79.94633895155377,40.4424456525348,0 -79.94607901757475,40.44239136421604,0 -79.94633883899893,40.44244552000146,0 -79.9464234600832,40.44221234304827,0 -79.9463974194915,40.44214117156024,0 -79.94642369085638,40.44206881470949,0 
+					</coordinates>
 				</LineString>
 			</Placemark>
 		</Folder>
@@ -1601,7 +1793,8 @@ other tunnels.
 				<LineString>
 					<tessellate>1</tessellate>
 					<coordinates>
--79.94498133070425,40.44247989495285,0 -79.94398110749525,40.44227661856388,0 </coordinates>
+						-79.94498133070425,40.44247989495285,0 -79.94398110749525,40.44227661856388,0 
+					</coordinates>
 				</LineString>
 			</Placemark>
 			<Placemark>
@@ -1612,9 +1805,9 @@ other tunnels.
 					<longitude>-79.94498133070425</longitude>
 					<latitude>40.44247989495285</latitude>
 					<altitude>0</altitude>
-					<range>233.9278285518336</range>
-					<tilt>0.0005817923732515169</tilt>
 					<heading>-0.001010954219293786</heading>
+					<tilt>0.0005817923732515169</tilt>
+					<range>233.9278285518336</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#yellow-star</styleUrl>
@@ -1630,9 +1823,9 @@ other tunnels.
 					<longitude>-79.94436063784022</longitude>
 					<latitude>40.44233732481675</latitude>
 					<altitude>0</altitude>
-					<range>233.9278285518336</range>
-					<tilt>0.0005817923732515169</tilt>
 					<heading>-0.001010954219293786</heading>
+					<tilt>0.0005817923732515169</tilt>
+					<range>233.9278285518336</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#yellow-circle</styleUrl>
@@ -1666,7 +1859,8 @@ The other section extends from the edge of the building out to the opening on th
 				<LineString>
 					<tessellate>1</tessellate>
 					<coordinates>
--79.9469458589676,40.44251310026178,0 -79.94687119787906,40.4427403450582,0 -79.94682636864283,40.44299229325549,0 </coordinates>
+						-79.9469458589676,40.44251310026178,0 -79.94687119787906,40.4427403450582,0 -79.94682636864283,40.44299229325549,0 
+					</coordinates>
 				</LineString>
 			</Placemark>
 			<Placemark>
@@ -1676,9 +1870,9 @@ The other section extends from the edge of the building out to the opening on th
 					<longitude>-79.94668569934348</longitude>
 					<latitude>40.4428667422463</latitude>
 					<altitude>0</altitude>
-					<range>154.0371677697414</range>
-					<tilt>0</tilt>
 					<heading>-97.32006923250223</heading>
+					<tilt>0</tilt>
+					<range>154.0371677697414</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#msn_ltblu-circle0</styleUrl>
@@ -1693,9 +1887,9 @@ The other section extends from the edge of the building out to the opening on th
 					<longitude>-79.94668569934348</longitude>
 					<latitude>40.4428667422463</latitude>
 					<altitude>0</altitude>
-					<range>134.5893730964442</range>
-					<tilt>0</tilt>
 					<heading>-97.32006923250228</heading>
+					<tilt>0</tilt>
+					<range>134.5893730964442</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#msn_ltblu-circle</styleUrl>
@@ -1720,14 +1914,14 @@ As of early 2009, different parts of the tunnel are in a wide range of condition
 					<maxSnippetLines>2</maxSnippetLines>
 				</ListStyle>
 			</Style>
-			<gx:balloonVisibility>1</gx:balloonVisibility>
 			<Placemark>
 				<name>NSH/Hamburg East Tunnel</name>
-				<styleUrl>#msn_ylw-pushpin</styleUrl>
+				<styleUrl>#msn_ylw-pushpin0</styleUrl>
 				<LineString>
 					<tessellate>1</tessellate>
 					<coordinates>
--79.94617714784094,40.44440502075726,0 -79.94605889248277,40.44440920134237,0 -79.94602477977527,40.44391755835484,0 -79.94575078740763,40.44366235761291,0 -79.94572004834698,40.44368310919421,0 -79.94572975264714,40.44365838189495,0 -79.94570592955587,40.44360731419722,0 -79.94541803802559,40.44354620776343,0 -79.94534680825663,40.44357653445619,0 -79.94533739833535,40.44360289203745,0 -79.94532444089275,40.44357340572999,0 -79.94508389111255,40.44390709274754,0 -79.94501766113031,40.44390917178312,0 -79.94504196369613,40.44442680958761,0 </coordinates>
+						-79.94617714784094,40.44440502075726,0 -79.94605889248277,40.44440920134237,0 -79.94602477977527,40.44391755835484,0 -79.94575078740763,40.44366235761291,0 -79.94572004834698,40.44368310919421,0 -79.94572975264714,40.44365838189495,0 -79.94570592955587,40.44360731419722,0 -79.94541803802559,40.44354620776343,0 -79.94534680825663,40.44357653445619,0 -79.94533739833535,40.44360289203745,0 -79.94532444089275,40.44357340572999,0 -79.94508389111255,40.44390709274754,0 -79.94501766113031,40.44390917178312,0 -79.94504196369613,40.44442680958761,0 
+					</coordinates>
 				</LineString>
 			</Placemark>
 			<Placemark>
@@ -1737,9 +1931,9 @@ As of early 2009, different parts of the tunnel are in a wide range of condition
 					<longitude>-79.94553282150532</longitude>
 					<latitude>40.4437410020165</latitude>
 					<altitude>0</altitude>
-					<range>100.8017131614085</range>
-					<tilt>0</tilt>
 					<heading>5.47072243076808</heading>
+					<tilt>0</tilt>
+					<range>100.8017131614085</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#msn_purple-circle</styleUrl>
@@ -1756,9 +1950,9 @@ The tunnel extends South to Newell Simon, and an unknown distance north.</descri
 					<longitude>-79.94512880341776</longitude>
 					<latitude>40.44385370838551</latitude>
 					<altitude>0</altitude>
-					<range>160.1677056262052</range>
-					<tilt>0</tilt>
 					<heading>-2.362022098871952</heading>
+					<tilt>0</tilt>
+					<range>160.1677056262052</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#msn_purple-stars</styleUrl>
@@ -1773,9 +1967,9 @@ The tunnel extends South to Newell Simon, and an unknown distance north.</descri
 					<longitude>-79.94542689532831</longitude>
 					<latitude>40.44374023206846</latitude>
 					<altitude>0</altitude>
-					<range>138.8916778580763</range>
-					<tilt>0</tilt>
 					<heading>5.47079114521626</heading>
+					<tilt>0</tilt>
+					<range>138.8916778580763</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#msn_purple-circle0</styleUrl>
@@ -1790,9 +1984,9 @@ The tunnel extends South to Newell Simon, and an unknown distance north.</descri
 					<longitude>-79.94553282150532</longitude>
 					<latitude>40.4437410020165</latitude>
 					<altitude>0</altitude>
-					<range>100.8017131614085</range>
-					<tilt>0</tilt>
 					<heading>5.47072243076808</heading>
+					<tilt>0</tilt>
+					<range>100.8017131614085</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#msn_purple-circle2</styleUrl>
@@ -1807,14 +2001,118 @@ The tunnel extends South to Newell Simon, and an unknown distance north.</descri
 					<longitude>-79.94550415339879</longitude>
 					<latitude>40.44397286957576</latitude>
 					<altitude>0</altitude>
-					<range>238.2715756971125</range>
-					<tilt>0</tilt>
 					<heading>8.883259566504364</heading>
+					<tilt>0</tilt>
+					<range>238.2715756971125</range>
 					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#msn_purple-circle1</styleUrl>
 				<Point>
 					<coordinates>-79.9461741294964,40.44440553860861,0</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		<Folder>
+			<name>Baker/Porter Tunnel</name>
+			<open>1</open>
+			<Style>
+				<ListStyle>
+					<listItemType>checkHideChildren</listItemType>
+					<bgColor>00ffffff</bgColor>
+					<maxSnippetLines>2</maxSnippetLines>
+				</ListStyle>
+			</Style>
+			<Placemark>
+				<name>Baker/Porter Tunnel</name>
+				<styleUrl>#msn_ylw-pushpin</styleUrl>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>
+						-79.94449770807361,40.44138649337468,0 -79.94629363402679,40.44176635890869,0 -79.94620198368079,40.44174718752012,0 -79.9462733698563,40.44154690422067,0 -79.94599583378411,40.44148441607288,0 
+					</coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name>Baker/Porter Tunnel West Door</name>
+				<description>Just to the left of the bottom of the stairs from Porter A to Porter B is a short door into the tunnel. As of 2010, it has a magstripe reader that is always locked. However, sometimes the latch does not catch properly, and the door can be pulled open.</description>
+				<LookAt>
+					<longitude>-79.94621113262657</longitude>
+					<latitude>40.44170746972821</latitude>
+					<altitude>0</altitude>
+					<heading>-0.0005289676331584528</heading>
+					<tilt>0</tilt>
+					<range>25.92320448384675</range>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+				</LookAt>
+				<styleUrl>#msn_red-stars</styleUrl>
+				<Point>
+					<coordinates>-79.94629304690267,40.44176603236279,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>South Branch</name>
+				<description><![CDATA[<p>
+The main stretch of the Baker/Porter tunnel has pipes running along the sides. Close to the west entrance is a branch southwards, which requires crawling between pipes to reach. The pipes are insulated here and their insulation has been reinforced with a thick metal shell, so climing between them is easy.
+</p>
+<p>
+The metal hatches in the floor of the public A-level hallway lead to the south branch, not the main section of the tunnel. They are latched, rusted, and have no ladder underneath.</p>]]></description>
+				<LookAt>
+					<longitude>-79.94621113270759</longitude>
+					<latitude>40.44170746979643</latitude>
+					<altitude>0</altitude>
+					<heading>-0.0005289676857195044</heading>
+					<tilt>0</tilt>
+					<range>63.88060817381977</range>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+				</LookAt>
+				<styleUrl>#msn_red-circle1</styleUrl>
+				<Point>
+					<coordinates>-79.94621465355964,40.44171148912232,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>East Entrance</name>
+				<description>The eastern end of the Baker/Porter tunnel is a locked door in the large landing on the stairwell leading down to the Giant Eagle auditorium area. &quot;ALARMED&quot; is written on the inside of the door.
+
+To the left of the door is a stairway leading up to a foot-and-a-half tall passage north. Several pipes run down the passage, and there is a glimmer of daylight at the end.</description>
+				<LookAt>
+					<longitude>-79.94539337107808</longitude>
+					<latitude>40.44144618132685</latitude>
+					<altitude>0</altitude>
+					<heading>8.883331422274358</heading>
+					<tilt>0</tilt>
+					<range>207.9728357836879</range>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+				</LookAt>
+				<styleUrl>#msn_red-circle</styleUrl>
+				<Point>
+					<coordinates>-79.94449836819828,40.44138561172653,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Hatches</name>
+				<description><![CDATA[<p>
+Several sets of hatches in the floor of the first floor of Porter and Baker lead down to the main tunnel. Each has a very narrow ladder below it, which descends to a narrow space between piping and the wall of the tunnel. From here, one can reach the main passage by crawling under the pipes.
+</p>
+<p>
+These hatches were seen open with ventilation fans blowing into them after the lower levels of Baker flooded in Spring 2010.
+</p>]]></description>
+				<LookAt>
+					<longitude>-79.94535494550841</longitude>
+					<latitude>40.44144611088683</latitude>
+					<altitude>0</altitude>
+					<heading>8.883356348043542</heading>
+					<tilt>0</tilt>
+					<range>150.703262647313</range>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+				</LookAt>
+				<styleUrl>#msn_red-circle0</styleUrl>
+				<Point>
+					<coordinates>-79.94500735720686,40.44149364083381,0</coordinates>
 				</Point>
 			</Placemark>
 		</Folder>
