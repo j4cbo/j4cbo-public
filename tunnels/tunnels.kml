@@ -3,36 +3,127 @@
 <Document>
 	<name>tunnels.kml</name>
 	<open>1</open>
-	<Style id="red-pushpin-highlight">
+	<Style id="green-pushpin-highlight">
 		<IconStyle>
 			<scale>1.3</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png</href>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/grn-pushpin.png</href>
 			</Icon>
 			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
 		<LineStyle>
-			<color>00ffff00</color>
+			<color>ff00ff00</color>
 			<width>3</width>
 		</LineStyle>
 	</Style>
-	<Style id="green-circle-normal">
+	<StyleMap id="msn_pink-stars">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_pink-stars</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_pink-stars</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="red-star">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#red-star-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#red-star-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_purple-circle0">
 		<IconStyle>
-			<scale>1.3</scale>
+			<scale>1.1</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
 			</Icon>
 			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
 		<ListStyle>
 			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/grn-circle-lv.png</href>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
 			</ItemIcon>
 		</ListStyle>
 	</Style>
-	<Style id="blue-pushpin-normal">
+	<StyleMap id="msn_ltblu-circle">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ltblu-circle</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ltblu-circle</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_ltblu-circle">
 		<IconStyle>
 			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="red-circle-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_red-circle0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin">
+		<LineStyle>
+			<color>fff3ff00</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>fff900ff</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="blue-pushpin-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
 			<Icon>
 				<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
 			</Icon>
@@ -43,85 +134,85 @@
 			<width>3</width>
 		</LineStyle>
 	</Style>
-	<StyleMap id="msn_purple-circle">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_purple-circle0</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_purple-circle2</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="msn_purple-stars">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_purple-stars</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_purple-stars</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="sh_red-circle">
+	<Style id="yellow-pushpin-highlight">
 		<IconStyle>
 			<scale>1.3</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
 			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="sh_wht-blank">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="sn_red-circle">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="sn_ylw-pushpin1">
 		<LineStyle>
-			<color>ffff0089</color>
+			<color>ff00ffff</color>
 			<width>3</width>
 		</LineStyle>
 	</Style>
-	<Style id="sn_wht-blank">
+	<Style id="sn_pink-circle">
 		<IconStyle>
 			<scale>1.1</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href>
+				<href>http://maps.google.com/mapfiles/kml/paddle/pink-circle.png</href>
 			</Icon>
 			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
 		<ListStyle>
 			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank-lv.png</href>
+				<href>http://maps.google.com/mapfiles/kml/paddle/pink-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_red-stars">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_purple-circle2">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="yellow-pushpin-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ffff</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="sh_pink-stars">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/pink-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/pink-stars-lv.png</href>
 			</ItemIcon>
 		</ListStyle>
 	</Style>
@@ -139,68 +230,50 @@
 			</ItemIcon>
 		</ListStyle>
 	</Style>
-	<StyleMap id="interesting-feature">
+	<StyleMap id="yellow-circle">
 		<Pair>
 			<key>normal</key>
-			<styleUrl>#sn_wht-blank</styleUrl>
+			<styleUrl>#yellow-circle-normal</styleUrl>
 		</Pair>
 		<Pair>
 			<key>highlight</key>
-			<styleUrl>#sh_wht-blank</styleUrl>
+			<styleUrl>#yellow-circle-highlight</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Style id="sh_red-circle0">
+	<Style id="yellow-star-highlight">
 		<IconStyle>
 			<scale>1.3</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars.png</href>
 			</Icon>
 			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
 		<ListStyle>
 			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars-lv.png</href>
 			</ItemIcon>
 		</ListStyle>
 	</Style>
-	<StyleMap id="red-circle">
+	<StyleMap id="blue-star">
 		<Pair>
 			<key>normal</key>
-			<styleUrl>#red-circle-normal</styleUrl>
+			<styleUrl>#blue-star-normal</styleUrl>
 		</Pair>
 		<Pair>
 			<key>highlight</key>
-			<styleUrl>#red-circle-highlight</styleUrl>
+			<styleUrl>#blue-star-highlight</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Style id="sn_red-circle0">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="sh_red-circle1">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
+	<StyleMap id="msn_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin00</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin2</styleUrl>
+		</Pair>
+	</StyleMap>
 	<Style id="sh_purple-circle0">
 		<IconStyle>
 			<scale>1.3</scale>
@@ -215,9 +288,19 @@
 			</ItemIcon>
 		</ListStyle>
 	</Style>
-	<Style id="sn_purple-circle">
+	<StyleMap id="msn_pink-circle">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_pink-circle</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_pink-circle</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_purple-circle">
 		<IconStyle>
-			<scale>1.1</scale>
+			<scale>1.3</scale>
 			<Icon>
 				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
 			</Icon>
@@ -226,6 +309,343 @@
 		<ListStyle>
 			<ItemIcon>
 				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="green-circle">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#green-circle-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#green-circle-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="green-circle-normal">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="blue-circle">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#blue-circle-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#blue-circle-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_purple-stars">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_purple-stars</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_purple-stars</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_ylw-pushpin0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_purple-circle">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_purple-circle0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_purple-circle2</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_pink-circle0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_pink-circle0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_pink-circle0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_ylw-pushpin00">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin0">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>fff3ff00</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_red-circle1">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-circle1</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-circle</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_ylw-pushpin">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>fff900ff</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="green-circle-highlight">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="msn_purple-circle2">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_purple-circle1</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_purple-circle0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="blue-star-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/blu-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/blu-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="msn_purple-circle1">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_purple-circle</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_purple-circle</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_red-circle">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="red-pushpin-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>00ffff00</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="green-star-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_red-circle0">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="blue-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#blue-pushpin-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#blue-pushpin-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="blue-circle-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/blu-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/blu-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin1">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_ylw-pushpin1">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>ffff0089</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_purple-circle0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_purple-circle2</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_purple-circle1</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_purple-stars">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="red-star-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin00">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin1</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin1</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_ltblu-circle0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ltblu-circle0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ltblu-circle0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="yellow-star-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars-lv.png</href>
 			</ItemIcon>
 		</ListStyle>
 	</Style>
@@ -242,6 +662,92 @@
 			<width>3</width>
 		</LineStyle>
 	</Style>
+	<Style id="red-star-normal">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_ltblu-circle">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_pink-circle0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/pink-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/pink-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="yellow-star">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#yellow-star-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#yellow-star-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="red-circle-highlight">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="green-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#green-pushpin-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#green-pushpin-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="red-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#red-pushpin-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#red-pushpin-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
 	<Style id="blue-star-normal">
 		<IconStyle>
 			<scale>1.1</scale>
@@ -256,251 +762,17 @@
 			</ItemIcon>
 		</ListStyle>
 	</Style>
-	<Style id="sn_ylw-pushpin">
-		<LineStyle>
-			<color>fff3ff00</color>
-			<width>3</width>
-		</LineStyle>
-	</Style>
-	<Style id="green-pushpin-highlight">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/grn-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<LineStyle>
-			<color>ff00ff00</color>
-			<width>3</width>
-		</LineStyle>
-	</Style>
-	<Style id="sn_ylw-pushpin0">
+	<Style id="yellow-circle-normal">
 		<IconStyle>
 			<scale>1.1</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<LineStyle>
-			<color>ff0000ff</color>
-			<width>3</width>
-		</LineStyle>
-	</Style>
-	<Style id="sn_ltblu-circle">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle.png</href>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-circle.png</href>
 			</Icon>
 			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
 		<ListStyle>
 			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<StyleMap id="msn_red-circle">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_red-circle</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_red-circle1</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="msn_purple-circle0">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_purple-circle2</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_purple-circle1</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="red-star-highlight">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="sn_purple-circle2">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="green-pushpin-normal">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/grn-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<LineStyle>
-			<color>ff00ff00</color>
-			<width>3</width>
-		</LineStyle>
-	</Style>
-	<Style id="sh_ylw-pushpin">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<LineStyle>
-			<color>ff0000ff</color>
-			<width>3</width>
-		</LineStyle>
-	</Style>
-	<Style id="sn_purple-stars">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-stars.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-stars-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="blue-circle-highlight">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/blu-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/blu-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="sn_red-stars">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<StyleMap id="msn_ylw-pushpin">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_ylw-pushpin0</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_ylw-pushpin</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="sh_ltblu-circle0">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="blue-star-highlight">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/blu-stars.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/blu-stars-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<StyleMap id="yellow-star">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#yellow-star-normal</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#yellow-star-highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="msn_ltblu-circle">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_ltblu-circle</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_ltblu-circle</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="green-star-normal">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/grn-stars.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/grn-stars-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="sh_red-stars">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars-lv.png</href>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-circle-lv.png</href>
 			</ItemIcon>
 		</ListStyle>
 	</Style>
@@ -528,19 +800,57 @@
 			</ItemIcon>
 		</ListStyle>
 	</Style>
-	<Style id="yellow-pushpin-normal">
+	<Style id="sh_purple-circle1">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="blue-pushpin-normal">
 		<IconStyle>
 			<scale>1.1</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
 			</Icon>
 			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
 		<LineStyle>
-			<color>ff00ffff</color>
+			<color>ffff0000</color>
 			<width>3</width>
 		</LineStyle>
 	</Style>
+	<Style id="sh_wht-blank">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="green-star">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#green-star-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#green-star-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
 	<Style id="yellow-circle-highlight">
 		<IconStyle>
 			<scale>1.3</scale>
@@ -555,130 +865,54 @@
 			</ItemIcon>
 		</ListStyle>
 	</Style>
-	<StyleMap id="yellow-circle">
+	<StyleMap id="red-circle">
 		<Pair>
 			<key>normal</key>
-			<styleUrl>#yellow-circle-normal</styleUrl>
+			<styleUrl>#red-circle-normal</styleUrl>
 		</Pair>
 		<Pair>
 			<key>highlight</key>
-			<styleUrl>#yellow-circle-highlight</styleUrl>
+			<styleUrl>#red-circle-highlight</styleUrl>
 		</Pair>
 	</StyleMap>
-	<StyleMap id="msn_purple-circle2">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_purple-circle1</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_purple-circle0</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="blue-pushpin-highlight">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<LineStyle>
-			<color>ffff0000</color>
-			<width>3</width>
-		</LineStyle>
-	</Style>
-	<Style id="yellow-pushpin-highlight">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<LineStyle>
-			<color>ff00ffff</color>
-			<width>3</width>
-		</LineStyle>
-	</Style>
-	<Style id="red-star-normal">
+	<Style id="green-pushpin-normal">
 		<IconStyle>
 			<scale>1.1</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars.png</href>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/grn-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff00</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_red-stars">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-stars</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-stars</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_pink-circle">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/pink-circle.png</href>
 			</Icon>
 			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
 		<ListStyle>
 			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars-lv.png</href>
+				<href>http://maps.google.com/mapfiles/kml/paddle/pink-circle-lv.png</href>
 			</ItemIcon>
 		</ListStyle>
 	</Style>
-	<StyleMap id="msn_ltblu-circle0">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_ltblu-circle0</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_ltblu-circle0</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="sh_ylw-pushpin0">
-		<IconStyle>
-			<scale>1.2</scale>
-		</IconStyle>
-		<LineStyle>
-			<color>fff3ff00</color>
-			<width>3</width>
-		</LineStyle>
-	</Style>
-	<StyleMap id="blue-circle">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#blue-circle-normal</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#blue-circle-highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="green-circle">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#green-circle-normal</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#green-circle-highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="green-circle-highlight">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/grn-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<StyleMap id="msn_purple-circle1">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_purple-circle</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_purple-circle</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="sh_ltblu-circle">
+	<Style id="sh_ltblu-circle0">
 		<IconStyle>
 			<scale>1.3</scale>
 			<Icon>
@@ -692,59 +926,9 @@
 			</ItemIcon>
 		</ListStyle>
 	</Style>
-	<StyleMap id="green-pushpin">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#green-pushpin-normal</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#green-pushpin-highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="green-star">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#green-star-normal</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#green-star-highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="msn_red-stars">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_red-stars</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_red-stars</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="red-pushpin">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#red-pushpin-normal</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#red-pushpin-highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="blue-star">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#blue-star-normal</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#blue-star-highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="blue-circle-normal">
+	<Style id="blue-circle-highlight">
 		<IconStyle>
-			<scale>1.1</scale>
+			<scale>1.3</scale>
 			<Icon>
 				<href>http://maps.google.com/mapfiles/kml/paddle/blu-circle.png</href>
 			</Icon>
@@ -756,113 +940,51 @@
 			</ItemIcon>
 		</ListStyle>
 	</Style>
-	<Style id="yellow-star-highlight">
+	<Style id="sh_red-circle1">
 		<IconStyle>
 			<scale>1.3</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars.png</href>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
 			</Icon>
 			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
 		<ListStyle>
 			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars-lv.png</href>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
 			</ItemIcon>
 		</ListStyle>
 	</Style>
-	<Style id="yellow-star-normal">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<StyleMap id="msn_red-circle1">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_red-circle1</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_red-circle</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="blue-pushpin">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#blue-pushpin-normal</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#blue-pushpin-highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="red-star">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#red-star-normal</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#red-star-highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="yellow-circle-normal">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ylw-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<StyleMap id="msn_ylw-pushpin0">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_ylw-pushpin1</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_ylw-pushpin1</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="sn_ltblu-circle0">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="sh_purple-circle2">
+	<Style id="sh_red-circle">
 		<IconStyle>
 			<scale>1.3</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
 			</Icon>
 			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
 		<ListStyle>
 			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin1">
+		<LineStyle>
+			<color>ffff0089</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_pink-stars">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/pink-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/pink-stars-lv.png</href>
 			</ItemIcon>
 		</ListStyle>
 	</Style>
@@ -880,61 +1002,23 @@
 			</ItemIcon>
 		</ListStyle>
 	</Style>
-	<Style id="sn_purple-circle0">
+	<Style id="sn_wht-blank">
 		<IconStyle>
 			<scale>1.1</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
+				<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href>
 			</Icon>
 			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
 		<ListStyle>
 			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
+				<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank-lv.png</href>
 			</ItemIcon>
 		</ListStyle>
 	</Style>
-	<Style id="red-circle-highlight">
+	<Style id="green-star-normal">
 		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<Style id="sh_purple-circle1">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<StyleMap id="yellow-pushpin">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#yellow-pushpin-normal</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#yellow-pushpin-highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="green-star-highlight">
-		<IconStyle>
-			<scale>1.3</scale>
+			<scale>1.1</scale>
 			<Icon>
 				<href>http://maps.google.com/mapfiles/kml/paddle/grn-stars.png</href>
 			</Icon>
@@ -946,33 +1030,52 @@
 			</ItemIcon>
 		</ListStyle>
 	</Style>
-	<Style id="red-circle-normal">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
-			</Icon>
-			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<ListStyle>
-			<ItemIcon>
-				<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
-			</ItemIcon>
-		</ListStyle>
-	</Style>
-	<StyleMap id="msn_ylw-pushpin1">
+	<StyleMap id="interesting-feature">
 		<Pair>
 			<key>normal</key>
-			<styleUrl>#sn_ylw-pushpin</styleUrl>
+			<styleUrl>#sn_wht-blank</styleUrl>
 		</Pair>
 		<Pair>
 			<key>highlight</key>
-			<styleUrl>#sh_ylw-pushpin0</styleUrl>
+			<styleUrl>#sh_wht-blank</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Style id="sh_purple-circle">
+	<StyleMap id="msn_red-circle">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-circle</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-circle1</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="yellow-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#yellow-pushpin-normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#yellow-pushpin-highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_ylw-pushpin2">
 		<IconStyle>
 			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_purple-circle2">
+		<IconStyle>
+			<scale>1.1</scale>
 			<Icon>
 				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
 			</Icon>
@@ -984,14 +1087,61 @@
 			</ItemIcon>
 		</ListStyle>
 	</Style>
-	<Style id="sh_ylw-pushpin1">
+	<Style id="sh_pink-circle0">
 		<IconStyle>
-			<scale>1.2</scale>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/pink-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
-		<LineStyle>
-			<color>ffff0089</color>
-			<width>3</width>
-		</LineStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/pink-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_red-stars">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/red-stars-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_ltblu-circle0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_purple-circle">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/purple-circle-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
 	</Style>
 	<Folder>
 		<name>Carnegie Mellon</name>
@@ -1916,7 +2066,7 @@ As of early 2009, different parts of the tunnel are in a wide range of condition
 			</Style>
 			<Placemark>
 				<name>NSH/Hamburg East Tunnel</name>
-				<styleUrl>#msn_ylw-pushpin0</styleUrl>
+				<styleUrl>#msn_ylw-pushpin00</styleUrl>
 				<LineString>
 					<tessellate>1</tessellate>
 					<coordinates>
@@ -2015,6 +2165,9 @@ The tunnel extends South to Newell Simon, and an unknown distance north.</descri
 		<Folder>
 			<name>Baker/Porter Tunnel</name>
 			<open>1</open>
+			<description><![CDATA[<p>Like the Doherty tunnel, this tunnel runs exclusively under Porter and Baker Halls. It is slightly more complex, having a small branch to the south, but does not run outside.</p>
+
+<p>The tunnel starts underneath A level of Porter Hall, and then rises to be under the first floor around the connection between Porter and Baker. When these two buildings were constructed, they were nearly separate, with only a single hallway connecting them; the classrooms to either side of that connection were added later. As a result, from inside the tunnel, bricked-up windows can be seen in the connection area. A door from a classroom opens into the tunnel here, leading immediately to a six-foot drop onto the stairway below.</p>]]></description>
 			<Style>
 				<ListStyle>
 					<listItemType>checkHideChildren</listItemType>
@@ -2113,6 +2266,83 @@ These hatches were seen open with ventilation fans blowing into them after the l
 				<styleUrl>#msn_red-circle0</styleUrl>
 				<Point>
 					<coordinates>-79.94500735720686,40.44149364083381,0</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		<Folder>
+			<name>Roberts Tunnel</name>
+			<open>1</open>
+			<description><![CDATA[<p>One of the newest tunnels on campus carries steam piping under Roberts Hall towards the Cloud Factory. This tunnel was built <i>after</i> the building was constructed; it was carefully dug underneath Roberts and finished with shotcrete. It is sloped for most of its length, with wide steps set into the floor.</p>]]></description>
+			<Style>
+				<ListStyle>
+					<listItemType>checkHideChildren</listItemType>
+					<bgColor>00ffffff</bgColor>
+					<maxSnippetLines>2</maxSnippetLines>
+				</ListStyle>
+			</Style>
+			<gx:balloonVisibility>1</gx:balloonVisibility>
+			<Placemark>
+				<name>Roberts Tunnel</name>
+				<styleUrl>#msn_ylw-pushpin0</styleUrl>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>
+						-79.94759174405246,40.44240079781802,0 -79.9472720876218,40.44237312401761,0 -79.94713582369882,40.44234309743057,0 
+					</coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name>Track Hatch</name>
+				<description><![CDATA[</p>Near the train tracks running past campus are a pair of hatches set into the ground. One of them leads into the tunnel to Roberts; the other goes further down into a tunnel beneath the train tracks leading to the Cloud Factory. The second tunnel runs off-campus and is not part of this map.</p>]]></description>
+				<LookAt>
+					<longitude>-79.94750214068448</longitude>
+					<latitude>40.44236630547186</latitude>
+					<altitude>0</altitude>
+					<heading>9.861366064792897</heading>
+					<tilt>0</tilt>
+					<range>12.15407106366943</range>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+				</LookAt>
+				<styleUrl>#msn_pink-circle0</styleUrl>
+				<Point>
+					<coordinates>-79.94759092565425,40.44240080020778,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Roberts Foundation Entrance</name>
+				<description><![CDATA[<p>From outside the front of Roberts, a small door leads into a long unexcavated area beneath the first floor. Immediately in front of the door is a circular hole with a ladder descending into the middle of the sloped portion of the tunnel. This door is rarely locked.</p>]]></description>
+				<LookAt>
+					<longitude>-79.94740124975284</longitude>
+					<latitude>40.44243319080187</latitude>
+					<altitude>0</altitude>
+					<heading>9.861431509547442</heading>
+					<tilt>0</tilt>
+					<range>57.58286229592165</range>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+				</LookAt>
+				<styleUrl>#msn_pink-stars</styleUrl>
+				<Point>
+					<coordinates>-79.94735612508862,40.44237946121433,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Back of Roberts</name>
+				<description><![CDATA[<p>The tunnel ends with a ladder up into Roberts Hall room 271. The main steam supply follows these pipes and disappears into Hamerschlag Hall. At the bottom of the ladder, there is also a door leading into a long, high, narrow passage between the outer and inner portions of the Roberts Hall foundation. This space does not have an assigned room number, but the door and passage can both be seen on the A level map of Roberts Hall.</p>]]></description>
+				<LookAt>
+					<longitude>-79.94721706662503</longitude>
+					<latitude>40.44223739066464</latitude>
+					<altitude>0</altitude>
+					<heading>9.861550986174386</heading>
+					<tilt>0</tilt>
+					<range>44.32095041229488</range>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+				</LookAt>
+				<styleUrl>#msn_pink-circle</styleUrl>
+				<Point>
+					<coordinates>-79.94713705763928,40.44234319470005,0</coordinates>
 				</Point>
 			</Placemark>
 		</Folder>
