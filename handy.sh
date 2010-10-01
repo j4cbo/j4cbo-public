@@ -12,3 +12,7 @@ f () {
   fi
 }
     
+if [ -f ~/TODO ]
+then
+  cat ~/TODO
+fi
